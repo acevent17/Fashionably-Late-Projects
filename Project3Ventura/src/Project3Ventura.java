@@ -1,6 +1,8 @@
 import java.awt.Font;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 /*
  * Unused imports (These may be needed later)
  * import java.awt.Event.*; (Used for actionlistener)
@@ -13,6 +15,20 @@ public class Project3Ventura extends JFrame {
 	
     public static void main(String [] args) {
         new Project3Ventura();
+        
+        //Creation of a modifiable second window.
+        Frame frame = new Frame("Title");
+        frame.setSize(800, 600);
+        frame.setLocationRelativeTo(null);
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+        
+      
+        frame.setVisible(true);
+
     }
     
     public Project3Ventura() {
@@ -32,7 +48,6 @@ public class Project3Ventura extends JFrame {
         // Frame layout 
     		this.setSize(800, 600);
     		
-    	
         // Sets Frame position to always start centered
     		this.setLocationRelativeTo(null);
         
@@ -40,12 +55,7 @@ public class Project3Ventura extends JFrame {
     		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     		
     		this.setTitle("Search Engine");
-    		
-    	/* I couldn't seem to get this to work below,
-    	 *	this.getContentPane().setBackground(Color.BLUE);
-    	 *
-    	 */ 
-            
+    		            
         //JPanel set up. Sets a panel to add components to.
             JPanel pan = new JPanel();
             pan.setLayout(null);

@@ -75,8 +75,35 @@ public class Project3Ventura {
 	        		// Sub Frame
 	        		JFrame f2 = new JFrame();
 	        		f2.setVisible(true);
-	            	f2.setSize(400, 400);
-	            	f2.setLocationRelativeTo(null);
+	            	f2.setSize(600, 400);
+	            	f2.setLocation(100, 150);
+	            	f2.setTitle("Search Engine Maintenance");
+	            	
+	            	// Header
+	            	JLabel SubHeader = new JLabel("Search Engine - Index Maintenance");
+	            	SubHeader.setBounds(200, 10, 250, 50);
+	            	
+	            	// All the buttons on the bottom of the Maintenance Page
+	            	JButton Button1 = new JButton("Add File...");
+	            	Button1.setBounds(20, 280, 95, 30);
+	            
+	            	JButton Button2 = new JButton("Rebuild Out-of-date");
+	            	Button2.setBounds(180, 280, 160, 30);
+	            	
+	            	JButton Button3 = new JButton("Remove Selected Files");
+	            	Button3.setBounds(400, 280, 180, 30);
+	            	
+	            	JButton Button4 = new JButton("Reset Windows");
+	            	Button4.setBounds(10, 325, 130, 30);
+	            	
+	            	
+	            	// Elements added
+	            	f2.add(SubHeader);
+	            	f2.add(Button1);
+	            	f2.add(Button2);
+	            	f2.add(Button3);
+	            	f2.add(Button4);
+	            	f2.setLayout(null);
 	        		
 	        	}
 	        });

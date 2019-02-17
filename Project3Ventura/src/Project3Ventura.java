@@ -109,6 +109,8 @@ public class Project3Ventura extends JFrame {
         ButtonGroup group = new ButtonGroup();
         group.add(allSearch);
         group.add(exact);
+    }
+}
 //    	
 //=======
 //        new Project3Ventura();

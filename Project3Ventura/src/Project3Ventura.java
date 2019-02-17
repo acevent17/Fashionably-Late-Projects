@@ -110,7 +110,7 @@ public class Project3Ventura {
 	            	f2.add(SubHeader);
 	            	f2.add(labelFileNumber);
 	            	f2.add(labelVersion);
-	            	f2.add(buttonRebuild);
+	            	f2.add(buttonAddFile);
 	            	f2.add(buttonRebuild);
 	            	f2.add(buttonRemoveFile);
 	            	f2.add(buttonResetWindow);

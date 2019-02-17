@@ -3,6 +3,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
+
 /* Changes:
  * Cleaned up code, fixed the ability to customize color + sub menu buttons.
  * TO BE DONE:
@@ -12,11 +13,13 @@ import java.awt.event.*;
  * --IF CODE DOES NOT LOAD, CHANGE BUILD COMPATABILITY TO JAVA 10. (Right-click Project -> Properties -> Java Build Path
  * -> (Libraries Tab) -> Double-click JRE Library -> Alternate JRE -> (Set your java version)
  */
-
+   
 
 public class Project3Ventura {	
+	    
 	private static void createWindow() {
 
+		
 		// Creates Window
 		final JFrame frame = new JFrame("Search Engine");
 
@@ -82,41 +85,35 @@ public class Project3Ventura {
 	            	
 	            	// Header and other labels
 	            	JLabel SubHeader = new JLabel("Search Engine - Index Maintenance");
-	            	SubHeader.setBounds(100, 10, 450, 50);
+	            	SubHeader.setBounds(100, 5, 450, 50);
 	            	SubHeader.setFont(new Font("Serif", Font.BOLD, 26));
 	            	
-	            	JLabel label1 = new JLabel("Number of files indexed: 0");
-	            	label1.setBounds(180, 340, 160, 30);
-	            	JLabel label2 = new JLabel("Search Engine Version 1.1");
-	            	label2.setBounds(420, 340, 160, 30);
+	            	JLabel labelFileNumber = new JLabel("Number of files indexed: 0");
+	            	labelFileNumber.setBounds(180, 340, 160, 30);
+	            	JLabel labelVersion = new JLabel("Search Engine Version 1.1");
+	            	labelVersion.setBounds(420, 340, 160, 30);  	            	
 	            	
 	            	// All the buttons on the bottom of the Maintenance Page
-	            	JButton Button1 = new JButton("Add File...");
-	            	Button1.setBounds(20, 280, 95, 30);
+	            	JButton buttonAddFile = new JButton("Add File...");
+	            	buttonAddFile.setBounds(20, 280, 95, 30);
 	            
-	            	JButton Button2 = new JButton("Rebuild Out-of-date");
-	            	Button2.setBounds(180, 300, 160, 30);
+	            	JButton buttonRebuild = new JButton("Rebuild Out-of-date");
+	            	buttonRebuild.setBounds(180, 300, 160, 30);
 	            	
-	            	JButton Button3 = new JButton("Remove Selected Files");
-	            	Button3.setBounds(400, 300, 180, 30);
+	            	JButton buttonRemoveFile = new JButton("Remove Selected Files");
+	            	buttonRemoveFile.setBounds(400, 300, 180, 30);
 	            	
-	            	JButton Button4 = new JButton("Reset Windows");
-	            	Button4.setBounds(10, 325, 130, 30);
-	            	
-	            	JTextArea textArea = new JTextArea(100,100);
-	            	JScrollPane scrollPane = new JScrollPane(textArea);
-	            	textArea.setEditable(false);
-	            	
-	            	
+	            	JButton buttonResetWindow = new JButton("Reset Windows");
+	            	buttonResetWindow.setBounds(10, 325, 130, 30);
+            	
 	            	// Elements added
-	            	
 	            	f2.add(SubHeader);
-	            	f2.add(label1);
-	            	f2.add(label2);
-	            	f2.add(Button1);
-	            	f2.add(Button2);
-	            	f2.add(Button3);
-	            	f2.add(Button4);
+	            	f2.add(labelFileNumber);
+	            	f2.add(labelVersion);
+	            	f2.add(buttonRebuild);
+	            	f2.add(buttonRebuild);
+	            	f2.add(buttonRemoveFile);
+	            	f2.add(buttonResetWindow);
 	            	f2.setLayout(null);
 	        		
 	        	}

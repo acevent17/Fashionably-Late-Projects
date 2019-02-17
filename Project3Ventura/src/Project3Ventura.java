@@ -11,7 +11,7 @@ import java.awt.*;
 
 public class Project3Ventura extends JFrame {
     
-	/* moved Project3Ventura constructor into Main function 
+	/* moved Project3Ventura constructor into Main  
 	*  Current issue with main JFrame. It take a while too load the Textbox and the search 
 	*  button. The search button is stuck next to the header and will not move even though 
 	*  bounds are constantly changed. Textbox and RadioButton wont pop up immediately and 

@@ -9,6 +9,8 @@ import java.awt.event.*;
  * --Font needs to be set for titleLabel.
  * --Radio Buttons need to be added.
  * --2nd Frame needs to be completed and designed
+ * --IF CODE DOES NOT LOAD, CHANGE BUILD COMPATABILITY TO JAVA 10. (Right-click Project -> Properties -> Java Build Path
+ * -> (Libraries Tab) -> Double-click JRE Library -> Alternate JRE -> (Set your java version)
  */
 
 

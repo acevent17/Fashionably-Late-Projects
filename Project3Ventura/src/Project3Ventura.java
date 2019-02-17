@@ -29,7 +29,8 @@ public class Project3Ventura {
 
 		// Sets labels and sizes
 		JLabel titleLabel = new JLabel("Search Engine");
-		titleLabel.setBounds(150, 10, 200, 50);
+		titleLabel.setBounds(100, 10, 250, 50);
+		titleLabel.setFont(new Font("Serif", Font.BOLD, 30));
 		JTextField searchField = new JTextField();
 
 		// Set size of the text box
@@ -79,26 +80,39 @@ public class Project3Ventura {
 	            	f2.setLocation(100, 150);
 	            	f2.setTitle("Search Engine Maintenance");
 	            	
-	            	// Header
+	            	// Header and other labels
 	            	JLabel SubHeader = new JLabel("Search Engine - Index Maintenance");
-	            	SubHeader.setBounds(200, 10, 250, 50);
+	            	SubHeader.setBounds(100, 10, 450, 50);
+	            	SubHeader.setFont(new Font("Serif", Font.BOLD, 26));
+	            	
+	            	JLabel label1 = new JLabel("Number of files indexed: 0");
+	            	label1.setBounds(180, 340, 160, 30);
+	            	JLabel label2 = new JLabel("Search Engine Version 1.1");
+	            	label2.setBounds(420, 340, 160, 30);
 	            	
 	            	// All the buttons on the bottom of the Maintenance Page
 	            	JButton Button1 = new JButton("Add File...");
 	            	Button1.setBounds(20, 280, 95, 30);
 	            
 	            	JButton Button2 = new JButton("Rebuild Out-of-date");
-	            	Button2.setBounds(180, 280, 160, 30);
+	            	Button2.setBounds(180, 300, 160, 30);
 	            	
 	            	JButton Button3 = new JButton("Remove Selected Files");
-	            	Button3.setBounds(400, 280, 180, 30);
+	            	Button3.setBounds(400, 300, 180, 30);
 	            	
 	            	JButton Button4 = new JButton("Reset Windows");
 	            	Button4.setBounds(10, 325, 130, 30);
 	            	
+	            	JTextArea textArea = new JTextArea(100,100);
+	            	JScrollPane scrollPane = new JScrollPane(textArea);
+	            	textArea.setEditable(false);
+	            	
 	            	
 	            	// Elements added
+	            	
 	            	f2.add(SubHeader);
+	            	f2.add(label1);
+	            	f2.add(label2);
 	            	f2.add(Button1);
 	            	f2.add(Button2);
 	            	f2.add(Button3);

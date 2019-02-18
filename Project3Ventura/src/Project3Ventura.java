@@ -7,6 +7,8 @@ import java.awt.event.*;
  * Cleaned up code, moved frames to separate methods
  * Added a border (Optional)
  * Changed Named Variables of Sub-Frames
+ * Changed initialization position of Maintenance Sub-frame
+ * Adjusted About Alignment
  * 
  * TO BE DONE:
  * -Add (2) Column Table to Maintenance Sub Frame
@@ -40,7 +42,7 @@ public class Project3Ventura {
 		byLabel.setFont(new Font("Serif", Font.BOLD, 16));
 
 		JLabel pqLabel = new JLabel("Peter Quach");
-		pqLabel.setBounds(145, 65, 450, 50);
+		pqLabel.setBounds(150, 65, 450, 50);
 		pqLabel.setFont(new Font("Serif", Font.PLAIN, 16));
 
 		JLabel mtLabel = new JLabel("Michael Tarallo");

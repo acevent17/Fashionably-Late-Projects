@@ -32,11 +32,11 @@ public class Project3Ventura {
 		headerLabel.setFont(new Font("Serif", Font.BOLD, 20));
 
 		JLabel versionLabel = new JLabel("Version 1.0");
-		versionLabel.setBounds(150, 25, 450, 50);
+		versionLabel.setBounds(155, 25, 450, 50);
 		versionLabel.setFont(new Font("Serif", Font.PLAIN, 15));
 
 		JLabel byLabel = new JLabel("By:");
-		byLabel.setBounds(173, 45, 450, 50);
+		byLabel.setBounds(175, 45, 450, 50);
 		byLabel.setFont(new Font("Serif", Font.BOLD, 16));
 
 		JLabel pqLabel = new JLabel("Peter Quach");
@@ -44,7 +44,7 @@ public class Project3Ventura {
 		pqLabel.setFont(new Font("Serif", Font.PLAIN, 16));
 
 		JLabel mtLabel = new JLabel("Michael Tarallo");
-		mtLabel.setBounds(138, 85, 450, 50);
+		mtLabel.setBounds(140, 85, 450, 50);
 		mtLabel.setFont(new Font("Serif", Font.PLAIN, 16));
 
 		JLabel jvLabel = new JLabel("Joshua Ventura");
@@ -52,11 +52,11 @@ public class Project3Ventura {
 		jvLabel.setFont(new Font("Serif", Font.PLAIN, 16));
 
 		JLabel acLabel = new JLabel("Andres Cardenas");
-		acLabel.setBounds(138, 125, 450, 50);
+		acLabel.setBounds(135, 125, 450, 50);
 		acLabel.setFont(new Font("Serif", Font.PLAIN, 16));
 
-		JLabel classLabel = new JLabel("Mr. Pollock Java II Advance (2019)");
-		classLabel.setBounds(110, 145, 450, 50);
+		JLabel classLabel = new JLabel("Mr. Pollock Java II COP-2805C(2019)");
+		classLabel.setBounds(100, 145, 450, 50);
 		classLabel.setFont(new Font("Serif", Font.PLAIN, 12));
 
 		// elements added to the frame

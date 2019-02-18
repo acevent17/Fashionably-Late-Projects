@@ -79,6 +79,7 @@ public class Project3Ventura {
 		subMaintenanceFrame.setSize(600, 400);
 		subMaintenanceFrame.setLocation(100, 150);
 		subMaintenanceFrame.setTitle("Search Engine Maintenance");
+		subMaintenanceFrame.setLocationRelativeTo(null);
 
 		subMaintenanceFrame.getContentPane().setBackground(Color.cyan);
 

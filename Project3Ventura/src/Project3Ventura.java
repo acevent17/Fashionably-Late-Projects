@@ -79,11 +79,13 @@ public class Project3Ventura {
         JMenu menuFile = new JMenu("File");
         JMenu menuEdit = new JMenu("Edit");
         JMenu menuMaintenance = new JMenu("Maintenance");
-        JMenu menuAbout = new JMenu("About");
+        JMenu menuHelp = new JMenu("Help");
         JMenuItem subMaintenanceMenu = new JMenuItem("Maintenance Panel");    
+        JMenuItem subAboutPage = new JMenuItem("About Page"); 
         
         // SubMenu additions
         menuMaintenance.add(subMaintenanceMenu);
+        menuHelp.add(subAboutPage);
         
         // Elements added
         frame.add(titleLabel);
@@ -100,7 +102,7 @@ public class Project3Ventura {
         menubar.add(menuFile);
         menubar.add(menuEdit);
         menubar.add(menuMaintenance);
-        menubar.add(menuAbout);
+        menubar.add(menuHelp);
         
     
         // Creates 2nd form -Peter Quach's Creation
@@ -176,7 +178,65 @@ public class Project3Ventura {
                     
                 }
             });
-        }
+        
+        // Creates new frame for About page
+        subAboutPage.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e)
+        	{
+                // Sub Frame
+                JFrame f3 = new JFrame();
+                f3.setVisible(true);
+                f3.setSize(400, 250);
+                f3.setLocation(150, 200);
+                f3.setTitle("About Page");
+                
+                //Labels
+                JLabel headerLabel = new JLabel("About Search Engine");
+                headerLabel.setBounds(100, 5, 450, 50);
+                headerLabel.setFont(new Font("Serif", Font.BOLD, 20));
+                
+                JLabel versionLabel = new JLabel("Version 1.0");
+                versionLabel.setBounds(150, 25, 450, 50);
+                versionLabel.setFont(new Font("Serif", Font.PLAIN, 15));
+                
+                JLabel byLabel = new JLabel("By:");
+                byLabel.setBounds(173, 45, 450, 50);
+                byLabel.setFont(new Font("Serif", Font.BOLD, 16));
+                
+                JLabel pqLabel = new JLabel("Peter Quach");
+                pqLabel.setBounds(145, 65, 450, 50);
+                pqLabel.setFont(new Font("Serif", Font.PLAIN, 16));
+                
+                JLabel mtLabel = new JLabel("Micheal Tarallo");
+                mtLabel.setBounds(138, 85, 450, 50);
+                mtLabel.setFont(new Font("Serif", Font.PLAIN, 16));
+                
+                JLabel jvLabel = new JLabel("Joshua Ventura");
+                jvLabel.setBounds(140, 105, 450, 50);
+                jvLabel.setFont(new Font("Serif", Font.PLAIN, 16));
+                
+                JLabel acLabel = new JLabel("Andres Cardenas");
+                acLabel.setBounds(138, 125, 450, 50);
+                acLabel.setFont(new Font("Serif", Font.PLAIN, 16));
+                
+                JLabel classLabel = new JLabel("Mr. Pollock Java II Advance (2019)");
+                classLabel.setBounds(110, 145, 450, 50);
+                classLabel.setFont(new Font("Serif", Font.PLAIN, 12));
+                
+                //elements added to the frame
+                f3.add(headerLabel);
+                f3.add(versionLabel);
+                f3.add(byLabel);
+                f3.add(pqLabel);
+                f3.add(mtLabel);
+                f3.add(jvLabel);
+                f3.add(acLabel);
+                f3.add(classLabel);
+                
+                f3.setLayout(null);
+        	}
+        });
+    }
     
     //Main Class
     public static void main(String[] args) {

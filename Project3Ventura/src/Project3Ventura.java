@@ -43,7 +43,7 @@ public class Project3Ventura {
 		pqLabel.setBounds(145, 65, 450, 50);
 		pqLabel.setFont(new Font("Serif", Font.PLAIN, 16));
 
-		JLabel mtLabel = new JLabel("Micheal Tarallo");
+		JLabel mtLabel = new JLabel("Michael Tarallo");
 		mtLabel.setBounds(138, 85, 450, 50);
 		mtLabel.setFont(new Font("Serif", Font.PLAIN, 16));
 

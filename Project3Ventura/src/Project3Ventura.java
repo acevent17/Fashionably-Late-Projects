@@ -2,23 +2,20 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-
-
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.SwingUtilities;
-
 
 /* Changes:
- * Cleaned up code, moved frames to separate methods
+ * Cleaned up code
  * Added a border (Optional)
- * Changed Named Variables of Sub-Frames
- * Changed initialization position of Maintenance Sub-frame
+ * Removed header label on Sub-Frame (*Add back if wanted)
  * Adjusted About Alignment
+ * Added "TO BE REMOVED" tags
+ * 
  * 
  * TO BE DONE:
- * -Add (2) Column Table to Maintenance Sub Frame
+ * 
  * 
  *--IF CODE DOES NOT LOAD, CHANGE BUILD COMPATABILITY TO JAVA 10. (Right-click Project -> Properties -> Java Build Path
  * -> (Libraries Tab) -> Double-click JRE Library -> Alternate JRE -> (Set your java version)
@@ -40,35 +37,35 @@ public class Project3Ventura {
 		headerLabel.setBounds(100, 5, 450, 50);
 		headerLabel.setFont(new Font("Serif", Font.BOLD, 20));
 
-		JLabel versionLabel = new JLabel("Version 1.0");
-		versionLabel.setBounds(155, 25, 450, 50);
+		JLabel versionLabel = new JLabel("Version 1.0.0-30");
+		versionLabel.setBounds(136, 25, 450, 50);
 		versionLabel.setFont(new Font("Serif", Font.PLAIN, 15));
 
 		JLabel byLabel = new JLabel("By:");
-		byLabel.setBounds(175, 45, 450, 50);
+		byLabel.setBounds(180, 45, 450, 50);
 		byLabel.setFont(new Font("Serif", Font.BOLD, 16));
 
 		JLabel pqLabel = new JLabel("Peter Quach");
-		pqLabel.setBounds(150, 65, 450, 50);
+		pqLabel.setBounds(154, 65, 450, 50);
 		pqLabel.setFont(new Font("Serif", Font.PLAIN, 16));
 
 		JLabel mtLabel = new JLabel("Michael Tarallo");
-		mtLabel.setBounds(140, 85, 450, 50);
+		mtLabel.setBounds(147, 85, 450, 50);
 		mtLabel.setFont(new Font("Serif", Font.PLAIN, 16));
 
 		JLabel jvLabel = new JLabel("Joshua Ventura");
-		jvLabel.setBounds(140, 105, 450, 50);
+		jvLabel.setBounds(147, 105, 450, 50);
 		jvLabel.setFont(new Font("Serif", Font.PLAIN, 16));
 
 		JLabel acLabel = new JLabel("Andres Cardenas");
-		acLabel.setBounds(135, 125, 450, 50);
+		acLabel.setBounds(142, 125, 450, 50);
 		acLabel.setFont(new Font("Serif", Font.PLAIN, 16));
 
-		JLabel classLabel = new JLabel("Mr. Pollock Java II COP-2805C(2019)");
-		classLabel.setBounds(100, 145, 450, 50);
+		JLabel classLabel = new JLabel("Mr. Pollock Java II COP-2805C");
+		classLabel.setBounds(116, 145, 450, 50);
 		classLabel.setFont(new Font("Serif", Font.PLAIN, 12));
 
-		// elements added to the frame
+		// Elements added to About frame
 		aboutSubFrame.add(headerLabel);
 		aboutSubFrame.add(versionLabel);
 		aboutSubFrame.add(byLabel);
@@ -81,8 +78,8 @@ public class Project3Ventura {
 		aboutSubFrame.setLayout(null);
 	}
 
-	private static void createSubMaintenenace() {
-		// Sub Frame
+	private static void createSubMaintenance() {
+		// Sub Maintenance Frame
 		JFrame subMaintenanceFrame = new JFrame();
 		subMaintenanceFrame.setVisible(true);
 		subMaintenanceFrame.setSize(600, 400);
@@ -93,9 +90,13 @@ public class Project3Ventura {
 		subMaintenanceFrame.getContentPane().setBackground(Color.cyan);
 
 		// Header and other labels
-		JLabel SubHeader = new JLabel("Search Engine - Index Maintenance");
-		SubHeader.setBounds(100, 5, 450, 50);
-		SubHeader.setFont(new Font("Serif", Font.BOLD, 26));
+		/*
+		 * --TO BE REMOVED AT THE START OF NEXT PROJECT UNLESS USED--
+		 * 
+		 * SubHeader = new JLabel("Search Engine - Index Maintenance");
+		 * SubHeader.setBounds(100, 5, 450, 50); SubHeader.setFont(new
+		 * Font("Serif", Font.BOLD, 26));
+		 */
 
 		JLabel labelFileNumber = new JLabel("Number of files indexed: 0");
 		labelFileNumber.setBounds(180, 340, 160, 30);
@@ -104,6 +105,8 @@ public class Project3Ventura {
 
 		// All the buttons on the bottom of the Maintenance Page
 		/*
+		 * --TO BE REMOVED AT THE START OF NEXT PROJECT UNLESS USED--
+		 * 
 		 * JButton buttonAddFile = new JButton("Add File...");
 		 * buttonAddFile.setBounds(20, 280, 95, 30);
 		 * 
@@ -135,48 +138,49 @@ public class Project3Ventura {
 		menuEdit.add(subResetWindow);
 
 		// Elements added
-		subMaintenanceFrame.add(SubHeader);
+
 		subMaintenanceFrame.add(labelFileNumber);
 		subMaintenanceFrame.add(labelVersion);
-		// subMaintenanceFrame.add(buttonAddFile);
-		// subMaintenanceFrame.add(buttonRebuild);
-		// subMaintenanceFrame.add(buttonRemoveFile);
-		// subMaintenanceFrame.add(buttonResetWindow);
+		/*
+		 * --TO BE REMOVED AT THE START OF NEXT PROJECT UNLESS USED--
+		 * 
+		 * subMaintenanceFrame.add(SubHeader);
+		 * subMaintenanceFrame.add(buttonAddFile);
+		 * subMaintenanceFrame.add(buttonRebuild);
+		 * subMaintenanceFrame.add(buttonRemoveFile);
+		 * subMaintenanceFrame.add(buttonResetWindow);
+		 */
 
 		// Menu-bar additions
 		menubar.add(menuFile);
 		menubar.add(menuEdit);
 		menubar.add(menuAbout);
 
-		
 		/*
-		 * Table Info
-		 * --Table needs to be positioned.
+		 * Table Info --Below is the functionality and implementation for the
+		 * Indexing Table
 		 */
-		
+
 		// Column Names
-        String[] columns = new String[] {
-            "File Name", "Status"
-        };
-         
-        // Table Data
-        Object[][] data = new Object[][] {
-            {"Test", "John"},
+		String[] columns = new String[] { "File Name", "Status" };
 
-        };
+		// Table Data
+		Object[][] data = new Object[][] { { "Test", "Active" },
 
-        // Creating Table
-        JTable indexTable = new JTable(data, columns);
-         
-        // Adding Table to SubFrame
-        subMaintenanceFrame.add(new JScrollPane(indexTable));      
-        subMaintenanceFrame.setVisible(true);
-        
-        // Table Sizing
-        indexTable.setPreferredScrollableViewportSize(indexTable.getPreferredSize());
-        
-        
-		//Frame Layout
+		};
+
+		// Creating Table
+		JTable indexTable = new JTable(data, columns);
+
+		// Adding Table to SubFrame
+		subMaintenanceFrame.add(new JScrollPane(indexTable));
+		subMaintenanceFrame.setVisible(true);
+
+		// Table Sizing
+		indexTable.setPreferredScrollableViewportSize(indexTable
+				.getPreferredSize());
+
+		// Frame Layout
 		subMaintenanceFrame.setLayout(null);
 
 	}
@@ -265,7 +269,7 @@ public class Project3Ventura {
 		// Creates maintenance form -Peter Quach's Creation
 		subMaintenanceMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				createSubMaintenenace();
+				createSubMaintenance();
 			}
 		});
 
@@ -275,9 +279,7 @@ public class Project3Ventura {
 				createSubAbout();
 			}
 		});
-	
-	
-	
+
 	}
 
 	// Main Class

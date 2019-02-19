@@ -3,6 +3,13 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
+
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.SwingUtilities;
+
+
 /* Changes:
  * Cleaned up code, moved frames to separate methods
  * Added a border (Optional)
@@ -136,11 +143,40 @@ public class Project3Ventura {
 		// subMaintenanceFrame.add(buttonRemoveFile);
 		// subMaintenanceFrame.add(buttonResetWindow);
 
-		// Menubar additions
+		// Menu-bar additions
 		menubar.add(menuFile);
 		menubar.add(menuEdit);
 		menubar.add(menuAbout);
 
+		
+		/*
+		 * Table Info
+		 * --Table needs to be positioned.
+		 */
+		
+		// Column Names
+        String[] columns = new String[] {
+            "File Name", "Status"
+        };
+         
+        // Table Data
+        Object[][] data = new Object[][] {
+            {"Test", "John"},
+
+        };
+
+        // Creating Table
+        JTable indexTable = new JTable(data, columns);
+         
+        // Adding Table to SubFrame
+        subMaintenanceFrame.add(new JScrollPane(indexTable));      
+        subMaintenanceFrame.setVisible(true);
+        
+        // Table Sizing
+        indexTable.setPreferredScrollableViewportSize(indexTable.getPreferredSize());
+        
+        
+		//Frame Layout
 		subMaintenanceFrame.setLayout(null);
 
 	}

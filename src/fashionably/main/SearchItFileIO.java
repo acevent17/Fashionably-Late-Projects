@@ -5,9 +5,11 @@
  * --Changed fileChooser to a Global Variable
  * --Added a get and display method for the file path
  * --TBA
+ * --added variable to the getPath method
+ * added compatability between getPath and SearchItTables classes.
  * 
  * Current Issues are displayed below:
- * --N/A
+ * --added the return values to the getpath method, might have to delete later. 
  *  
  * Resolved Issues:
  *  --Created get and display method for the file path 
@@ -26,6 +28,7 @@ import java.io.File;
 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
+
 
 //Importing classes from main package 
 import fashionably.main.SearchItMaintenance;
@@ -49,13 +52,21 @@ public class SearchItFileIO {
 		}
 
 	}
+	
+	public static String pathTrial1;
 
 	public static void getPath() {
 		// Gets path of file
 		fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 		File selectedFile = fileChooser.getSelectedFile();
+		
 
 		// Displays path of file
+
 		System.out.println(selectedFile.getAbsolutePath());
+		pathTrial1 = selectedFile.getAbsolutePath(); //added by andres, mightnot work
+		//return pathTrial1 ; //added by andres, mightnot work
+		SearchItTables.addFileListener(pathTrial1);
+		
 	}
 }

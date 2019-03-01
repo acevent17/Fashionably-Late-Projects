@@ -4,7 +4,7 @@
  * 
  * Changes are displayed below:
  * --Created class specifically for Frame functionality
- * 
+ * --Changed menu item from "About Page" to "About"
  * 
  * Current Issues are displayed below:
  * --N/A

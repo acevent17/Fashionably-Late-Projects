@@ -4,6 +4,7 @@
  * 
  * Changes are displayed below:
  * --Created class specifically for Maintenance functionality
+ * --Changed menu item from "About Page" to "About"
  * 
  * 
  * Current Issues are displayed below:
@@ -61,7 +62,7 @@ public class SearchItMaintenance {
 
 		JLabel labelFileNumber = new JLabel("Number of files indexed: 0");
 		labelFileNumber.setBounds(180, 395, 160, 30);
-		JLabel labelVersion = new JLabel("Search Engine Version 1.1");
+		JLabel labelVersion = new JLabel("Search Engine Version 1.2");
 		labelVersion.setBounds(420, 395, 160, 30);
 
 		// Menu Bar
@@ -82,7 +83,7 @@ public class SearchItMaintenance {
 		JMenuItem subRebuild = new JMenuItem("Rebuild");
 		JMenuItem subRemoveFile = new JMenuItem("Remove File");
 		JMenuItem subResetWindow = new JMenuItem("Reset Window");
-		JMenuItem subAboutPage = new JMenuItem("About Page");
+		JMenuItem subAboutPage = new JMenuItem("About");
 
 		// Elements added
 		subMaintenanceFrame.add(labelFileNumber);

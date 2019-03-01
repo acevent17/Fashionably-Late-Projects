@@ -31,6 +31,7 @@ import fashionably.main.SearchItMaintenance;
 
 public class SearchItFramework {
 
+
 	public static void createSearchEngine() {
 
 		// Creates Window
@@ -107,7 +108,7 @@ public class SearchItFramework {
 		JMenuItem subMaintenanceMenu = new JMenuItem("Maintenance Panel");
 		subMaintenanceMenu.setMnemonic(KeyEvent.VK_M);
 
-		JMenuItem subAboutPage = new JMenuItem("About Page");
+		JMenuItem subAboutPage = new JMenuItem("About");
 		subAboutPage.setMnemonic(KeyEvent.VK_A);
 
 		// SubMenu additions

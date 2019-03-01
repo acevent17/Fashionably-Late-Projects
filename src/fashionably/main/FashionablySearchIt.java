@@ -38,6 +38,8 @@ import fashionably.framework.SearchItFramework;
 
 public class FashionablySearchIt {
 	public static void main(String args[]) {
+		
+
 		SearchItFramework.createSearchEngine();
 
 	}

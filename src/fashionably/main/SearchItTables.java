@@ -7,34 +7,24 @@
  * --TBA
  * --added compatibility between getPath and SearchItTables classes.
  * --made the table be more dynamic
- * --added method stub for the addFileListener method 
- * which will work with the file path variable in the future. 
- * 
+ * --completed compatibility between "class:SearchItFileIO method:getPath" and "class:SearchItTables method:addFileListener"
+ * --
  * 
  * 
  * 
  * Current Issues are displayed below:
- * --Data in rows on columns are not setting from the FileChooser* *(Class: SearchItFileIO)
- * --data1 + data2 both are set to null for the sake of error removal
- * --TBA
- * --trying to get the Path part if the columns to work .
  * --what is the line "public static final String tableModel = null;"
  * used for??
- * --Method addFileListener is commented out until the dynamic table is working
+ * --the dummy table needs to be deleted before implementing database. 
  * 
  * 
  * Resolved Issues:
  * --Table has an initialized Table Model* ([Default]) *(tableModel)
  * --Data of rows is now an initialized variable* ([data1, data2]) *(null)
  * --TBA
+ * --Data in rows on columns are not setting from the FileChooser* *(Class: SearchItFileIO)
+ *-- got all the row information to work and be added to the table
  * 
- */
-
-/*
- * May Need Later to import data into fields in JTable
- * 		
- * SearchItTables.createTable().getColumnModel().getColumn(columns).setCellEditor((TableCellEditor)
- *	new Indexing());
  */
 
 /*
@@ -67,13 +57,11 @@ public class SearchItTables {
 
 	// This is the method that adds the row
 	// receives variable:fileToAddInfoTable from class:SearchItFileIO method:getPath
-	public static void addFileListener(String fileToAddInfoTable) {
-
-		String[] addedRow1 = { "addedFileName", fileToAddInfoTable, "AddedFileDate", };
+	public static void addFileListener(String[] fileToAddInfoTable) {
 
 		TableModel tableModelVar = indexTable.getModel();
 		DefaultTableModel addRowObject = (DefaultTableModel) tableModelVar;
-		addRowObject.addRow(addedRow1);
+		addRowObject.addRow(fileToAddInfoTable);
 
 	}
 

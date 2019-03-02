@@ -6,10 +6,14 @@
  * --Added a get and display method for the file path
  * --TBA
  * --added variable to the getPath method
- * added compatability between getPath and SearchItTables classes.
+ * --added compatibility between getPath and SearchItTables classes.
+ * --completed the file info variable shared between method:getPath and method:addFileListener
+ * --completed formating for date
+ * --removed testing codes and comments
+ *
  * 
  * Current Issues are displayed below:
- * --added the return values to the getpath method, might have to delete later. 
+ * 
  *  
  * Resolved Issues:
  *  --Created get and display method for the file path 
@@ -25,6 +29,9 @@ package fashionably.main;
 
 import java.io.File;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
 
@@ -34,8 +41,6 @@ import fashionably.main.SearchItMaintenance;
 //Class to handle file view, file selection, file addition and file deletion. 
 //Takes no variables
 //Sends variable type String to method addFileListener in the SearchItTables class
-//as of right now it only sends file path
-//future implementation should send a String[] with file name, path and date modified
 public class SearchItFileIO {
 
 	// Global Variable for FileChooser (Needed to get and display as separate
@@ -55,26 +60,51 @@ public class SearchItFileIO {
 
 	}
 
-	// Variable sent to class:SerachItTables method:addFileListener with file
-	// information
-	public static String fileToAddInfo;
+	// Variables used by method:getPath
+	public static String filePath;
+	public static String fileName;
+	public static long fileDateLong;
+	public static String fileDateString;
 
+	@TeamRviewRequired
+	// team: please review and make sure all methods used here should be within the
+	// getPath()
+	// or if they should be moved to the fileHandler
+	//
 	// Method in charge of getting file path
-	// future implementations would be ALL file information required
 	public static void getPath() {
 
-		// Gets path of file
+		// file selector
 		fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 		File selectedFile = fileChooser.getSelectedFile();
 
-		fileToAddInfo = selectedFile.getAbsolutePath();
+		// gets file name, path and date
+		fileName = selectedFile.getName();
+		filePath = selectedFile.getAbsolutePath();
+		fileDateLong = selectedFile.lastModified();
 
-		// Displays path of file
-		System.out.println(fileToAddInfo);
+		// date converter
+		// The format is Day/Month/Year - Hour/Minutes/Seconds
+		SimpleDateFormat dateConverter = new SimpleDateFormat("dd//MM/yyy - hh:mm:ss");
+		fileDateString = dateConverter.format(new Date(fileDateLong));
 
-		// Variable sent to SerachItTables class, method addFileListener for
-		// when the Dynamic Table works
-		SearchItTables.addFileListener(fileToAddInfo);
+		// Variable sent to class:SerachItTables method:addFileListener with file
+		// information
+		String[] fileRowInfo = new String[] { fileName, filePath, fileDateString };
+
+		// Variable sent to class:SerachItTables method:addFileListener
+		SearchItTables.addFileListener(fileRowInfo);
+
+		/*
+		 * This section is used for testing the file information gathered
+		 * 
+		 * 
+		 * System.out.println(filePath); System.out.println(fileName);
+		 * System.out.println(fileDateString);
+		 *
+		 *
+		 *
+		 */
 
 	}
 

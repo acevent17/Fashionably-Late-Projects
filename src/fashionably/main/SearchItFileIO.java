@@ -52,6 +52,7 @@ public class SearchItFileIO {
 	public static String pathTrial1;
 
 	public static void getPath() {
+		
 		// Gets path of file
 		fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 		File selectedFile = fileChooser.getSelectedFile();
@@ -59,32 +60,13 @@ public class SearchItFileIO {
 		// Displays path of file
 		System.out.println(selectedFile.getAbsolutePath());
 
-		// Variable sent to SrachItTables class, method addFileListener for
+		// Variable sent to SerachItTables class, method addFileListener for
 		// when the Dynamic Table works
 		pathTrial1 = selectedFile.getAbsolutePath();
+		
 		SearchItTables.addFileListener(pathTrial1);
-		// tryObject.addFileListener(pathTrial1);
+
 
 	}
 
-	/*
-	 * This method is a temporary one while trying to get the addRow code to work.
-	 * public static String getPathhh() { // Gets path of file String filepathhh1;
-	 * fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES); File
-	 * selectedFile = fileChooser.getSelectedFile();
-	 * 
-	 * SearchItTables tryObject = new SearchItTables();
-	 * 
-	 * // Displays path of file
-	 * 
-	 * System.out.println(selectedFile.getAbsolutePath());
-	 * 
-	 * //Variable sent to SrachItTables class, method addFileListener for //when the
-	 * Dynamic Table works filepathhh1 = selectedFile.getAbsolutePath();
-	 * //SearchItTables.addFileListener(pathTrial1);
-	 * 
-	 * return filepathhh1;
-	 * 
-	 * }
-	 */
 }

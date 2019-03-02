@@ -46,31 +46,37 @@ import java.awt.Component;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 public class SearchItTables {
 
 	public static final String tableModel = null;
+	
+	
+	static JTable indexTable;
+	
+	
+	
 
 	// This is the method that should handle the addRow line.
 	public static void addFileListener(String pathTrial1) {
 
 		String[] addedRow1 = { "addedFileName", pathTrial1, "AddedFileDate", };
-		// Object [] addedRowObject1 = addedRow1;
-
-		DefaultTableModel RamdonObject = new DefaultTableModel();
-		RamdonObject.addRow(addedRow1);
-		RamdonObject.fireTableDataChanged();
-		System.out.println("test console message - addRow from addFileListener classSeachItTables");
-
+		
+		TableModel tm = indexTable.getModel();
+		DefaultTableModel dtm = (DefaultTableModel)tm;
+		dtm.addRow(addedRow1);
+		
 	}
 
+	
 	// dummy pre-made string to test table
 	public static String[][] fileInfo = { { "FileName1", "FilePath1", "FileDate1" },
 			{ "FileName2", "FilePath2", "FileDate2" }, { "FileName3", "FilePath3", "FileDate3" },
 			{ "FileName4", "FilePath4", "FileDate4" }, { "FileName5", "FilePath5", "FileDate5" }, };
 
+	
 	// Dynamic Table Code
-
 	public static String[][] tableDataGatherer(String[][] fileInfo2) {
 
 		int secondArray = fileInfo2.length;
@@ -84,7 +90,9 @@ public class SearchItTables {
 
 		return rowInfo;
 	}
-
+	
+	
+	//method to create table
 	public static Component createTable() {
 
 		// Column Names
@@ -97,17 +105,8 @@ public class SearchItTables {
 
 		// table creating code
 		DefaultTableModel tableModel = new DefaultTableModel(row, columnObject);
-		JTable indexTable = new JTable(tableModel);
+		indexTable = new JTable(tableModel);
 
-		// This section is to test the addRow code, but it cannot be harcoded in the
-		// future
-		String addPathTry = "ThisWorks!!!";
-		String[] addedRow = { "addedFileName", addPathTry, "AddedFileDate", };
-		Object[] addedRowObject = addedRow;
-		tableModel.addRow(addedRowObject);
-
-		// SearchItTables.createTable().getColumnModel().getColumn(columns).setCellEditor((TableCellEditor)
-		// new Indexing());
 
 		// Table Sizing and table variable return to SearchItMaintenance Class
 		indexTable.setPreferredScrollableViewportSize(indexTable.getPreferredSize());

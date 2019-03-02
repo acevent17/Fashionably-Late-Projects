@@ -68,7 +68,7 @@ public class SearchItFileIO {
 		//Variable sent to SrachItTables class, method addFileListener for
 		//when the Dynamic Table works
 		pathTrial1 = selectedFile.getAbsolutePath(); 
-		//SearchItTables.addFileListener(pathTrial1);
+		SearchItTables.addFileListener(pathTrial1);
 		
 	}
 }

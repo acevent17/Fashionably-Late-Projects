@@ -49,27 +49,14 @@ import javax.swing.table.DefaultTableModel;
 
 public class SearchItTables {
 	
-	//verify what this is needed for
 	public static final String tableModel = null;
 
-	/*
-	// The String variable for addedFileInfo needs to be changed to String[]
-	// whenever we have the other 2 methods for file information.
-	public static String addedFileInfo;
-	
-	REMEMBER TO UNCOMMENT THE RETURN VARIABLE AT THE BOTTOM OF "SearchtFileIO" CLASS
+	public static void addFileListener(String pathTrial1) {
 
-	// The String parameter for addFileListener needs to be changed to String[]
-	// whenever we have the other 2 methods for file information.
-	 * 
-	 * 
-	public static String addFileListener(String pathTrial1) {
-
-		return addedFileInfo;
+		
 
 	}
-	*
-	*/
+
 
 	//dummy pre-made string to test table
 	public static String[][] fileInfo = { { "FileName1", "FilePath1", "FileDate1" }, { "FileName2", "FilePath2", "FileDate2" }, { "FileName3", "FilePath3", "FileDate3" }, { "FileName4", "FilePath4", "FileDate4" }, };
@@ -104,6 +91,12 @@ public class SearchItTables {
 		//table creating code
 		DefaultTableModel tableModel = new DefaultTableModel(row, columnObject);
 		JTable indexTable = new JTable(tableModel);
+		
+		String addPathTry = "ThisWorks!!!";
+		String[] addedRow = {"addedFileName", addPathTry, "AddedFileDate",};
+		Object [] addedRowObject = addedRow;
+		tableModel.addRow( addedRowObject );
+		
 
 		// SearchItTables.createTable().getColumnModel().getColumn(columns).setCellEditor((TableCellEditor)
 		// new Indexing());

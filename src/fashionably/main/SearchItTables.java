@@ -5,7 +5,7 @@
  * Changes are displayed below:
  * --Created class specifically for table functionality
  * --TBA
- * --added compatability between getPath and SearchItTables classes.
+ * --added compatibility between getPath and SearchItTables classes.
  * --made the table be more dynamic
  * --added method stub for the addFileListener method 
  * which will work with the file path variable in the future. 
@@ -48,59 +48,65 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 public class SearchItTables {
-	
+
 	public static final String tableModel = null;
 
+	// This is the method that should handle the addRow line.
 	public static void addFileListener(String pathTrial1) {
 
-		
+		String[] addedRow1 = { "addedFileName", pathTrial1, "AddedFileDate", };
+		// Object [] addedRowObject1 = addedRow1;
+
+		DefaultTableModel RamdonObject = new DefaultTableModel();
+		RamdonObject.addRow(addedRow1);
+		RamdonObject.fireTableDataChanged();
+		System.out.println("test console message - addRow from addFileListener classSeachItTables");
 
 	}
 
+	// dummy pre-made string to test table
+	public static String[][] fileInfo = { { "FileName1", "FilePath1", "FileDate1" },
+			{ "FileName2", "FilePath2", "FileDate2" }, { "FileName3", "FilePath3", "FileDate3" },
+			{ "FileName4", "FilePath4", "FileDate4" }, { "FileName5", "FilePath5", "FileDate5" }, };
 
-	//dummy pre-made string to test table
-	public static String[][] fileInfo = { { "FileName1", "FilePath1", "FileDate1" }, { "FileName2", "FilePath2", "FileDate2" }, { "FileName3", "FilePath3", "FileDate3" }, { "FileName4", "FilePath4", "FileDate4" }, };
+	// Dynamic Table Code
+	public static String[][] tableDataGatherer(String[][] fileInfo2) {
 
-	//Dynamic Table Code
-	public static String[][] tableDataGatherer(String[][] fileInfo2){
-		
-		
 		int secondArray = fileInfo2.length;
 		String[][] rowInfo = new String[secondArray][3];
-		
+
 		for (int i = 0; i < fileInfo2.length; i++) {
 			for (int j = 0; j < 3; j++) {
 				rowInfo[i][j] = fileInfo2[i][j];
 			}
 		}
-		
+
 		return rowInfo;
 	}
 
-	
 	public static Component createTable() {
 
 		// Column Names
 		String[] columns = new String[] { "File Name", "File Path", "Date Modified" };
 
-		//Change column String to Object to comply with DefaultTableModel parameters
+		// Change column String to Object to comply with DefaultTableModel parameters
 		Object[] columnObject = columns;
-		
+
 		Object[][] row = tableDataGatherer(fileInfo);
 
-		//table creating code
+		// table creating code
 		DefaultTableModel tableModel = new DefaultTableModel(row, columnObject);
 		JTable indexTable = new JTable(tableModel);
-		
+
+		// This section is to test the addRow code, but it cannot be harcoded in the
+		// future
 		String addPathTry = "ThisWorks!!!";
-		String[] addedRow = {"addedFileName", addPathTry, "AddedFileDate",};
-		Object [] addedRowObject = addedRow;
-		tableModel.addRow( addedRowObject );
-		
+		String[] addedRow = { "addedFileName", addPathTry, "AddedFileDate", };
+		Object[] addedRowObject = addedRow;
+		tableModel.addRow(addedRowObject);
 
 		// SearchItTables.createTable().getColumnModel().getColumn(columns).setCellEditor((TableCellEditor)
 		// new Indexing());
-
 
 		// Table Sizing and table variable return to SearchItMaintenance Class
 		indexTable.setPreferredScrollableViewportSize(indexTable.getPreferredSize());

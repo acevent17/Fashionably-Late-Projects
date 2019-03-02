@@ -18,7 +18,6 @@
  *  
  */
 
-
 /*
  * Imports used in relation to class name and functionality respectively
  */
@@ -29,22 +28,19 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
 
-
 //Importing classes from main package 
 import fashionably.main.SearchItMaintenance;
 
 public class SearchItFileIO {
 	// Global Variable for FileChooser (Needed to get and display as separate
 	// method)
-	static JFileChooser fileChooser = new JFileChooser(FileSystemView
-			.getFileSystemView().getHomeDirectory());
+	static JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 
 	public static void fileHandler() {
 		fileChooser.setAcceptAllFileFilterUsed(false);
 
 		// Shows FileChooserDialog Window
-		int returnVal = fileChooser
-				.showOpenDialog(SearchItMaintenance.subMaintenanceFrame);
+		int returnVal = fileChooser.showOpenDialog(SearchItMaintenance.subMaintenanceFrame);
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
 
 			// Gets and displays the File Path
@@ -52,46 +48,43 @@ public class SearchItFileIO {
 		}
 
 	}
-	
+
 	public static String pathTrial1;
 
 	public static void getPath() {
 		// Gets path of file
 		fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 		File selectedFile = fileChooser.getSelectedFile();
-		
 
 		// Displays path of file
 		System.out.println(selectedFile.getAbsolutePath());
-		
-		//Variable sent to SrachItTables class, method addFileListener for
-		//when the Dynamic Table works
-		pathTrial1 = selectedFile.getAbsolutePath(); 
+
+		// Variable sent to SrachItTables class, method addFileListener for
+		// when the Dynamic Table works
+		pathTrial1 = selectedFile.getAbsolutePath();
 		SearchItTables.addFileListener(pathTrial1);
-		//tryObject.addFileListener(pathTrial1);
-		
-	}
-	
-	/*	This method is a temporary one while trying to get the addRow code to work. 
-	public static String getPathhh() {
-		// Gets path of file
-		String filepathhh1;
-		fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-		File selectedFile = fileChooser.getSelectedFile();
-		
-		SearchItTables tryObject = new SearchItTables();
-		
-		// Displays path of file
+		// tryObject.addFileListener(pathTrial1);
 
-		System.out.println(selectedFile.getAbsolutePath());
-		
-		//Variable sent to SrachItTables class, method addFileListener for
-		//when the Dynamic Table works
-		filepathhh1 = selectedFile.getAbsolutePath(); 
-		//SearchItTables.addFileListener(pathTrial1);
-		
-		return filepathhh1;
-		
 	}
+
+	/*
+	 * This method is a temporary one while trying to get the addRow code to work.
+	 * public static String getPathhh() { // Gets path of file String filepathhh1;
+	 * fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES); File
+	 * selectedFile = fileChooser.getSelectedFile();
+	 * 
+	 * SearchItTables tryObject = new SearchItTables();
+	 * 
+	 * // Displays path of file
+	 * 
+	 * System.out.println(selectedFile.getAbsolutePath());
+	 * 
+	 * //Variable sent to SrachItTables class, method addFileListener for //when the
+	 * Dynamic Table works filepathhh1 = selectedFile.getAbsolutePath();
+	 * //SearchItTables.addFileListener(pathTrial1);
+	 * 
+	 * return filepathhh1;
+	 * 
+	 * }
 	 */
 }

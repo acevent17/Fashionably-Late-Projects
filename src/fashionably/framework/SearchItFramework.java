@@ -28,9 +28,7 @@ import java.awt.event.*;
 import fashionably.main.SearchItAbout;
 import fashionably.main.SearchItMaintenance;
 
-
 public class SearchItFramework {
-
 
 	public static void createSearchEngine() {
 
@@ -56,12 +54,12 @@ public class SearchItFramework {
 
 		// Border
 		/*
-		 * Added a border, undecided about its looks. Change color if wanted or
-		 * remove altogether.
+		 * Added a border, undecided about its looks. Change color if wanted or remove
+		 * altogether.
 		 * 
 		 * 
-		 * frame.getRootPane().setBorder( BorderFactory.createMatteBorder(3, 3,
-		 * 3, 3, Color.BLACK));
+		 * frame.getRootPane().setBorder( BorderFactory.createMatteBorder(3, 3, 3, 3,
+		 * Color.BLACK));
 		 */
 
 		// Buttons
@@ -138,7 +136,6 @@ public class SearchItFramework {
 		searchExact.setToolTipText("Search for exact word or phrase");
 		subMaintenanceMenu.setToolTipText("Opens Maintenance page");
 		subAboutPage.setToolTipText("Shows information about this project");
-		
 
 		// Creates maintenance form -Peter Quach's Creation
 		subMaintenanceMenu.addActionListener(new ActionListener() {

@@ -68,7 +68,7 @@ public class SearchItAbout {
 		classLabel.setFont(new Font("Serif", Font.PLAIN, 12));
 
 		// Elements added to About frame
-		aboutSubFrame.add(headerLabel);	
+		aboutSubFrame.add(headerLabel);
 		aboutSubFrame.add(byLabel);
 		aboutSubFrame.add(pqLabel);
 		aboutSubFrame.add(mtLabel);

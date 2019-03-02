@@ -51,31 +51,25 @@ import javax.swing.table.TableModel;
 public class SearchItTables {
 
 	public static final String tableModel = null;
-	
-	
+
 	static JTable indexTable;
-	
-	
-	
 
 	// This is the method that should handle the addRow line.
 	public static void addFileListener(String pathTrial1) {
 
 		String[] addedRow1 = { "addedFileName", pathTrial1, "AddedFileDate", };
-		
+
 		TableModel tm = indexTable.getModel();
-		DefaultTableModel dtm = (DefaultTableModel)tm;
+		DefaultTableModel dtm = (DefaultTableModel) tm;
 		dtm.addRow(addedRow1);
-		
+
 	}
 
-	
 	// dummy pre-made string to test table
 	public static String[][] fileInfo = { { "FileName1", "FilePath1", "FileDate1" },
 			{ "FileName2", "FilePath2", "FileDate2" }, { "FileName3", "FilePath3", "FileDate3" },
 			{ "FileName4", "FilePath4", "FileDate4" }, { "FileName5", "FilePath5", "FileDate5" }, };
 
-	
 	// Dynamic Table Code
 	public static String[][] tableDataGatherer(String[][] fileInfo2) {
 
@@ -90,9 +84,8 @@ public class SearchItTables {
 
 		return rowInfo;
 	}
-	
-	
-	//method to create table
+
+	// method to create table
 	public static Component createTable() {
 
 		// Column Names
@@ -106,7 +99,6 @@ public class SearchItTables {
 		// table creating code
 		DefaultTableModel tableModel = new DefaultTableModel(row, columnObject);
 		indexTable = new JTable(tableModel);
-
 
 		// Table Sizing and table variable return to SearchItMaintenance Class
 		indexTable.setPreferredScrollableViewportSize(indexTable.getPreferredSize());

@@ -70,6 +70,7 @@ public class SearchItTables {
 			{ "FileName4", "FilePath4", "FileDate4" }, { "FileName5", "FilePath5", "FileDate5" }, };
 
 	// Dynamic Table Code
+
 	public static String[][] tableDataGatherer(String[][] fileInfo2) {
 
 		int secondArray = fileInfo2.length;

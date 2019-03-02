@@ -18,6 +18,12 @@
  * --the dummy table needs to be deleted before implementing database. 
  * --currently I am using String[] and Object[], however, Mr. Pollock recommends the use of List instead,
  * this should be changed soon. 
+ * --currently the file information that is added to the table is not being saved
+ * so once the table window is closed the information is lost. 
+ * future implementations should make this information permanent. 
+ * 
+ * 
+ * 
  * 
  * Resolved Issues:
  * --Table has an initialized Table Model* ([Default]) *(tableModel)
@@ -63,6 +69,16 @@ public class SearchItTables {
 		TableModel tableModelVar = indexTable.getModel();
 		DefaultTableModel addRowObject = (DefaultTableModel) tableModelVar;
 		addRowObject.addRow(fileToAddInfoTable);
+		
+		//boolean variable and if statement that will activate if the user
+		//adds or deletes any files from the database
+		boolean secondIndexBoolean = IndexChecker.IndexChangesCheck();
+		if(secondIndexBoolean = true) {
+			//update index file
+		}
+		else {
+			//do nothing?
+		}
 
 	}
 

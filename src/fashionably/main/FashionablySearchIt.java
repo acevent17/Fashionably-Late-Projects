@@ -39,6 +39,8 @@ import fashionably.framework.SearchItFramework;
 public class FashionablySearchIt {
 	public static void main(String args[]) {
 		
+		
+		
 		/*
 		 * --This method is called from class:IndexChecker to check 
 		 * for any changes to the indexed information
@@ -46,13 +48,14 @@ public class FashionablySearchIt {
 		boolean indexBoolean = IndexChecker.IndexChangesCheck();
 		if (indexBoolean = true){
 			//update index file
+			//
 		}
 		else {
 			//do nothing
+			//
 		};
 		
 
-		
 		
 		//Main part of the Program
 		SearchItFramework.createSearchEngine();

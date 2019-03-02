@@ -31,7 +31,13 @@ import javax.swing.filechooser.FileSystemView;
 //Importing classes from main package 
 import fashionably.main.SearchItMaintenance;
 
+//Class to handle file view, file selection, file addition and file deletion. 
+//Takes no variables
+//Sends variable type String to method addFileListener in the SearchItTables class
+//as of right now it only sends file path
+//future implementation should send a String[] with file name, path and date modified
 public class SearchItFileIO {
+
 	// Global Variable for FileChooser (Needed to get and display as separate
 	// method)
 	static JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
@@ -49,23 +55,26 @@ public class SearchItFileIO {
 
 	}
 
-	public static String pathTrial1;
+	// Variable sent to class:SerachItTables method:addFileListener with file
+	// information
+	public static String fileToAddInfo;
 
+	// Method in charge of getting file path
+	// future implementations would be ALL file information required
 	public static void getPath() {
-		
+
 		// Gets path of file
 		fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 		File selectedFile = fileChooser.getSelectedFile();
 
+		fileToAddInfo = selectedFile.getAbsolutePath();
+
 		// Displays path of file
-		System.out.println(selectedFile.getAbsolutePath());
+		System.out.println(fileToAddInfo);
 
 		// Variable sent to SerachItTables class, method addFileListener for
 		// when the Dynamic Table works
-		pathTrial1 = selectedFile.getAbsolutePath();
-		
-		SearchItTables.addFileListener(pathTrial1);
-
+		SearchItTables.addFileListener(fileToAddInfo);
 
 	}
 

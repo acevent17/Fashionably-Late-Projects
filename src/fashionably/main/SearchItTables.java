@@ -50,35 +50,44 @@ import javax.swing.table.TableModel;
 
 public class SearchItTables {
 
+	@TeamRviewRequired
+	// if this line is commented out, there are no issues
+	// is this required?
 	public static final String tableModel = null;
 
+	// table variable
+	// it was made static to be able to edit table
 	static JTable indexTable;
 
-	// This is the method that should handle the addRow line.
-	public static void addFileListener(String pathTrial1) {
-
-		String[] addedRow1 = { "addedFileName", pathTrial1, "AddedFileDate", };
-
-		TableModel tm = indexTable.getModel();
-		DefaultTableModel dtm = (DefaultTableModel) tm;
-		dtm.addRow(addedRow1);
-
-	}
-
-	// dummy pre-made string to test table
+	// dummy-temporary database
+	// variable used by tableDataGatherer
 	public static String[][] fileInfo = { { "FileName1", "FilePath1", "FileDate1" },
 			{ "FileName2", "FilePath2", "FileDate2" }, { "FileName3", "FilePath3", "FileDate3" },
 			{ "FileName4", "FilePath4", "FileDate4" }, { "FileName5", "FilePath5", "FileDate5" }, };
 
+	// This is the method that adds the row
+	// receives variable:fileToAddInfoTable from class:SearchItFileIO method:getPath
+	public static void addFileListener(String fileToAddInfoTable) {
+
+		String[] addedRow1 = { "addedFileName", fileToAddInfoTable, "AddedFileDate", };
+
+		TableModel tableModelVar = indexTable.getModel();
+		DefaultTableModel addRowObject = (DefaultTableModel) tableModelVar;
+		addRowObject.addRow(addedRow1);
+
+	}
+
 	// Dynamic Table Code
-	public static String[][] tableDataGatherer(String[][] fileInfo2) {
+	// receives variable:dataBaseArray from method:createTable
+	// returns variable:rowInfo type:String[][] with table data.
+	public static String[][] tableDataGatherer(String[][] dataBaseArray) {
 
-		int secondArray = fileInfo2.length;
-		String[][] rowInfo = new String[secondArray][3];
+		int arrayLength = dataBaseArray.length;
+		String[][] rowInfo = new String[arrayLength][3];
 
-		for (int i = 0; i < fileInfo2.length; i++) {
+		for (int i = 0; i < dataBaseArray.length; i++) {
 			for (int j = 0; j < 3; j++) {
-				rowInfo[i][j] = fileInfo2[i][j];
+				rowInfo[i][j] = dataBaseArray[i][j];
 			}
 		}
 

@@ -64,9 +64,11 @@ public class SearchItFileIO {
 		// Displays path of file
 
 		System.out.println(selectedFile.getAbsolutePath());
-		pathTrial1 = selectedFile.getAbsolutePath(); //added by andres, mightnot work
-		//return pathTrial1 ; //added by andres, mightnot work
-		SearchItTables.addFileListener(pathTrial1);
+		
+		//Variable sent to SrachItTables class, method addFileListener for
+		//when the Dynamic Table works
+		pathTrial1 = selectedFile.getAbsolutePath(); 
+		//SearchItTables.addFileListener(pathTrial1);
 		
 	}
 }

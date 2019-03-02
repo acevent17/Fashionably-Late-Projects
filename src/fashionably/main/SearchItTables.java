@@ -16,7 +16,8 @@
  * --what is the line "public static final String tableModel = null;"
  * used for??
  * --the dummy table needs to be deleted before implementing database. 
- * 
+ * --currently I am using String[] and Object[], however, Mr. Pollock recommends the use of List instead,
+ * this should be changed soon. 
  * 
  * Resolved Issues:
  * --Table has an initialized Table Model* ([Default]) *(tableModel)

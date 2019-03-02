@@ -38,8 +38,35 @@ import fashionably.framework.SearchItFramework;
 
 public class FashionablySearchIt {
 	public static void main(String args[]) {
+		
+		/*
+		 * --This method is called from class:IndexChecker to check 
+		 * for any changes to the indexed information
+		 */
+		boolean indexBoolean = IndexChecker.IndexChangesCheck();
+		if (indexBoolean = true){
+			//update index file
+		}
+		else {
+			//do nothing
+		};
+		
 
+		
+		
+		//Main part of the Program
 		SearchItFramework.createSearchEngine();
+		
+		/*
+		 * -This hook will be used in the future to store the last, most updated table information into
+		 * persistent storage.
+		 * -right now it only uses the printed message to show capability
+		 */
+		Runtime.getRuntime().addShutdownHook(new Thread() {
+			public void run() {
+				System.out.println("Shut Down Hook Test Message! - at this moment the indexed file should be saved!");
+			}
+		});
 
 	}
 }

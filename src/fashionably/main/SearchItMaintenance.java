@@ -12,7 +12,7 @@
  * 
  * 
  * Resolved Issues:
- * --TBA
+ * -- About button functions properly now.
  * 
  */
 
@@ -121,6 +121,12 @@ public class SearchItMaintenance {
 		// Adding Table to SubFrame
 		subMaintenanceFrame.add(new JScrollPane(SearchItTables.createTable()));
 		subMaintenanceFrame.setVisible(true);
+		
+		subAboutPage.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SearchItAbout.createSubAbout();
+			}
+		});
 
 		subAddFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

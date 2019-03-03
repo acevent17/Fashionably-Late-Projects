@@ -20,7 +20,7 @@
  */
 package fashionably.framework;
 
-import java.awt.*;
+import java.awt.*; 
 import javax.swing.*;
 import java.awt.event.*;
 

@@ -4,7 +4,6 @@
  * 
  * Changes are displayed below:
  * --Created class specifically for table functionality
- * --TBA
  * --added compatibility between getPath and SearchItTables classes.
  * --made the table be more dynamic
  * --completed compatibility between "class:SearchItFileIO method:getPath" and "class:SearchItTables method:addFileListener"
@@ -12,25 +11,27 @@
  * 
  * 
  * 
+ * 
  * Current Issues are displayed below:
  * --what is the line "public static final String tableModel = null;"
  * used for??
- * --the dummy table needs to be deleted before implementing database. 
- * --currently I am using String[] and Object[], however, Mr. Pollock recommends the use of List instead,
- * this should be changed soon. 
- * --currently the file information that is added to the table is not being saved
- * so once the table window is closed the information is lost. 
- * future implementations should make this information permanent. 
+ *  
+ * -- Currently I am using String[] and Object[], however, Mr. Pollock recommends the use of List instead,
+ *    this should be changed soon. // This is probably not necessary, we can keep working on the project and see.
+ * 
+ * -- Currently the file information that is added to the table is not being saved
+ *    so once the table window is closed the information is lost. 
+ *    future implementations should make this information permanent. 
  * 
  * 
  * 
  * 
  * Resolved Issues:
- * --Table has an initialized Table Model* ([Default]) *(tableModel)
- * --Data of rows is now an initialized variable* ([data1, data2]) *(null)
- * --TBA
- * --Data in rows on columns are not setting from the FileChooser* *(Class: SearchItFileIO)
- *-- got all the row information to work and be added to the table
+ * -- Table has an initialized Table Model* ([Default]) *(tableModel)
+ * -- Data of rows is now an initialized variable* ([data1, data2]) *(null)
+ * -- Data in rows on columns are not setting from the FileChooser* *(Class: SearchItFileIO)
+ * -- All the row information to work and be added to the table
+ * -- Removed place holders: filename, pathname, and date.
  * 
  */
 
@@ -47,7 +48,7 @@ import javax.swing.table.TableModel;
 
 public class SearchItTables {
 
-	@TeamRviewRequired
+	
 	// if this line is commented out, there are no issues
 	// is this required?
 	public static final String tableModel = null;
@@ -58,9 +59,7 @@ public class SearchItTables {
 
 	// dummy-temporary database
 	// variable used by tableDataGatherer
-	public static String[][] fileInfo = { { "FileName1", "FilePath1", "FileDate1" },
-			{ "FileName2", "FilePath2", "FileDate2" }, { "FileName3", "FilePath3", "FileDate3" },
-			{ "FileName4", "FilePath4", "FileDate4" }, { "FileName5", "FilePath5", "FileDate5" }, };
+	public static String[][] fileInfo = {};
 
 	// This is the method that adds the row
 	// receives variable:fileToAddInfoTable from class:SearchItFileIO method:getPath

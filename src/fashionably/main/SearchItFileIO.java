@@ -126,12 +126,14 @@ public class SearchItFileIO {
 		
 		try {
 			
-			FileWriter jsonFileWriter = new FileWriter("JSON.txt");
+			FileWriter jsonFileWriter = new FileWriter("JSON.txt", true);
 			jsonFileWriter.write(jsonObject.toString());
 			jsonFileWriter.flush();
 			jsonFileWriter.close();
 			System.out.println(jsonObject);
-		}catch(IOException e) {
+		}
+		catch(IOException e) 
+		{
 			e.printStackTrace();
 			
 		}

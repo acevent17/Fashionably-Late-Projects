@@ -4,7 +4,6 @@
  * Changes are displayed below:
  * --Changed fileChooser to a Global Variable
  * --Added a get and display method for the file path
- * --TBA
  * --added variable to the getPath method
  * --added compatibility between getPath and SearchItTables classes.
  * --completed the file info variable shared between method:getPath and method:addFileListener
@@ -13,7 +12,10 @@
  *
  * 
  * Current Issues are displayed below:
- * 
+ * -- JSON needs to provide a new line to the .txt file
+ * -- JSON needs to pre load the .txt file
+ * -- JSON needs to read the .txt file  
+ *  
  *  
  * Resolved Issues:
  *  --Created get and display method for the file path 
@@ -122,6 +124,7 @@ public class SearchItFileIO {
 		// Saves to the txt file, but will over write.
 
 		jsonArray.put(fileRowInfo);
+		
 		jsonObject.put("", jsonArray);
 		
 		try {

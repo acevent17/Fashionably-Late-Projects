@@ -28,12 +28,16 @@
 package fashionably.main;
 
 import java.io.File;
-
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 //Importing classes from main package 
 import fashionably.main.SearchItMaintenance;
@@ -105,7 +109,32 @@ public class SearchItFileIO {
 		 *
 		 *
 		 */
+		
+		// JSON set up 
+		JSONObject jsonObject = new JSONObject();
+		
+		// could be used later 
+		//jsonObject.put("Name", "blank");
+	
+		JSONArray jsonArray = new JSONArray();
+		
+		// Writes the name, path, and date to the txt file. 
+		// Saves to the txt file, but will over write.
 
+		jsonArray.put(fileRowInfo);
+		jsonObject.put("", jsonArray);
+		
+		try {
+			
+			FileWriter jsonFileWriter = new FileWriter("JSON.txt");
+			jsonFileWriter.write(jsonObject.toString());
+			jsonFileWriter.flush();
+			jsonFileWriter.close();
+			System.out.println(jsonObject);
+		}catch(IOException e) {
+			e.printStackTrace();
+			
+		}
 	}
 
 }

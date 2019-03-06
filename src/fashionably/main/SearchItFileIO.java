@@ -29,17 +29,18 @@
  */
 package fashionably.main;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.*;
 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.json.*;
+
 
 //Importing classes from main package 
 import fashionably.main.SearchItMaintenance;
@@ -63,7 +64,6 @@ public class SearchItFileIO {
 			// Gets and displays the File Path
 			getPath();
 		}
-
 	}
 
 	// Variables used by method:getPath
@@ -100,46 +100,50 @@ public class SearchItFileIO {
 
 		// Variable sent to class:SerachItTables method:addFileListener
 		SearchItTables.addFileListener(fileRowInfo);
-
-		/*
-		 * This section is used for testing the file information gathered
-		 * 
-		 * 
-		 * System.out.println(filePath); System.out.println(fileName);
-		 * System.out.println(fileDateString);
-		 *
-		 *
-		 *
-		 */
 		
-		// JSON set up 
-		JSONObject jsonObject = new JSONObject();
 		
-		// could be used later 
-		//jsonObject.put("Name", "blank");
+		// - delete if not used after next commit
+		// JSON set up not needed right now 
+		// JSONObject jsonObject = new JSONObject();
+		
+		//  could be used later 
+		 //jsonObject.put("Name", "blank");
 	
-		JSONArray jsonArray = new JSONArray();
+		//JSONArray list = new JSONArray();
+		//list.add(fileName);
+		//list.add(filePath);
+		//list.add(fileDateLong);
 		
-		// Writes the name, path, and date to the txt file. 
-		// Saves to the txt file, but will over write.
-
-		jsonArray.put(fileRowInfo);
+		//jsonObject.put("courses", list);
 		
-		jsonObject.put("", jsonArray);
+		//try(FileWriter file = new FileWriter("JSON.txt"))
+		//{
+			//file.write(jsonObject.toString());
+			//file.flush();
+			//file.close();
+		//}
+		//catch(IOException e)
+		//{
+			//e.printStackTrace();
+		//}
 		
-		try {
+		// Writes to JSON.txt file
+		try 
+			(FileWriter writer = new FileWriter("JSON.txt", true);
+			BufferedWriter buffWrite = new BufferedWriter(writer);
+			PrintWriter p = new PrintWriter(buffWrite);) {
 			
-			FileWriter jsonFileWriter = new FileWriter("JSON.txt", true);
-			jsonFileWriter.write(jsonObject.toString());
-			jsonFileWriter.flush();
-			jsonFileWriter.close();
-			System.out.println(jsonObject);
+			 //Writes the name, path, and date to the text file. 
+			 //Saves to the text file, but will over write.
+			p.print(fileName);
+			p.print(";");
+			p.print(filePath);
+			p.print(";");
+			p.println(fileDateString);  
 		}
 		catch(IOException e) 
 		{
 			e.printStackTrace();
-			
 		}
 	}
-
 }

@@ -41,6 +41,9 @@
 package fashionably.main;
 
 import java.awt.Component;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -48,16 +51,12 @@ import javax.swing.table.TableModel;
 
 public class SearchItTables {
 
-	
-	// if this line is commented out, there are no issues
-	// is this required?
-	public static final String tableModel = null;
 
 	// table variable
 	// it was made static to be able to edit table
 	static JTable indexTable;
 
-	// dummy-temporary database
+	
 	// variable used by tableDataGatherer
 	public static String[][] fileInfo = {};
 
@@ -100,22 +99,56 @@ public class SearchItTables {
 
 	// method to create table
 	public static Component createTable() {
-
+		
 		// Column Names
 		String[] columns = new String[] { "File Name", "File Path", "Date Modified" };
 
 		// Change column String to Object to comply with DefaultTableModel parameters
 		Object[] columnObject = columns;
-
+		
 		Object[][] row = tableDataGatherer(fileInfo);
-
+		
 		// table creating code
 		DefaultTableModel tableModel = new DefaultTableModel(row, columnObject);
 		indexTable = new JTable(tableModel);
+		
+		     String read = ";";
 
+        try
+        {
+            BufferedReader reader = getFileReader();
+
+            //  First line will contain the column names
+
+            String line = reader.readLine();
+            tableModel.setColumnIdentifiers( line.split(read) );
+
+            //  Remaining lines in the file will be the data
+            
+            
+            
+            while ((line = reader.readLine()) != null)
+            {
+                tableModel.addRow( line.split(read) );
+            }
+
+            reader.close();
+        }
+        catch(Exception e) { System.out.println(e); }
+        
 		// Table Sizing and table variable return to SearchItMaintenance Class
 		indexTable.setPreferredScrollableViewportSize(indexTable.getPreferredSize());
+		
 		return indexTable;
-
+		
 	}
+    
+    private static BufferedReader getFileReader() throws FileNotFoundException
+    {
+        
+        BufferedReader reader = new BufferedReader( new FileReader("JSON.txt") );
+
+        return reader;
+    }
+	
 }

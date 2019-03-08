@@ -44,16 +44,20 @@ public class FashionablySearchIt {
 		/*
 		 * --This method is called from class:IndexChecker to check 
 		 * for any changes to the indexed information
+		 * 
+		 * 
+		 * 
+		 * --This should be a stand-alone method, then the method is called to main
 		 */
-		boolean indexBoolean = IndexChecker.IndexChangesCheck();
-		if (indexBoolean = true){
+	//	boolean indexBoolean = IndexChecker.IndexChangesCheck();
+	//	if (indexBoolean = true){
 			//update index file
 			//
-		}
-		else {
+	//	}
+	//	else {
 			//do nothing
 			//
-		};
+	//	};
 		
 
 		

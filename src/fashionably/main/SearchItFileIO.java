@@ -9,6 +9,7 @@
  * --completed the file info variable shared between method:getPath and method:addFileListener
  * --completed formating for date
  * --removed testing codes and comments
+ * --Changed date format display error
  *
  * 
  * Current Issues are displayed below:
@@ -36,10 +37,7 @@ import java.util.*;
 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
-import org.json.*;
 
 
 //Importing classes from main package 
@@ -60,7 +58,7 @@ public class SearchItFileIO {
 		// Shows FileChooserDialog Window
 		int returnVal = fileChooser.showOpenDialog(SearchItMaintenance.subMaintenanceFrame);
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
-
+ 
 			// Gets and displays the File Path
 			getPath();
 		}
@@ -91,7 +89,7 @@ public class SearchItFileIO {
 
 		// date converter
 		// The format is Day/Month/Year - Hour/Minutes/Seconds
-		SimpleDateFormat dateConverter = new SimpleDateFormat("dd//MM/yyy - hh:mm:ss");
+		SimpleDateFormat dateConverter = new SimpleDateFormat("dd/MM/yyy - hh:mm:ss");
 		fileDateString = dateConverter.format(new Date(fileDateLong));
 
 		// Variable sent to class:SerachItTables method:addFileListener with file

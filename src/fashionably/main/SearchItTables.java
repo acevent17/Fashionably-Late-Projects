@@ -70,13 +70,13 @@ public class SearchItTables {
 		
 		//boolean variable and if statement that will activate if the user
 		//adds or deletes any files from the database
-		boolean secondIndexBoolean = IndexChecker.IndexChangesCheck();
-		if(secondIndexBoolean = true) {
+	//	boolean secondIndexBoolean = IndexChecker.IndexChangesCheck();
+	//	if(secondIndexBoolean = true) {
 			//update index file
-		}
-		else {
+	//	}
+	//	else {
 			//do nothing?
-		}
+	//	}
 
 	}
 
@@ -112,7 +112,7 @@ public class SearchItTables {
 		DefaultTableModel tableModel = new DefaultTableModel(row, columnObject);
 		indexTable = new JTable(tableModel);
 		
-		     String read = ";";
+		   //  String read = ";";
 
         try
         {
@@ -120,17 +120,18 @@ public class SearchItTables {
 
             //  First line will contain the column names
 
-            String line = reader.readLine();
-            tableModel.setColumnIdentifiers( line.split(read) );
+           // String line = reader.readLine();
+           // tableModel.setColumnIdentifiers( line.split(read) );
 
             //  Remaining lines in the file will be the data
             
             
             
-            while ((line = reader.readLine()) != null)
-            {
-                tableModel.addRow( line.split(read) );
-            }
+          //  while ((line = reader.readLine()) != null)
+           // {
+          //      tableModel.addRow( line.split(read) );
+          //  }
+
 
             reader.close();
         }

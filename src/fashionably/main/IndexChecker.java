@@ -15,12 +15,12 @@ package fashionably.main;
 
 public class IndexChecker {
 	
-	public static boolean IndexChangesCheck(){
+	//public static boolean IndexChangesCheck(){
 		//Body for the method goes here
 		
 		//the false needs to be removed i the future
-		boolean indexChanges = false;
-		return indexChanges;
-	};
+	//	boolean indexChanges = false;
+	//	return indexChanges;
+//	};
 
 }

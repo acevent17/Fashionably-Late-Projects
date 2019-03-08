@@ -112,31 +112,34 @@ public class SearchItTables {
 
 		String read = ";";
 
-		try {
-			BufferedReader reader = getFileReader();
+        try
+        {
+            BufferedReader reader = getFileReader();
 
-			// First line will contain the column names
+            //  First line will contain the column names
 
-			String line = reader.readLine();
-			tableModel.setColumnIdentifiers(line.split(read));
+            
+            String line = null;
 
-			// Remaining lines in the file will be the data
+            	while ((line = reader.readLine()) != null)
+            	{
+            		
+            		tableModel.addRow( line.split(read) );
+      
+            	}
 
-			while ((line = reader.readLine()) != null) {
-				tableModel.addRow(line.split(read));
-
-			}
-
-			reader.close();
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-
+            reader.close();
+            
+           
+        }
+            
+        catch(Exception e) { e.printStackTrace(); }
+        
 		// Table Sizing and table variable return to SearchItMaintenance Class
 		indexTable.setPreferredScrollableViewportSize(indexTable.getPreferredSize());
-
+		
 		return indexTable;
-
+		
 	}
 
 	private static BufferedReader getFileReader() throws FileNotFoundException {

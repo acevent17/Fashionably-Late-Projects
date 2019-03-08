@@ -99,7 +99,7 @@ public class SearchItFileIO {
 		// Variable sent to class:SerachItTables method:addFileListener
 		SearchItTables.addFileListener(fileRowInfo);
 		
-		
+		/*
 		// - delete if not used after next commit
 		// JSON set up not needed right now 
 		// JSONObject jsonObject = new JSONObject();
@@ -126,6 +126,8 @@ public class SearchItFileIO {
 		//}
 		
 		// Writes to JSON.txt file
+		 * 
+		 */
 		try 
 			(FileWriter writer = new FileWriter("JSON.txt", true);
 			BufferedWriter buffWrite = new BufferedWriter(writer);

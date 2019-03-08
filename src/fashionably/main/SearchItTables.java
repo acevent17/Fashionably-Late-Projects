@@ -51,12 +51,10 @@ import javax.swing.table.TableModel;
 
 public class SearchItTables {
 
-
 	// table variable
 	// it was made static to be able to edit table
 	static JTable indexTable;
 
-	
 	// variable used by tableDataGatherer
 	public static String[][] fileInfo = {};
 
@@ -67,17 +65,17 @@ public class SearchItTables {
 		TableModel tableModelVar = indexTable.getModel();
 		DefaultTableModel addRowObject = (DefaultTableModel) tableModelVar;
 		addRowObject.addRow(fileToAddInfoTable);
-		
-		//boolean variable and if statement that will activate if the user
-		//adds or deletes any files from the database
-	//	boolean secondIndexBoolean = IndexChecker.IndexChangesCheck();
-	//	if(secondIndexBoolean = true) {
-			//update index file
-	//	}
-	//	else {
-			//do nothing?
-	//	}
 
+		/*
+		 * //boolean variable and if statement that will activate if the user adds or
+		 * deletes any files from the database
+		 * boolean secondIndexBoolean = IndexChecker.IndexChangesCheck(); 
+		 * if(secondIndexBoolean = true) { 
+		 * update index file
+		 * }else{ 
+		 * do nothing?
+		 * }
+		 */
 	}
 
 	// Dynamic Table Code
@@ -99,57 +97,53 @@ public class SearchItTables {
 
 	// method to create table
 	public static Component createTable() {
-		
+
 		// Column Names
 		String[] columns = new String[] { "File Name", "File Path", "Date Modified" };
 
 		// Change column String to Object to comply with DefaultTableModel parameters
 		Object[] columnObject = columns;
-		
+
 		Object[][] row = tableDataGatherer(fileInfo);
-		
+
 		// table creating code
 		DefaultTableModel tableModel = new DefaultTableModel(row, columnObject);
 		indexTable = new JTable(tableModel);
-		
-		   //  String read = ";";
 
-        try
-        {
-            BufferedReader reader = getFileReader();
+		String read = ";";
 
-            //  First line will contain the column names
+		try {
+			BufferedReader reader = getFileReader();
 
-           // String line = reader.readLine();
-           // tableModel.setColumnIdentifiers( line.split(read) );
+			// First line will contain the column names
 
-            //  Remaining lines in the file will be the data
-            
-            
-            
-          //  while ((line = reader.readLine()) != null)
-           // {
-          //      tableModel.addRow( line.split(read) );
-          //  }
+			String line = reader.readLine();
+			tableModel.setColumnIdentifiers(line.split(read));
 
+			// Remaining lines in the file will be the data
 
-            reader.close();
-        }
-        catch(Exception e) { System.out.println(e); }
-        
+			while ((line = reader.readLine()) != null) {
+				tableModel.addRow(line.split(read));
+
+			}
+
+			reader.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
 		// Table Sizing and table variable return to SearchItMaintenance Class
 		indexTable.setPreferredScrollableViewportSize(indexTable.getPreferredSize());
-		
-		return indexTable;
-		
-	}
-    
-    private static BufferedReader getFileReader() throws FileNotFoundException
-    {
-        
-        BufferedReader reader = new BufferedReader( new FileReader("JSON.txt") );
 
-        return reader;
-    }
-	
+		return indexTable;
+
+	}
+
+	private static BufferedReader getFileReader() throws FileNotFoundException {
+
+		BufferedReader reader = new BufferedReader(new FileReader("JSON.txt"));
+
+		return reader;
+	}
+
 }

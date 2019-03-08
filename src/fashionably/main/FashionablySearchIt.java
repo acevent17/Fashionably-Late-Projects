@@ -38,36 +38,34 @@ import fashionably.framework.SearchItFramework;
 
 public class FashionablySearchIt {
 	public static void main(String args[]) {
-		
-		
-		//ReadJsonFile.banana();
+
 		/*
-		 * --This method is called from class:IndexChecker to check 
-		 * for any changes to the indexed information
+		 * --This method is called from class:IndexChecker to check for any changes to
+		 * the indexed information
 		 * 
 		 * 
 		 * 
 		 * --This should be a stand-alone method, then the method is called to main
+		 * --Only method names should exist in the main class.
+		 * 
+		 * 
+		 * ReadJsonFile.banana();
+		 * boolean indexBoolean = IndexChecker.IndexChangesCheck();
+		 * if (indexBoolean = true){ 
+		 * update index file 
+		 * } else { 
+		 * do nothing 
+		 * };
+		 * 
 		 */
-	//	boolean indexBoolean = IndexChecker.IndexChangesCheck();
-	//	if (indexBoolean = true){
-			//update index file
-			//
-	//	}
-	//	else {
-			//do nothing
-			//
-	//	};
-		
 
-		
-		//Main part of the Program
+		// Main part of the Program
 		SearchItFramework.createSearchEngine();
-		
+
 		/*
-		 * -This hook will be used in the future to store the last, most updated table information into
-		 * persistent storage.
-		 * -right now it only uses the printed message to show capability
+		 * -This hook will be used in the future to store the last, most updated table
+		 * information into persistent storage. -right now it only uses the printed
+		 * message to show capability
 		 */
 		Runtime.getRuntime().addShutdownHook(new Thread() {
 			public void run() {

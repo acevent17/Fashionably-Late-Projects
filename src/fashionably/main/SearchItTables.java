@@ -88,8 +88,14 @@ public class SearchItTables {
 
 		TableModel tableModelDetach = indexTable.getModel();
 		DefaultTableModel removeRowObject = (DefaultTableModel) tableModelDetach;
-		removeRowObject.removeRow(fileToAddInfoTable);
-
+		
+		try {
+		int SelectedRowIndex = indexTable.getSelectedRow();
+		removeRowObject.removeRow(SelectedRowIndex);
+		}
+		catch(Exception ex){
+			
+		}
 		PrintWriter writer = new PrintWriter("JSON.txt");
 		writer.print("");
 		writer.close();

@@ -83,6 +83,7 @@ public class SearchItTables {
 	 * 
 	 * -- To be Added: Popup confirmation dialog (YES / NO / CANCEL)
 	 */
+	
 	public static void removeFileIndex(int fileToAddInfoTable)
 			throws FileNotFoundException {
 
@@ -94,7 +95,7 @@ public class SearchItTables {
 		removeRowObject.removeRow(SelectedRowIndex);
 		}
 		catch(Exception ex){
-			
+			ex.printStackTrace();
 		}
 		PrintWriter writer = new PrintWriter("JSON.txt");
 		writer.print("");

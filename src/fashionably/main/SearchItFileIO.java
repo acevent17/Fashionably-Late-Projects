@@ -4,11 +4,11 @@
  * Changes are displayed below:
  * --Changed fileChooser to a Global Variable
  * --Added a get and display method for the file path
- * --added variable to the getPath method
- * --added compatibility between getPath and SearchItTables classes.
- * --completed the file info variable shared between method:getPath and method:addFileListener
- * --completed formating for date
- * --removed testing codes and comments
+ * --Added return to the getPath method
+ * --Added compatibility between getPath and SearchItTables classes.
+ * --Completed the file info variable shared between method:getPath and method:addFileListener
+ * --Completed formating for date
+ * --Removed testing codes and comments
  * --Changed date format display error
  *
  * 

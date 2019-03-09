@@ -5,6 +5,7 @@
  * Changes are displayed below:
  * --Created class specifically for Maintenance functionality
  * --Changed menu item from "About Page" to "About"
+ * --Added RemoveFileIndex event
  * 
  * 
  * Current Issues are displayed below:
@@ -27,6 +28,7 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.FileNotFoundException;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -121,6 +123,17 @@ public class SearchItMaintenance {
 		// Adding Table to SubFrame
 		subMaintenanceFrame.add(new JScrollPane(SearchItTables.createTable()));
 		subMaintenanceFrame.setVisible(true);
+
+		// Remove File Handler. See(*SearchItTables.RemoveFileIndex());)
+		subRemoveFile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					SearchItTables.removeFileIndex(0);
+				} catch (FileNotFoundException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
 
 		subAboutPage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

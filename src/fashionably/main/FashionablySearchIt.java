@@ -1,5 +1,5 @@
 /*
- * Info: Current Version: 1.2.0
+ * Info: Current Version: 1.2.0-25
  * 
  * Created separate classes to clean up code and better organize / distribute work amongst group members.
  * Make note of the package names and imports.
@@ -39,7 +39,7 @@ import fashionably.framework.SearchItFramework;
 public class FashionablySearchIt {
 	public static void main(String args[]) {
 
-		/*
+		/* !!!!--REMOVE OR IMPLIMENT BEFORE FINAL TURN-IN--!!!!
 		 * --This method is called from class:IndexChecker to check for any changes to
 		 * the indexed information
 		 * 
@@ -47,6 +47,7 @@ public class FashionablySearchIt {
 		 * 
 		 * --This should be a stand-alone method, then the method is called to main
 		 * --Only method names should exist in the main class.
+		 * 
 		 * 
 		 * 
 		 * ReadJsonFile.banana();

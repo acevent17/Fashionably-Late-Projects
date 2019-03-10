@@ -135,7 +135,8 @@ public class SearchItTables {
 		// Creating Table
 		DefaultTableModel tableModel = new DefaultTableModel(row, columnObject);
 		indexTable = new JTable(tableModel);
-
+		
+		
 		String read = ";";
 
 		try {
@@ -160,9 +161,9 @@ public class SearchItTables {
 		}
 
 		// Table Sizing and table variable return to SearchItMaintenance Class
-		indexTable.setPreferredScrollableViewportSize(indexTable
-				.getPreferredSize());
+		indexTable.setPreferredScrollableViewportSize(indexTable.getPreferredSize());
 
+		
 		return indexTable;
 
 	}
@@ -173,5 +174,5 @@ public class SearchItTables {
 
 		return reader;
 	}
-
+	
 }

@@ -42,11 +42,10 @@ import javax.swing.JScrollPane;
 import fashionably.main.SearchItTables;
 
 public class SearchItMaintenance {
-
+	
 	public static final Component subMaintenanceFrame = null;
 
 	public static void createSubMaintenance() {
-
 		// Sub Maintenance Frame
 		final JFrame subMaintenanceFrame = new JFrame();
 
@@ -61,11 +60,14 @@ public class SearchItMaintenance {
 		JPanel maintenancePanel = new JPanel();
 		maintenancePanel.add(new JLabel("Search Engine - Index Maintenance"));
 		subMaintenanceFrame.add(maintenancePanel, BorderLayout.NORTH);
-
-		JLabel labelFileNumber = new JLabel("Number of files indexed: 0");
+		
+		
+		
+		JLabel labelFileNumber = new JLabel();
 		labelFileNumber.setBounds(180, 395, 160, 30);
 		JLabel labelVersion = new JLabel("Search Engine Version 1.2");
 		labelVersion.setBounds(420, 395, 160, 30);
+
 
 		// Menu Bar
 		JMenuBar menubar = new JMenuBar();
@@ -119,11 +121,16 @@ public class SearchItMaintenance {
 
 		// Table Creation
 		SearchItTables.createTable();
-
+		
 		// Adding Table to SubFrame
 		subMaintenanceFrame.add(new JScrollPane(SearchItTables.createTable()));
 		subMaintenanceFrame.setVisible(true);
-
+		
+		// Setting a count for rows indexed
+		int rows = SearchItTables.indexTable.getRowCount();
+		labelFileNumber.setText("Number of files indexed: " + String.valueOf(rows));
+		
+		
 		// Remove File Handler. See(*SearchItTables.RemoveFileIndex());)
 		subRemoveFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

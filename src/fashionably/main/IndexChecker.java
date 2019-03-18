@@ -27,7 +27,20 @@ import java.text.SimpleDateFormat;
 //	 }
 // }
 
-//public class IndexChecker {
+public class IndexChecker {
+	
+	// How to get the file last modified date
+	public static void LastModified() {
+		
+		File file1 = new File("JSON.txt");
+		
+		System.out.println("Before Format : " + file1.lastModified());
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+			
+		System.out.println("After Format : " + sdf.format(file1.lastModified()));	
+	}
+}
 
 // public static boolean IndexChangesCheck(){
 // Body for the method goes here

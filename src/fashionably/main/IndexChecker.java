@@ -1,5 +1,10 @@
 package fashionably.main;
 
+import static java.lang.System.*;
+import java.io.File;
+import java.text.SimpleDateFormat;
+
+
 /*
  * -This class will be used to check the indexed information for the following
  * information --any added files --any deleted files --changed files
@@ -13,14 +18,15 @@ package fashionably.main;
 
 //Checks to see if added files are duplicates
 //not working
- public static <T> boolean containsUnique(List<T> list) {
-	 Set<T> = new HashSet<>();
-	 
-	 for(T t: list) {
-		 if(!set.add(t))
-			 return false;
-	 }
- }
+// public static <T> boolean containsUnique(List<T> list) {
+//	 Set<T> = new HashSet<>();
+//	 
+//	 for(T t: list) {
+//		 if(!set.add(t))
+//			 return false;
+//	 }
+// }
+
 //public class IndexChecker {
 
 // public static boolean IndexChangesCheck(){

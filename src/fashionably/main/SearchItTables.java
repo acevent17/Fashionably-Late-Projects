@@ -41,11 +41,13 @@ import java.awt.Component;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.PrintWriter;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 public class SearchItTables {
 
@@ -135,8 +137,10 @@ public class SearchItTables {
 		// Creating Table
 		DefaultTableModel tableModel = new DefaultTableModel(row, columnObject);
 		indexTable = new JTable(tableModel);
-		
-		
+		for (int i = 0; i < tableModel.getRowCount(); i++) {
+			tableModel.setValueAt(i, i, 0);
+		}
+			
 		String read = ";";
 
 		try {
@@ -167,6 +171,9 @@ public class SearchItTables {
 		return indexTable;
 
 	}
+	
+	
+	
 
 	private static BufferedReader getFileReader() throws FileNotFoundException {
 
@@ -174,5 +181,5 @@ public class SearchItTables {
 
 		return reader;
 	}
-	
-}
+}	
+

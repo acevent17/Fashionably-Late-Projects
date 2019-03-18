@@ -11,6 +11,16 @@ package fashionably.main;
  * 
  */
 
+//Checks to see if added files are duplicates
+//not working
+ public static <T> boolean containsUnique(List<T> list) {
+	 Set<T> = new HashSet<>();
+	 
+	 for(T t: list) {
+		 if(!set.add(t))
+			 return false;
+	 }
+ }
 //public class IndexChecker {
 
 // public static boolean IndexChangesCheck(){

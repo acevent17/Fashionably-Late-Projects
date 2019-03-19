@@ -31,24 +31,14 @@ public class IndexChecker {
 	// Gets Last Modified Date of selected file.
 	public static void LastModified() {
 		
-		File file1 = new File("JSON.txt");
+		//File indexedFile = new File("JSON.txt");
 		
-		System.out.println("Before Format : " + file1.lastModified());
+		//System.out.println("Before Format : " + indexedFile.lastModified());
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		//SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 			
-		System.out.println("After Format : " + sdf.format(file1.lastModified()));	
+		//System.out.println("After Format : " + dateFormat.format(indexedFile.lastModified()));	
 		
-//		boolean compare1and2 = FileUtils.contentEquals(file1, file2);
-//		
-//		System.out.println("Are File 1 and File 2 similar?" + compare1and2);
-//		
-//		if(filepath.equals() != filepath) {
-//			System.out.println("File has changed!");
-//		}else {
-//			System.out.println("Duplicate File");
-//		}
-//		
 	}
 }
 // public static boolean IndexChangesCheck(){

@@ -38,7 +38,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.SwingUtilities;
 
 //Importing classes from main package
 import fashionably.main.SearchItTables;
@@ -70,20 +69,20 @@ public class SearchItMaintenance {
 
 		// Menu Bar
 		JMenuBar menubar = new JMenuBar();
-		
+
 		// File
 		JMenu menuFile = new JMenu("File");
 		menuFile.setMnemonic(KeyEvent.VK_F);
-		
+
 		// Edit
 		JMenu menuEdit = new JMenu("Edit");
 		menuEdit.setMnemonic(KeyEvent.VK_E);
-		
+
 		// Help
 		JMenu menuHelp = new JMenu("Help");
 		menuHelp.setMnemonic(KeyEvent.VK_H);
 
-		//Adding the Menu Bar
+		// Adding the Menu Bar
 		subMaintenanceFrame.setJMenuBar(menubar);
 
 		// Menu Items
@@ -120,7 +119,7 @@ public class SearchItMaintenance {
 
 		// Tool Tips
 		subAddFile.setToolTipText("Adds file to table");
-		subRebuild.setToolTipText("Rebuilds table?");
+		subRebuild.setToolTipText("Rebuilds table");
 		subRemoveFile.setToolTipText("Removes file from table");
 		subResetWindow.setToolTipText("Resets window to original state");
 		subAboutPage.setToolTipText("Shows information about this project");

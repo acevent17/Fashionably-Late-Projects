@@ -38,27 +38,27 @@ import java.util.*;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
 
-
-
 //Importing classes from main package 
 import fashionably.main.SearchItMaintenance;
-
 //Class to handle file view, file selection, file addition and file deletion. 
 //Takes no variables
 //Sends variable type String to method addFileListener in the SearchItTables class
+
 public class SearchItFileIO {
 
 	// Global Variable for FileChooser (Needed to get and display as separate
 	// method)
-	static JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+	static JFileChooser fileChooser = new JFileChooser(FileSystemView
+			.getFileSystemView().getHomeDirectory());
 
 	public static void fileHandler() {
 		fileChooser.setAcceptAllFileFilterUsed(false);
 
 		// Shows FileChooserDialog Window
-		int returnVal = fileChooser.showOpenDialog(SearchItMaintenance.subMaintenanceFrame);
+		int returnVal = fileChooser
+				.showOpenDialog(SearchItMaintenance.subMaintenanceFrame);
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
- 
+
 			// Gets and displays the File Path
 			getPath();
 		}
@@ -69,7 +69,6 @@ public class SearchItFileIO {
 	public static String fileName;
 	public static long fileDateLong;
 	public static String fileDateString;
-
 
 	// Gets path of file
 	public static void getPath() {
@@ -85,33 +84,34 @@ public class SearchItFileIO {
 
 		// date converter
 		// The format is Day/Month/Year - Hour/Minutes/Seconds
-		SimpleDateFormat dateConverter = new SimpleDateFormat("dd/MM/yyy - hh:mm:ss");
+		SimpleDateFormat dateConverter = new SimpleDateFormat(
+				"dd/MM/yyy-hh:mm:ss");
 		fileDateString = dateConverter.format(new Date(fileDateLong));
 
-		// Variable sent to class:SerachItTables method:addFileListener with file
+		// Variable sent to class:SerachItTables method:addFileListener with
+		// file
 		// information
-		String[] fileRowInfo = new String[] { fileName, filePath, fileDateString };
+		String[] fileRowInfo = new String[] { fileName, filePath,
+				fileDateString };
 
 		// Variable sent to class:SerachItTables method:addFileListener
 		SearchItTables.addFileListener(fileRowInfo);
-		
-		
-		try 
-			//Creating a writers necessary for the "JSON.txt" file
-			(FileWriter writer = new FileWriter("JSON.txt", true);
-			BufferedWriter buffWrite = new BufferedWriter(writer);
-			PrintWriter p = new PrintWriter(buffWrite);) {
-			
-			 //Writes the name, path, and date to the text file. 
-			 //Saves to the text file, but will overwrite.
+
+		try
+		// Creating a writers necessary for the "Index.txt" file
+		(FileWriter writer = new FileWriter("Index.txt", true);
+				BufferedWriter buffWrite = new BufferedWriter(writer);
+				PrintWriter p = new PrintWriter(buffWrite);) {
+
+			// Writes the name, path, and date to the text file.
+			// Saves to the text file, but will overwrite.
 			p.print(fileName);
-			p.print(";");
+			p.print(", ");
 			p.print(filePath);
-			p.print(";");
-			p.println(fileDateString);  
-		}
-		catch(IOException e) 
-		{
+			p.print(", ");
+			p.println(fileDateString);
+
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}

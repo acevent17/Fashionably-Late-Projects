@@ -39,6 +39,7 @@ package fashionably.main;
 
 import java.awt.Component;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -85,16 +86,19 @@ public class SearchItTables {
 		DefaultTableModel removeRowObject = (DefaultTableModel) tableModelDetach;
 		
 		try {
-		int SelectedRowIndex = indexTable.getSelectedRow();
-		removeRowObject.removeRow(SelectedRowIndex);
+		int selectedRowIndex = indexTable.getSelectedRow();
+		removeRowObject.removeRow(selectedRowIndex);
 		}
 		catch(Exception ex){
 			ex.printStackTrace();
 		}
-		PrintWriter writer = new PrintWriter("JSON.txt");
-		writer.print("");
-		writer.close();
+		PrintWriter writer = new PrintWriter("Index.txt");
+		if(indexTable.getSelectedRow() == indexTable.getSelectedRow()){
+			writer.print("");
+			writer.close();	
+		}
 	}
+	
 
 	// Dynamic Table Code
 	// receives variable:dataBaseArray from method:createTable
@@ -133,7 +137,7 @@ public class SearchItTables {
 			tableModel.setValueAt(i, i, 0);
 		}
 			
-		String read = ";";
+		String read = ",";
 
 		try {
 			BufferedReader reader = getFileReader();
@@ -168,7 +172,7 @@ public class SearchItTables {
 
 	private static BufferedReader getFileReader() throws FileNotFoundException {
 
-		BufferedReader reader = new BufferedReader(new FileReader("JSON.txt"));
+		BufferedReader reader = new BufferedReader(new FileReader("Index.txt"));
 
 		return reader;
 	}

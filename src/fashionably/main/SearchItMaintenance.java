@@ -6,6 +6,7 @@
  * --Created class specifically for Maintenance functionality
  * --Changed menu item from "About Page" to "About"
  * --Added RemoveFileIndex event
+ * --Removed Index counter
  * 
  * 
  * Current Issues are displayed below:
@@ -132,8 +133,8 @@ public class SearchItMaintenance {
 		subMaintenanceFrame.setVisible(true);
 		
 		// Setting a count for rows indexed
-		int rows = SearchItTables.indexTable.getRowCount();
-		labelFileNumber.setText("Number of files indexed: " + rows);
+		//int rows = SearchItTables.indexTable.getRowCount();
+		//labelFileNumber.setText("Number of files indexed: " + rows);
 		//ItemsIndexed.setText(SearchItTables.indexTable.getRowCount());
 		subMaintenanceFrame.validate();
 		

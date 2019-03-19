@@ -62,6 +62,7 @@ public class FashionablySearchIt {
 
 		// Main part of the Program
 		SearchItFramework.createSearchEngine();
+		
 
 		/*
 		 * -This hook will be used in the future to store the last, most updated table

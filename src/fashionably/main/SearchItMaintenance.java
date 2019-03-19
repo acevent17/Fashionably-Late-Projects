@@ -86,6 +86,7 @@ public class SearchItMaintenance {
 		final JMenuItem subAddFile = new JMenuItem("Add File");
 		JMenuItem subRebuild = new JMenuItem("Rebuild");
 		JMenuItem subRemoveFile = new JMenuItem("Remove File");
+		JMenuItem subModified = new JMenuItem("Check if Modifed");
 		JMenuItem subResetWindow = new JMenuItem("Reset Window");
 		JMenuItem subAboutPage = new JMenuItem("About");
 
@@ -102,6 +103,7 @@ public class SearchItMaintenance {
 		menuFile.add(subAddFile);
 		menuEdit.add(subRebuild);
 		menuEdit.add(subRemoveFile);
+		menuEdit.add(subModified);
 		menuEdit.add(subResetWindow);
 		menuHelp.add(subAboutPage);
 
@@ -151,6 +153,12 @@ public class SearchItMaintenance {
 		subAddFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SearchItFileIO.fileHandler();
+			}
+		});
+		
+		subModified.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				IndexChecker.LastModified();
 			}
 		});
 	}

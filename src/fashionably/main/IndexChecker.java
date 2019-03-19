@@ -2,7 +2,10 @@ package fashionably.main;
 
 import static java.lang.System.*;
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
+
+import org.apache.commons.io.FileUtils;
 
 
 /*
@@ -33,15 +36,26 @@ public class IndexChecker {
 	public static void LastModified() {
 		
 		File file1 = new File("JSON.txt");
+		File file2 = new File("JSON.txt");
 		
 		System.out.println("Before Format : " + file1.lastModified());
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 			
 		System.out.println("After Format : " + sdf.format(file1.lastModified()));	
+		
+//		boolean compare1and2 = FileUtils.contentEquals(file1, file2);
+//		
+//		System.out.println("Are File 1 and File 2 similar?" + compare1and2);
+//		
+//		if(filepath.equals() != filepath) {
+//			System.out.println("File has changed!");
+//		}else {
+//			System.out.println("Duplicate File");
+//		}
+//		
 	}
 }
-
 // public static boolean IndexChangesCheck(){
 // Body for the method goes here
 

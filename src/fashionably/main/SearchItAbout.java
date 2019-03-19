@@ -77,7 +77,7 @@ public class SearchItAbout {
 		aboutSubFrame.add(classLabel);
 		aboutSubFrame.add(versionLabel);
 
-		//
+		// Centers About Frame
 		aboutSubFrame.setLayout(null);
 	}
 }

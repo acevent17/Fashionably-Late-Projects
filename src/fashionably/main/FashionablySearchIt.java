@@ -1,5 +1,5 @@
 /*
- * Info: Current Version: 1.2.0-25
+ * Info: Current Version: 1.2.0-35
  * 
  * Created separate classes to clean up code and better organize / distribute work amongst group members.
  * Make note of the package names and imports.
@@ -21,14 +21,15 @@
  * 
  * 
  * Current Issues are displayed below:
- * --Table needs to import file path into data field
- * --Table needs to save last import path when closing
- * --When Search Engine Initializes, files need to be checked and compared to date of being added to table
+ * --When Search Engine Initializes, files need to be checked and compared to last modified date of file
+ * --ID for added file paths need to be added
+ * 
+ * 
  * 
  * 
  * Resolved Issues:
- * --TBA
- * 
+ * --Table imports file path into data field
+ * --Table saves last import path when closing
  */
 
 package fashionably.main;
@@ -39,28 +40,7 @@ import fashionably.framework.SearchItFramework;
 public class FashionablySearchIt {
 	public static void main(String args[]) {
 
-		/* !!!!--REMOVE OR IMPLIMENT BEFORE FINAL TURN-IN--!!!!
-		 * --This method is called from class:IndexChecker to check for any changes to
-		 * the indexed information
-		 * 
-		 * 
-		 * 
-		 * --This should be a stand-alone method, then the method is called to main
-		 * --Only method names should exist in the main class.
-		 * 
-		 * 
-		 * 
-		 * ReadJsonFile.banana();
-		 * boolean indexBoolean = IndexChecker.IndexChangesCheck();
-		 * if (indexBoolean = true){ 
-		 * update index file 
-		 * } else { 
-		 * do nothing 
-		 * };
-		 * 
-		 */
-
-		// Main part of the Program
+		// Handles Framework of Maintenance Page
 		SearchItFramework.createSearchEngine();
 		
 

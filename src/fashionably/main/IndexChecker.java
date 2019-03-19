@@ -1,8 +1,6 @@
 package fashionably.main;
 
-import static java.lang.System.*;
 import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 
@@ -30,11 +28,10 @@ import java.text.SimpleDateFormat;
 
 public class IndexChecker {
 	
-	// How to get the file last modified date
+	// Gets Last Modified Date of selected file.
 	public static void LastModified() {
 		
 		File file1 = new File("JSON.txt");
-		File file2 = new File("JSON.txt");
 		
 		System.out.println("Before Format : " + file1.lastModified());
 		

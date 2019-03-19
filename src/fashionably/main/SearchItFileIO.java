@@ -64,18 +64,14 @@ public class SearchItFileIO {
 		}
 	}
 
-	// Variables used by method:getPath
+	// Variables used by getPath method
 	public static String filePath;
 	public static String fileName;
 	public static long fileDateLong;
 	public static String fileDateString;
 
-	
-	// team: please review and make sure all methods used here should be within the
-	// getPath()
-	// or if they should be moved to the fileHandler
-	//
-	// Method in charge of getting file path
+
+	// Gets path of file
 	public static void getPath() {
 
 		// file selector
@@ -99,42 +95,15 @@ public class SearchItFileIO {
 		// Variable sent to class:SerachItTables method:addFileListener
 		SearchItTables.addFileListener(fileRowInfo);
 		
-		/*
-		// - delete if not used after next commit
-		// JSON set up not needed right now 
-		// JSONObject jsonObject = new JSONObject();
 		
-		//  could be used later 
-		 //jsonObject.put("Name", "blank");
-	
-		//JSONArray list = new JSONArray();
-		//list.add(fileName);
-		//list.add(filePath);
-		//list.add(fileDateLong);
-		
-		//jsonObject.put("courses", list);
-		
-		//try(FileWriter file = new FileWriter("JSON.txt"))
-		//{
-			//file.write(jsonObject.toString());
-			//file.flush();
-			//file.close();
-		//}
-		//catch(IOException e)
-		//{
-			//e.printStackTrace();
-		//}
-		
-		// Writes to JSON.txt file
-		 * 
-		 */
 		try 
+			//Creating a writers necessary for the "JSON.txt" file
 			(FileWriter writer = new FileWriter("JSON.txt", true);
 			BufferedWriter buffWrite = new BufferedWriter(writer);
 			PrintWriter p = new PrintWriter(buffWrite);) {
 			
 			 //Writes the name, path, and date to the text file. 
-			 //Saves to the text file, but will over write.
+			 //Saves to the text file, but will overwrite.
 			p.print(fileName);
 			p.print(";");
 			p.print(filePath);

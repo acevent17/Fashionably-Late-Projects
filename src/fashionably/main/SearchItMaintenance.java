@@ -44,15 +44,14 @@ import javax.swing.SwingUtilities;
 import fashionably.main.SearchItTables;
 
 public class SearchItMaintenance {
-	
+
 	public static final Component subMaintenanceFrame = null;
 
 	public static void createSubMaintenance() {
 		// Sub Maintenance Frame
 		final JFrame subMaintenanceFrame = new JFrame();
-		
-		//final JLabel ItemsIndexed = new JLabel("0");
 
+		// Frame Positioning
 		subMaintenanceFrame.setVisible(true);
 		subMaintenanceFrame.setSize(700, 500);
 		subMaintenanceFrame.setLocation(1000, 350);
@@ -64,26 +63,27 @@ public class SearchItMaintenance {
 		JPanel maintenancePanel = new JPanel();
 		maintenancePanel.add(new JLabel("Search Engine - Index Maintenance"));
 		subMaintenanceFrame.add(maintenancePanel, BorderLayout.NORTH);
-		
-		
-		
 		JLabel labelFileNumber = new JLabel();
 		labelFileNumber.setBounds(180, 395, 160, 30);
 		JLabel labelVersion = new JLabel("Search Engine Version 1.2");
 		labelVersion.setBounds(420, 395, 160, 30);
 
-
 		// Menu Bar
 		JMenuBar menubar = new JMenuBar();
+		
+		// File
 		JMenu menuFile = new JMenu("File");
 		menuFile.setMnemonic(KeyEvent.VK_F);
-
+		
+		// Edit
 		JMenu menuEdit = new JMenu("Edit");
 		menuEdit.setMnemonic(KeyEvent.VK_E);
-
+		
+		// Help
 		JMenu menuHelp = new JMenu("Help");
 		menuHelp.setMnemonic(KeyEvent.VK_H);
 
+		//Adding the Menu Bar
 		subMaintenanceFrame.setJMenuBar(menubar);
 
 		// Menu Items
@@ -127,17 +127,21 @@ public class SearchItMaintenance {
 
 		// Table Creation
 		SearchItTables.createTable();
-		
+
 		// Adding Table to SubFrame
 		subMaintenanceFrame.add(new JScrollPane(SearchItTables.createTable()));
 		subMaintenanceFrame.setVisible(true);
-		
-		// Setting a count for rows indexed
-		//int rows = SearchItTables.indexTable.getRowCount();
-		//labelFileNumber.setText("Number of files indexed: " + rows);
-		//ItemsIndexed.setText(SearchItTables.indexTable.getRowCount());
+
+		// ---(TO BE REMOVED IN NEXT UPDATE)---
+		/*
+		 * Setting a count for rows indexed //int rows =
+		 * SearchItTables.indexTable.getRowCount();
+		 * //labelFileNumber.setText("Number of files indexed: " + rows);
+		 * ItemsIndexed.setText(SearchItTables.indexTable.getRowCount());
+		 */
+
 		subMaintenanceFrame.validate();
-		
+
 		// Remove File Handler. See(*SearchItTables.RemoveFileIndex());)
 		subRemoveFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -149,24 +153,28 @@ public class SearchItMaintenance {
 			}
 		});
 
+		// Creates and shows the About page
 		subAboutPage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SearchItAbout.createSubAbout();
 			}
 		});
 
+		// Implements file handlers needed to add files to table and index
 		subAddFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SearchItFileIO.fileHandler();
 			}
 		});
-		
+
+		// Implements LastModified Method
 		subModified.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				IndexChecker.LastModified();
 			}
 		});
-		
+
+		// Resets windows to center of screen
 		subResetWindow.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				subMaintenanceFrame.setLocationRelativeTo(null);

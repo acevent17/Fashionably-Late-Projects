@@ -66,14 +66,6 @@ public class SearchItTables {
 		TableModel tableModelVar = indexTable.getModel();
 		DefaultTableModel addRowObject = (DefaultTableModel) tableModelVar;
 		addRowObject.addRow(fileToAddInfoTable);
-
-		/*
-		 * //boolean variable and if statement that will activate if the user
-		 * adds or deletes any files from the database boolean
-		 * secondIndexBoolean = IndexChecker.IndexChangesCheck();
-		 * if(secondIndexBoolean = true) { update index file }else{ do nothing?
-		 * }
-		 */
 	}
 
 	/*
@@ -147,7 +139,6 @@ public class SearchItTables {
 			BufferedReader reader = getFileReader();
 
 			// First line will contain the column names
-
 			String line = null;
 
 			while ((line = reader.readLine()) != null) {

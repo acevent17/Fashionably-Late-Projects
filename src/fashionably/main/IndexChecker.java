@@ -5,8 +5,6 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 
-import org.apache.commons.io.FileUtils;
-
 
 /*
  * -This class will be used to check the indexed information for the following

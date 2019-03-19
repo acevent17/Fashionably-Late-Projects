@@ -37,6 +37,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.SwingUtilities;
 
 //Importing classes from main package
 import fashionably.main.SearchItTables;
@@ -48,6 +49,8 @@ public class SearchItMaintenance {
 	public static void createSubMaintenance() {
 		// Sub Maintenance Frame
 		final JFrame subMaintenanceFrame = new JFrame();
+		
+		//final JLabel ItemsIndexed = new JLabel("0");
 
 		subMaintenanceFrame.setVisible(true);
 		subMaintenanceFrame.setSize(700, 500);
@@ -130,8 +133,9 @@ public class SearchItMaintenance {
 		
 		// Setting a count for rows indexed
 		int rows = SearchItTables.indexTable.getRowCount();
-		labelFileNumber.setText("Number of files indexed: " + String.valueOf(rows));
-		
+		labelFileNumber.setText("Number of files indexed: " + rows);
+		//ItemsIndexed.setText(SearchItTables.indexTable.getRowCount());
+		subMaintenanceFrame.validate();
 		
 		// Remove File Handler. See(*SearchItTables.RemoveFileIndex());)
 		subRemoveFile.addActionListener(new ActionListener() {
@@ -159,6 +163,12 @@ public class SearchItMaintenance {
 		subModified.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				IndexChecker.LastModified();
+			}
+		});
+		
+		subResetWindow.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				subMaintenanceFrame.setLocationRelativeTo(null);
 			}
 		});
 	}

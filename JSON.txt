@@ -1,3 +1,0 @@
-Test file.txt;C:\Users\user\Desktop\Test file.txt;18/03/2019 - 04:15:38
-Test file.txt;C:\Users\user\Desktop\Test file.txt;18/03/2019 - 04:15:38
-Test file.txt;C:\Users\user\Desktop\Test file.txt;18/03/2019 - 09:57:37

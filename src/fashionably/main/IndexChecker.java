@@ -1,5 +1,7 @@
 package fashionably.main;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
 
 /*
  * -This class will be used to check the indexed information for the following
@@ -24,18 +26,20 @@ package fashionably.main;
 // }
 
 public class IndexChecker {
-	
+
 	// Gets Last Modified Date of selected file.
 	public static void LastModified() {
 		
-		//File indexedFile = new File("JSON.txt");
+		File indexedFile = new File("Index.txt");
 		
-		//System.out.println("Before Format : " + indexedFile.lastModified());
+		System.out.println("Before Format : " + indexedFile.lastModified());
 		
-		//SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 			
-		//System.out.println("After Format : " + dateFormat.format(indexedFile.lastModified()));	
+		System.out.println("After Format : " + dateFormat.format(indexedFile.lastModified()));	
+				
 		
+	
 	}
 }
 // public static boolean IndexChangesCheck(){
@@ -44,6 +48,6 @@ public class IndexChecker {
 // the false needs to be removed i the future
 // boolean indexChanges = false;
 // return indexChanges;
-//	};
+// };
 
-//}
+// }

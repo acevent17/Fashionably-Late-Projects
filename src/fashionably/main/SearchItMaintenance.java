@@ -168,8 +168,8 @@ public class SearchItMaintenance {
 
 		// Implements LastModified Method
 		subModified.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				IndexChecker.LastModified();
+			public void actionPerformed(ActionEvent e) {			
+				SearchItFileIO.validateFile();
 			}
 		});
 

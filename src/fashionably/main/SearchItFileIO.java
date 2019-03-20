@@ -31,12 +31,12 @@
 package fashionably.main;
 
 import java.io.*;
-
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
+
 
 //Importing classes from main package 
 import fashionably.main.SearchItMaintenance;
@@ -70,22 +70,35 @@ public class SearchItFileIO {
 	public static long fileDateLong;
 	public static String fileDateString;
 
+	
+	
+	public static void validateFile(){
+		File validationCheck = new File(filePath);
+		{
+			if(validationCheck.exists()){
+				System.out.println("Yeah it's here");
+			}else{
+				System.out.println("nope");
+			}
+		}
+	}
+	
+	
 	// Gets path of file
 	public static void getPath() {
 
-		// file selector
+		// Selects file
 		fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 		File selectedFile = fileChooser.getSelectedFile();
 
-		// gets file name, path and date
+		// Gets FileName, FilePath, ModifiedDate
 		fileName = selectedFile.getName();
 		filePath = selectedFile.getAbsolutePath();
 		fileDateLong = selectedFile.lastModified();
 
-		// date converter
-		// The format is Day/Month/Year - Hour/Minutes/Seconds
+		// The format is Month/Day/Year - Hour/Minutes/Seconds
 		SimpleDateFormat dateConverter = new SimpleDateFormat(
-				"dd/MM/yyy-hh:mm:ss");
+				"MM/dd/yyyy - hh:mm:ss");
 		fileDateString = dateConverter.format(new Date(fileDateLong));
 
 		// Variable sent to class:SerachItTables method:addFileListener with

@@ -29,17 +29,17 @@ public class IndexChecker {
 
 	// Gets Last Modified Date of selected file.
 	public static void LastModified() {
-		
+
 		File indexedFile = new File("Index.txt");
-		
+
 		System.out.println("Before Format : " + indexedFile.lastModified());
-		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-			
-		System.out.println("After Format : " + dateFormat.format(indexedFile.lastModified()));	
-				
-		
-	
+
+		SimpleDateFormat dateFormat = new SimpleDateFormat(
+				"MM/dd/yyyy HH:mm:ss");
+
+		System.out.println("After Format : "
+				+ dateFormat.format(indexedFile.lastModified()));
+
 	}
 }
 // public static boolean IndexChangesCheck(){

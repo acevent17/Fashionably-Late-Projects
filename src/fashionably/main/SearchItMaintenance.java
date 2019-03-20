@@ -168,8 +168,11 @@ public class SearchItMaintenance {
 
 		// Implements LastModified Method
 		subModified.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {			
-				SearchItFileIO.validateFile();
+			public void actionPerformed(ActionEvent e) {		
+				IndexChecker.LastModified();
+				// SearchItTables.GetData(SearchItTables.indexTable,
+				// SearchItTables.indexTable.getSelectedRow(),
+				// SearchItTables.indexTable.getSelectedColumn());
 			}
 		});
 

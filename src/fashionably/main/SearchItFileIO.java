@@ -37,7 +37,6 @@ import java.util.*;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
 
-
 //Importing classes from main package 
 import fashionably.main.SearchItMaintenance;
 //Class to handle file view, file selection, file addition and file deletion. 
@@ -70,20 +69,6 @@ public class SearchItFileIO {
 	public static long fileDateLong;
 	public static String fileDateString;
 
-	
-	
-	public static void validateFile(){
-		File validationCheck = new File(filePath);
-		{
-			if(validationCheck.exists()){
-				System.out.println("Yeah it's here");
-			}else{
-				System.out.println("nope");
-			}
-		}
-	}
-	
-	
 	// Gets path of file
 	public static void getPath() {
 
@@ -102,10 +87,9 @@ public class SearchItFileIO {
 		fileDateString = dateConverter.format(new Date(fileDateLong));
 
 		// Variable sent to class:SerachItTables method:addFileListener with
-		// file
-		// information
+		// file information
 		String[] fileRowInfo = new String[] { fileName, filePath,
-				fileDateString};
+				fileDateString };
 
 		// Variable sent to class:SerachItTables method:addFileListener
 		SearchItTables.addFileListener(fileRowInfo);

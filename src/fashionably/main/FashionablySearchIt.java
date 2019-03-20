@@ -1,5 +1,5 @@
 /*
- * Info: Current Version: 1.2.0-35
+ * Info: Current Version: 1.2.0-40
  * 
  * Created separate classes to clean up code and better organize / distribute work amongst group members.
  * Make note of the package names and imports.
@@ -21,8 +21,7 @@
  * 
  * 
  * Current Issues are displayed below:
- * --When Search Engine Initializes, files need to be checked and compared to last modified date of file
- * --ID for added file paths need to be added
+ * --ID for added file paths need to be added(Maybe??)
  * 
  * 
  * 
@@ -30,6 +29,7 @@
  * Resolved Issues:
  * --Table imports file path into data field
  * --Table saves last import path when closing
+ * --Remove button works
  */
 
 package fashionably.main;

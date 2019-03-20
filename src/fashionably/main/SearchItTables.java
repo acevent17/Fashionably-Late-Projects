@@ -28,7 +28,7 @@
  * --Data in rows on columns are not setting from the FileChooser* *(Class: SearchItFileIO)
  * --All the row information to work and be added to the table
  * --Removed place holders: filename, pathname, and date.
- * --Remove button is semi-functioning
+ * --Remove button is fully functioning
  * 
  */
 
@@ -51,16 +51,10 @@ import javax.swing.table.TableModel;
 
 public class SearchItTables {
 
-	// table variable
-	// it was made static to be able to edit table
 	static JTable indexTable;
-
-	// variable used by tableDataGatherer
 	public static String[][] fileInfo = {};
 
-	// This is the method that adds the row
-	// receives variable:fileToAddInfoTable from class:SearchItFileIO
-	// method:getPath
+	// Adds row to table
 	public static void addFileListener(String[] fileToAddInfoTable) {
 
 		TableModel tableModelVar = indexTable.getModel();
@@ -69,13 +63,9 @@ public class SearchItTables {
 	}
 
 	/*
-	 * REMOVE FILE SECTION -- Basic framework created Currently clears entire
-	 * text file when remove button is pressed.
+	 * REMOVE FILE SECTION -- Basic framework
 	 * 
-	 * -- Ideas: Set an ID to each entry or set a counter to the lines in the
-	 * textfile to allow use to specify which file to remove.
-	 * 
-	 * -- To be Added: Popup confirmation dialog (YES / NO / CANCEL)
+	 * Checks row in table to specify deletion of file
 	 */
 
 	public static void removeFileIndex(int fileToAddInfoTable)
@@ -113,9 +103,7 @@ public class SearchItTables {
 		}
 	}
 
-	// Dynamic Table Code
-	// receives variable:dataBaseArray from method:createTable
-	// returns variable:rowInfo type:String[][] with table data.
+	// Gets Table Data
 	public static String[][] tableDataGatherer(String[][] dataBaseArray) {
 
 		int arrayLength = dataBaseArray.length;
@@ -129,10 +117,22 @@ public class SearchItTables {
 
 		return rowInfo;
 	}
-	
-	
 
-
+	/*
+	 * 
+	 * To be used
+	 * 
+	 * public static Object GetData(JTable indexTable, int row_index, int
+	 * col_index){
+	 * 
+	 * Object obj1 = GetData(indexTable, indexTable.getSelectedRow(),
+	 * indexTable.getSelectedColumn()); Object obj2 = GetData(indexTable,
+	 * indexTable.getSelectedRow(), indexTable.getSelectedColumn());
+	 * 
+	 * if(obj1 == obj2){ System.out.println("Yeah it's here"); }else{
+	 * System.out.println("nope"); } return
+	 * indexTable.getModel().getValueAt(row_index, col_index); }
+	 */
 
 	// Create Table
 	public static Component createTable() {

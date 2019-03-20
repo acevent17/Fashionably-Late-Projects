@@ -47,12 +47,6 @@ public class FashionablySearchIt {
 		CreateIndexFile create = new CreateIndexFile();
 		create.openIndexFile();
 
-		// Reads from Index File
-		ReadFile read = new ReadFile();
-		read.openFile();
-		read.readFile();
-		read.closeFile();
-
 		/*
 		 * -This hook will be used in the future to store the last, most updated
 		 * table information into persistent storage. -right now it only uses

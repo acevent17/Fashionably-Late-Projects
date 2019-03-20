@@ -39,8 +39,10 @@ package fashionably.main;
 
 import java.awt.Component;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.PrintWriter;
 
 import javax.swing.*;
@@ -67,35 +69,44 @@ public class SearchItTables {
 	}
 
 	/*
-	 * REMOVE FILE SECTION -- Basic framework created Currently clears entire
-	 * text file when remove button is pressed.
+	 * REMOVE FILE SECTION -- Basic framework created Currently clears entire text
+	 * file when remove button is pressed.
 	 * 
 	 * -- Ideas: Set an ID to each entry or set a counter to the lines in the
 	 * textfile to allow use to specify which file to remove.
 	 * 
 	 * -- To be Added: Popup confirmation dialog (YES / NO / CANCEL)
 	 */
-	
-	public static void removeFileIndex(int fileToAddInfoTable)
-			throws FileNotFoundException {
+
+	public static void removeFileIndex(int fileToAddInfoTable) throws FileNotFoundException {
 
 		TableModel tableModelDetach = indexTable.getModel();
 		DefaultTableModel removeRowObject = (DefaultTableModel) tableModelDetach;
-		
-		try {
+
 		int selectedRowIndex = indexTable.getSelectedRow();
 		removeRowObject.removeRow(selectedRowIndex);
+
+		try (FileWriter writer = new FileWriter("Index.txt", true);
+			 BufferedWriter bw = new BufferedWriter(writer);
+			 PrintWriter write = new PrintWriter("Index.txt");) {
+			
+			for (int i = 0; i < indexTable.getRowCount(); i++) {//first
+				// loop for jtable column
+				
+				for (int j = 0; j < indexTable.getColumnCount(); j++) {//second
+					bw.write(indexTable.getModel().getValueAt(i, j) + ",");
+				}//second
+				
+				
+				bw.write("\n");
+			}//first
 		}
-		catch(Exception ex){
+
+		catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		PrintWriter writer = new PrintWriter("Index.txt");
-		if(indexTable.getSelectedRow() == indexTable.getSelectedRow()){
-			writer.print("");
-			writer.close();	
-		}
+
 	}
-	
 
 	// Dynamic Table Code
 	// receives variable:dataBaseArray from method:createTable
@@ -118,8 +129,7 @@ public class SearchItTables {
 	public static Component createTable() {
 
 		// Column Names
-		String[] columns = new String[] { "File Name", "File Path",
-				"Date Modified" };
+		String[] columns = new String[] { "File Name", "File Path", "Date Modified" };
 
 		// Change column String to Object to comply with DefaultTableModel
 		// parameters
@@ -133,7 +143,7 @@ public class SearchItTables {
 		for (int i = 0; i < tableModel.getRowCount(); i++) {
 			tableModel.setValueAt(i, i, 0);
 		}
-			
+
 		String read = ",";
 
 		try {
@@ -159,13 +169,9 @@ public class SearchItTables {
 		// Table Sizing and table variable return to SearchItMaintenance Class
 		indexTable.setPreferredScrollableViewportSize(indexTable.getPreferredSize());
 
-		
 		return indexTable;
 
 	}
-	
-	
-	
 
 	private static BufferedReader getFileReader() throws FileNotFoundException {
 
@@ -173,5 +179,4 @@ public class SearchItTables {
 
 		return reader;
 	}
-}	
-
+}

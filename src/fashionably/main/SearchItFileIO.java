@@ -101,15 +101,15 @@ public class SearchItFileIO {
 		// Creating a writers necessary for the "Index.txt" file
 		(FileWriter writer = new FileWriter("Index.txt", true);
 				BufferedWriter buffWrite = new BufferedWriter(writer);
-				PrintWriter p = new PrintWriter(buffWrite);) {
+				PrintWriter write = new PrintWriter(buffWrite);) {
 
 			// Writes the name, path, and date to the text file.
 			// Saves to the text file, but will overwrite.
-			p.print(fileName);
-			p.print(",");
-			p.print(filePath);
-			p.print(",");
-			p.println(fileDateString);
+			write.print(fileName);
+			write.print(",");
+			write.print(filePath);
+			write.print(",");
+			write.println(fileDateString);
 
 		} catch (IOException e) {
 			e.printStackTrace();

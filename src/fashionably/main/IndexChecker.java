@@ -1,8 +1,5 @@
 package fashionably.main;
 
-import java.io.File;
-import java.text.SimpleDateFormat;
-
 
 /*
  * -This class will be used to check the indexed information for the following

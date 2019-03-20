@@ -92,7 +92,7 @@ public class SearchItFileIO {
 		// file
 		// information
 		String[] fileRowInfo = new String[] { fileName, filePath,
-				fileDateString };
+				fileDateString};
 
 		// Variable sent to class:SerachItTables method:addFileListener
 		SearchItTables.addFileListener(fileRowInfo);
@@ -106,9 +106,9 @@ public class SearchItFileIO {
 			// Writes the name, path, and date to the text file.
 			// Saves to the text file, but will overwrite.
 			p.print(fileName);
-			p.print(", ");
+			p.print(",");
 			p.print(filePath);
-			p.print(", ");
+			p.print(",");
 			p.println(fileDateString);
 
 		} catch (IOException e) {

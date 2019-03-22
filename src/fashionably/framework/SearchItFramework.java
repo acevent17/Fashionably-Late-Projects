@@ -51,8 +51,7 @@ public class SearchItFramework {
 
 	// Label
 	static JLabel titleLabel = new JLabel("Search Engine");
-	static JLabel indexedFiles = new JLabel("Number of Files Indexed: "
-			+ indexedFileTotal);
+
 
 	// Button Group
 	static ButtonGroup radioButtons = new ButtonGroup();
@@ -131,8 +130,6 @@ public class SearchItFramework {
 		titleLabel.setBounds(280, 10, 250, 50);
 		titleLabel.setFont(new Font("Serif", Font.BOLD, 30));
 
-		indexedFiles.setBounds(10, 200, 200, 550);
-
 		// Set size of the text box
 		searchField.setBounds(247, 100, 250, 30);
 
@@ -178,8 +175,7 @@ public class SearchItFramework {
 		frame.add(searchAll);
 		frame.add(searchExact);
 		frame.add(searchAny);
-		frame.add(indexedFiles);
-		// frame.add(indexedFileTotal);
+
 		frame.setJMenuBar(menubar);
 		frame.setLayout(null);
 		frame.setVisible(true);

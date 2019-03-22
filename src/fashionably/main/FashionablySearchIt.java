@@ -49,6 +49,7 @@ public class FashionablySearchIt {
 		
 		
 		// Gets Line Count (Not Yet Working)
+		// Use for Search to check each line.
 		SearchItFramework.getLines();
 
 		/*

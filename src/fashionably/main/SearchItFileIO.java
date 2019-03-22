@@ -112,7 +112,6 @@ public class SearchItFileIO {
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
 
 			getPath();
-			SearchItFramework.getLines();
 
 		}
 	}

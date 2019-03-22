@@ -25,7 +25,6 @@ package fashionably.main;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -44,11 +43,35 @@ import fashionably.main.SearchItTables;
 
 public class SearchItMaintenance {
 
-	public static final Component subMaintenanceFrame = null;
+	/*
+	 * Global Variables
+	 */
+
+	// Frame
+	static final JFrame subMaintenanceFrame = new JFrame();
+	static final JMenuItem subAddFile = new JMenuItem("Add File");
+
+	// Panel
+	static JPanel maintenancePanel = new JPanel();
+
+	// Menu Bar
+	static JMenuBar menubar = new JMenuBar();
+	static JMenu menuFile = new JMenu("File");
+	static JMenu menuEdit = new JMenu("Edit");
+	static JMenu menuHelp = new JMenu("Help");
+
+	// Menu Item
+	static JMenuItem subRebuild = new JMenuItem("Rebuild");
+	static JMenuItem subRemoveFile = new JMenuItem("Remove File");
+	static JMenuItem subModified = new JMenuItem("Check if Modifed");
+	static JMenuItem subResetWindow = new JMenuItem("Reset Window");
+	static JMenuItem subAboutPage = new JMenuItem("About");
+
+	// Label
+	static JLabel labelFileNumber = new JLabel();
+	static JLabel labelVersion = new JLabel("Search Engine Version 1.2");
 
 	public static void createSubMaintenance() {
-		// Sub Maintenance Frame
-		final JFrame subMaintenanceFrame = new JFrame();
 
 		// Frame Positioning
 		subMaintenanceFrame.setVisible(true);
@@ -59,39 +82,26 @@ public class SearchItMaintenance {
 		subMaintenanceFrame.getContentPane().setBackground(Color.cyan);
 
 		// Header and other labels
-		JPanel maintenancePanel = new JPanel();
 		maintenancePanel.add(new JLabel("Search Engine - Index Maintenance"));
 		subMaintenanceFrame.add(maintenancePanel, BorderLayout.NORTH);
-		JLabel labelFileNumber = new JLabel();
+
+		// File Number
 		labelFileNumber.setBounds(180, 395, 160, 30);
-		JLabel labelVersion = new JLabel("Search Engine Version 1.2");
+
+		// Version
 		labelVersion.setBounds(420, 395, 160, 30);
 
-		// Menu Bar
-		JMenuBar menubar = new JMenuBar();
-
 		// File
-		JMenu menuFile = new JMenu("File");
 		menuFile.setMnemonic(KeyEvent.VK_F);
 
 		// Edit
-		JMenu menuEdit = new JMenu("Edit");
 		menuEdit.setMnemonic(KeyEvent.VK_E);
 
 		// Help
-		JMenu menuHelp = new JMenu("Help");
 		menuHelp.setMnemonic(KeyEvent.VK_H);
 
 		// Adding the Menu Bar
 		subMaintenanceFrame.setJMenuBar(menubar);
-
-		// Menu Items
-		final JMenuItem subAddFile = new JMenuItem("Add File");
-		JMenuItem subRebuild = new JMenuItem("Rebuild");
-		JMenuItem subRemoveFile = new JMenuItem("Remove File");
-		JMenuItem subModified = new JMenuItem("Check if Modifed");
-		JMenuItem subResetWindow = new JMenuItem("Reset Window");
-		JMenuItem subAboutPage = new JMenuItem("About");
 
 		// Elements added
 		subMaintenanceFrame.add(labelFileNumber);
@@ -168,7 +178,7 @@ public class SearchItMaintenance {
 
 		// Implements LastModified Method
 		subModified.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {		
+			public void actionPerformed(ActionEvent e) {
 				IndexChecker.LastModified();
 				// SearchItTables.GetData(SearchItTables.indexTable,
 				// SearchItTables.indexTable.getSelectedRow(),

@@ -37,6 +37,7 @@ import java.util.*;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
 
+import fashionably.framework.SearchItFramework;
 //Importing classes from main package 
 import fashionably.main.SearchItMaintenance;
 //Class to handle file view, file selection, file addition and file deletion. 
@@ -45,29 +46,18 @@ import fashionably.main.SearchItMaintenance;
 
 public class SearchItFileIO {
 
-	// Global Variable for FileChooser (Needed to get and display as separate
-	// method)
+	/*
+	 * Global Variables
+	 */
+
 	static JFileChooser fileChooser = new JFileChooser(FileSystemView
 			.getFileSystemView().getHomeDirectory());
 
-	public static void fileHandler() {
-		fileChooser.setAcceptAllFileFilterUsed(false);
-
-		// Shows FileChooserDialog Window
-		int returnVal = fileChooser
-				.showOpenDialog(SearchItMaintenance.subMaintenanceFrame);
-		if (returnVal == JFileChooser.APPROVE_OPTION) {
-
-			// Gets and displays the File Path
-			getPath();
-		}
-	}
-
-	// Variables used by getPath method
-	public static String filePath;
-	public static String fileName;
-	public static long fileDateLong;
-	public static String fileDateString;
+	// Used by getPath()
+	static String filePath;
+	static String fileName;
+	static long fileDateLong;
+	static String fileDateString;
 
 	// Gets path of file
 	public static void getPath() {
@@ -110,6 +100,20 @@ public class SearchItFileIO {
 
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+
+	public static void fileHandler() {
+		fileChooser.setAcceptAllFileFilterUsed(false);
+
+		// Shows FileChooserDialog Window
+		int returnVal = fileChooser
+				.showOpenDialog(SearchItMaintenance.subMaintenanceFrame);
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+
+			getPath();
+			SearchItFramework.getLines();
+
 		}
 	}
 }

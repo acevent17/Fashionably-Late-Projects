@@ -27,10 +27,14 @@ import java.text.SimpleDateFormat;
 
 public class IndexChecker {
 
+	/*
+	 * Global Variables
+	 */
+	
+	static File indexedFile = new File("Index.txt");
+
 	// Gets Last Modified Date of selected file.
 	public static void LastModified() {
-
-		File indexedFile = new File("Index.txt");
 
 		System.out.println("Before Format : " + indexedFile.lastModified());
 

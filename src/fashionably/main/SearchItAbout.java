@@ -26,44 +26,54 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class SearchItAbout {
+
+	/*
+	 *  Global Variables
+	 */
+	
+	
+	// Frame
+	static JFrame aboutSubFrame = new JFrame();
+
+	// Label
+	static JLabel headerLabel = new JLabel("Fashionably Late");
+	static JLabel versionLabel = new JLabel("Version 1.2.0");
+	static JLabel byLabel = new JLabel("By:");
+	static JLabel pqLabel = new JLabel("Peter Quach");
+	static JLabel mtLabel = new JLabel("Michael Tarallo");
+	static JLabel jvLabel = new JLabel("Joshua Ventura");
+	static JLabel acLabel = new JLabel("Andres Cardenas");
+	static JLabel classLabel = new JLabel("Mr. Pollock Java II COP-2805C");
+
 	public static void createSubAbout() {
 		// Sub About Frame
-		JFrame aboutSubFrame = new JFrame();
 		aboutSubFrame.setVisible(true);
 		aboutSubFrame.setSize(400, 250);
 		aboutSubFrame.setTitle("About Page");
 		aboutSubFrame.setLocationRelativeTo(null);
 
 		// Labels
-		JLabel headerLabel = new JLabel("Fashionably Late");
 		headerLabel.setBounds(20, 5, 450, 50);
 		headerLabel.setFont(new Font("Serif", Font.BOLD, 20));
 
-		JLabel versionLabel = new JLabel("Version 1.2.0");
 		versionLabel.setBounds(300, 165, 450, 50);
 		versionLabel.setFont(new Font("Serif", Font.PLAIN, 15));
 
-		JLabel byLabel = new JLabel("By:");
 		byLabel.setBounds(20, 35, 450, 50);
 		byLabel.setFont(new Font("Serif", Font.BOLD, 16));
 
-		JLabel pqLabel = new JLabel("Peter Quach");
 		pqLabel.setBounds(20, 55, 450, 50);
 		pqLabel.setFont(new Font("Serif", Font.PLAIN, 16));
 
-		JLabel mtLabel = new JLabel("Michael Tarallo");
 		mtLabel.setBounds(20, 75, 450, 50);
 		mtLabel.setFont(new Font("Serif", Font.PLAIN, 16));
 
-		JLabel jvLabel = new JLabel("Joshua Ventura");
 		jvLabel.setBounds(20, 95, 450, 50);
 		jvLabel.setFont(new Font("Serif", Font.PLAIN, 16));
 
-		JLabel acLabel = new JLabel("Andres Cardenas");
 		acLabel.setBounds(20, 115, 450, 50);
 		acLabel.setFont(new Font("Serif", Font.PLAIN, 16));
 
-		JLabel classLabel = new JLabel("Mr. Pollock Java II COP-2805C");
 		classLabel.setBounds(20, 145, 450, 50);
 		classLabel.setFont(new Font("Serif", Font.PLAIN, 12));
 

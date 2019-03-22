@@ -51,7 +51,13 @@ import javax.swing.table.TableModel;
 
 public class SearchItTables {
 
+	/*
+	 * Global Variables
+	 */
+
+	// Table
 	static JTable indexTable;
+
 	public static String[][] fileInfo = {};
 
 	// Adds row to table

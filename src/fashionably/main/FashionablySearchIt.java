@@ -1,5 +1,5 @@
 /*
- * Info: Current Version: 1.2.0-40
+ * Info: Current Version: 1.2.0-44
  * 
  * Created separate classes to clean up code and better organize / distribute work amongst group members.
  * Make note of the package names and imports.
@@ -46,6 +46,10 @@ public class FashionablySearchIt {
 		// Creates Index File if not found
 		CreateIndexFile create = new CreateIndexFile();
 		create.openIndexFile();
+		
+		
+		// Gets Line Count (Not Yet Working)
+		SearchItFramework.getLines();
 
 		/*
 		 * -This hook will be used in the future to store the last, most updated

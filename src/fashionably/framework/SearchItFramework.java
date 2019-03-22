@@ -79,10 +79,8 @@ public class SearchItFramework {
 	static JMenuItem subAboutPage = new JMenuItem("About");
 
 	// String Search Functionality
-	static String searchText = searchField.getText();
 	static String anySearch;
 	static String allSearch;
-	static String exactSearch = searchText;
 
 	/*
 	 * Search Phrase Section Current Layout: searchPhrase() will search the
@@ -91,7 +89,8 @@ public class SearchItFramework {
 	 * checked to find out which phrase is being searched
 	 */
 	public static void searchPhrase() {
-
+		//Displays text within the searchField to console
+		String searchText = searchField.getText();
 		System.out.println(searchText);
 
 	}

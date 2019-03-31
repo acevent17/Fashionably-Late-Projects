@@ -52,6 +52,9 @@ public class SearchItFramework {
 
 	// Text Field
 	static JTextField searchField = new JTextField();
+	
+	// Text Area
+	static JTextArea searchFieldArea = new JTextArea();
 
 	// Label
 	static JLabel titleLabel = new JLabel("Search Engine");
@@ -64,12 +67,12 @@ public class SearchItFramework {
 
 	// Radio Button
 	// All(OR)
-	static JRadioButton searchAll = new JRadioButton("Search OR Phrases(ALL)");
+	static JRadioButton searchAll = new JRadioButton("Search OR Phrases");
 	// Exact(Phrase)
 	static JRadioButton searchExact = new JRadioButton(
-			"Search Exact Phrases(PHRASE)");
+			"Search Exact Phrases");
 	// Any(AND)
-	static JRadioButton searchAny = new JRadioButton("Search AND Phrase(ANY)");
+	static JRadioButton searchAny = new JRadioButton("Search AND Phrase");
 
 	// Menu Bar
 	static JMenuBar menubar = new JMenuBar();
@@ -136,24 +139,28 @@ public class SearchItFramework {
 					&& searchExact.isSelected() == false
 					&& searchAny.isSelected() == false) {
 				System.out.println("Select a Search Phrase");
+				searchFieldArea.setText("Select a Search Phrase");
 			}
-
+			
 		case 2:
 			if (searchText.isEmpty()) {
 				System.out.println("Enter a File Name");
+				searchFieldArea.setText("Enter a File Name");
 				break;
 			}
 
 		case 3:
 			if (searchAll.isSelected() == true) {
-				while (indexScanner.hasNextLine()) {
+				while (indexScanner.hasNext()) {
 
 					if (phrase.contains(searchText)) {
 						// System.out.println(phrase = phrase.split(",")[0]);
 						System.out.println("File in index: "
 								+ (phrase = phrase.split(",")[0]));
+						searchFieldArea.setText("File in index: "
+								+ (phrase = phrase.split(",")[0]));
 					}
-					indexScanner.nextLine();
+					indexScanner.next();
 				}
 				indexScanner.close();
 			}
@@ -163,6 +170,7 @@ public class SearchItFramework {
 			 */
 			if ((searchAll.isSelected() == true) && (phrase != searchText)) {
 				System.out.println("No File Found");
+				searchFieldArea.setText("No File Found");
 				break;
 			}
 		}
@@ -205,10 +213,13 @@ public class SearchItFramework {
 		titleLabel.setFont(new Font("Serif", Font.BOLD, 30));
 
 		// Set size of the text box
-		searchField.setBounds(247, 100, 250, 30);
+		searchField.setBounds(247, 80, 250, 30);
 
+		// Set size of the text Area
+		searchFieldArea.setBounds(10, 230, 715, 250);
+		
 		// Buttons
-		buttonSearch.setBounds(323, 160, 100, 30);
+		buttonSearch.setBounds(323, 130, 100, 30);
 		buttonSearch.setMnemonic(KeyEvent.VK_S);
 
 		// Radio Button Hotkeys
@@ -217,11 +228,11 @@ public class SearchItFramework {
 		searchAny.setMnemonic(KeyEvent.VK_N);
 
 		// Positioning
-		searchAll.setBounds(301, 215, 145, 30);
+		searchAll.setBounds(301, 180, 145, 30);
 		searchAll.setBackground(Color.cyan);
-		searchExact.setBounds(455, 215, 155, 30);
+		searchExact.setBounds(455, 180, 155, 30);
 		searchExact.setBackground(Color.cyan);
-		searchAny.setBounds(145, 215, 155, 30);
+		searchAny.setBounds(145, 180, 155, 30);
 		searchAny.setBackground(Color.cyan);
 
 		// Radio Button Group Additions
@@ -245,6 +256,7 @@ public class SearchItFramework {
 		// Elements added
 		frame.add(titleLabel);
 		frame.add(searchField);
+		frame.add(searchFieldArea);
 		frame.add(buttonSearch);
 		frame.add(searchAll);
 		frame.add(searchExact);

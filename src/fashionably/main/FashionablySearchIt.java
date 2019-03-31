@@ -52,17 +52,5 @@ public class FashionablySearchIt {
 		// Use for Search to check each line.
 		SearchItFramework.getLines();
 
-		/*
-		 * -This hook will be used in the future to store the last, most updated
-		 * table information into persistent storage. -right now it only uses
-		 * the printed message to show capability
-		 */
-		Runtime.getRuntime().addShutdownHook(new Thread() {
-			public void run() {
-				System.out
-						.println("Shut Down Hook Test Message! - at this moment the indexed file should be saved!");
-			}
-		});
-
 	}
 }

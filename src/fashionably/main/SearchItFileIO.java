@@ -37,7 +37,6 @@ import java.util.*;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
 
-import fashionably.framework.SearchItFramework;
 //Importing classes from main package 
 import fashionably.main.SearchItMaintenance;
 //Class to handle file view, file selection, file addition and file deletion. 

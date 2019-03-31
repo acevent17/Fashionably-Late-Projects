@@ -28,7 +28,11 @@ import javax.swing.*;
 
 import java.awt.event.*;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+
+import java.util.Scanner;
 
 //Importing classes from main package
 import fashionably.main.SearchItAbout;
@@ -52,7 +56,6 @@ public class SearchItFramework {
 	// Label
 	static JLabel titleLabel = new JLabel("Search Engine");
 
-
 	// Button Group
 	static ButtonGroup radioButtons = new ButtonGroup();
 
@@ -60,9 +63,13 @@ public class SearchItFramework {
 	static JButton buttonSearch = new JButton("Search");
 
 	// Radio Button
-	static JRadioButton searchAll = new JRadioButton("Search All Phrases");
-	static JRadioButton searchExact = new JRadioButton("Search Exact Phrases");
-	static JRadioButton searchAny = new JRadioButton("Search Any Phrase");
+	// All(OR)
+	static JRadioButton searchAll = new JRadioButton("Search OR Phrases(ALL)");
+	// Exact(Phrase)
+	static JRadioButton searchExact = new JRadioButton(
+			"Search Exact Phrases(PHRASE)");
+	// Any(AND)
+	static JRadioButton searchAny = new JRadioButton("Search AND Phrase(ANY)");
 
 	// Menu Bar
 	static JMenuBar menubar = new JMenuBar();
@@ -80,6 +87,7 @@ public class SearchItFramework {
 	// String Search Functionality
 	static String anySearch;
 	static String allSearch;
+	static String exactSearch;
 
 	/*
 	 * Search Phrase Section Current Layout: searchPhrase() will search the
@@ -87,11 +95,77 @@ public class SearchItFramework {
 	 * current contents of the searchField. The radiobutton checkstates' will be
 	 * checked to find out which phrase is being searched
 	 */
-	public static void searchPhrase() {
-		//Displays text within the searchField to console
-		String searchText = searchField.getText();
-		System.out.println(searchText);
 
+	public static void searchPhrase() throws FileNotFoundException {
+
+		/*
+		 * Current situation with read file: Workflow: Scanner reads
+		 * "Index.txt", the user entered string in the textfield, and the radio
+		 * button checkstate (Currently only working with OR). The scanner
+		 * outputs the file name (trimmed off pathname) based on if file is
+		 * within "Index.txt".
+		 * 
+		 * Latest code when ran displays every line that has an existing
+		 * character equal to the textfield entry. To Replicate: OPEN
+		 * APPLICATION -> add new file -> OPEN INDEX.TXT -> add new line under
+		 * line 1 as an integer "1" -> add new line as "apple" -> Run
+		 * application -> Select "OR" radioButton -> type a single character
+		 * that exists within the file or path (returns multiple entries of file
+		 * search + No File Found(??)) -> type "1" (No File Found, due to
+		 * parameters of search not accepting integers) -> type "apple" (No File
+		 * Found)
+		 */
+
+		// Gets text within the searchField - Can be set to console output for
+		// debugging
+		String searchText = searchField.getText();
+		// System.out.println(searchText);
+
+		File index = new File("Index.txt");
+
+		// Creates scanner to read from file and textbox string
+		Scanner indexScanner = new Scanner(index);
+
+		int searchSwitchOR = 1;
+		String phrase = indexScanner.findInLine("[A-Za-z].*[A-Za-z]");
+
+		switch (searchSwitchOR) {
+
+		case 1:
+			if (searchAll.isSelected() == false
+					&& searchExact.isSelected() == false
+					&& searchAny.isSelected() == false) {
+				System.out.println("Select a Search Phrase");
+			}
+
+		case 2:
+			if (searchText.isEmpty()) {
+				System.out.println("Enter a File Name");
+				break;
+			}
+
+		case 3:
+			if (searchAll.isSelected() == true) {
+				while (indexScanner.hasNextLine()) {
+
+					if (phrase.contains(searchText)) {
+						// System.out.println(phrase = phrase.split(",")[0]);
+						System.out.println("File in index: "
+								+ (phrase = phrase.split(",")[0]));
+					}
+					indexScanner.nextLine();
+				}
+				indexScanner.close();
+			}
+		case 4:
+			/*
+			 * This seems to ignore the NOT and display anyway
+			 */
+			if ((searchAll.isSelected() == true) && (phrase != searchText)) {
+				System.out.println("No File Found");
+				break;
+			}
+		}
 	}
 
 	public static void getLines() {
@@ -204,7 +278,12 @@ public class SearchItFramework {
 		// Handles Search Button Functionality
 		buttonSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				searchPhrase();
+				try {
+					searchPhrase();
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 

@@ -52,12 +52,13 @@ public class SearchItFramework {
 
 	// Text Field
 	static JTextField searchField = new JTextField();
-	
+
 	// Text Area
 	static JTextArea searchFieldArea = new JTextArea();
 
 	// Label
 	static JLabel titleLabel = new JLabel("Search Engine");
+	static JLabel noFile = new JLabel("No File Found");
 
 	// Button Group
 	static ButtonGroup radioButtons = new ButtonGroup();
@@ -68,9 +69,8 @@ public class SearchItFramework {
 	// Radio Button
 	// All(OR)
 	static JRadioButton searchAll = new JRadioButton("Search OR Phrases");
-	// Exact(Phrase)
-	static JRadioButton searchExact = new JRadioButton(
-			"Search Exact Phrases");
+	// Exact(PHRASE)
+	static JRadioButton searchExact = new JRadioButton("Search Exact Phrases");
 	// Any(AND)
 	static JRadioButton searchAny = new JRadioButton("Search AND Phrase");
 
@@ -126,62 +126,126 @@ public class SearchItFramework {
 
 		File index = new File("Index.txt");
 
+		// Data Validation
+		if (searchAll.isSelected() == false
+				&& searchExact.isSelected() == false
+				&& searchAny.isSelected() == false) {
+			System.out.println("Select a Search Phrase");
+			searchFieldArea.setText("Select a Search Phrase");
+		}
+
 		// Creates scanner to read from file and textbox string
 		Scanner indexScanner = new Scanner(index);
-
-		int searchSwitchOR = 1;
 		String phrase = indexScanner.findInLine("[A-Za-z].*[A-Za-z]");
 
-		switch (searchSwitchOR) {
+		// Creates Switches to handle search phrases
+		int searchSwitchOR = 1;
+		int searchSwitchAND = 1;
+		int searchSwitchPHRASE = 1;
 
-		case 1:
-			if (searchAll.isSelected() == false
-					&& searchExact.isSelected() == false
-					&& searchAny.isSelected() == false) {
-				System.out.println("Select a Search Phrase");
-				searchFieldArea.setText("Select a Search Phrase");
-			}
-			
-		case 2:
-			if (searchText.isEmpty()) {
-				System.out.println("Enter a File Name");
-				searchFieldArea.setText("Enter a File Name");
-				break;
-			}
+		/*
+		 * Handles PHRASE search phrase: [EXPLAIN WORKFLOW FOR "PHRASE" SEARCH]
+		 */
+		if (searchExact.isSelected() == true) {
+			switch (searchSwitchPHRASE) {
 
-		case 3:
-			if (searchAll.isSelected() == true) {
-				while (indexScanner.hasNext()) {
-
-					if (phrase.contains(searchText)) {
-						// System.out.println(phrase = phrase.split(",")[0]);
-						System.out.println("File in index: "
-								+ (phrase = phrase.split(",")[0]));
-						searchFieldArea.setText("File in index: "
-								+ (phrase = phrase.split(",")[0]));
-					}
-					indexScanner.next();
+			// Data Validation
+			case 1:
+				if (searchText.isEmpty()) {
+					System.out.println("Enter a File Name");
+					searchFieldArea.setText("Enter a File Name");
+					break;
 				}
-				indexScanner.close();
-			}
-		case 4:
-			/*
-			 * This seems to ignore the NOT and display anyway
-			 */
-			if ((searchAll.isSelected() == true) && (phrase != searchText)) {
-				System.out.println("No File Found");
-				searchFieldArea.setText("No File Found");
-				break;
+				// Search Functionality
+			case 2:
+				/*
+				 * scanner goes here
+				 */
+
+				// File Validation
+			case 3:
+				/*
+				 * File not found goes here
+				 */
 			}
 		}
+
+		/*
+		 * Handles AND search phrase: [EXPLAIN WORKFLOW FOR "AND" SEARCH]
+		 */
+		if (searchAny.isSelected() == true) {
+			switch (searchSwitchAND) {
+
+			// Data Validation
+			case 1:
+				if (searchText.isEmpty()) {
+					System.out.println("Enter a File Name");
+					searchFieldArea.setText("Enter a File Name");
+					break;
+				}
+				// Search Functionality
+			case 2:
+				/*
+				 * Scanner goes here
+				 */
+
+				// File Validation
+			case 3:
+				/*
+				 * File not found goes here
+				 */
+			}
+		}
+
+		/*
+		 * Handles OR search phrase: [EXPLAIN WORKFLOW FOR "OR" SEARCH]
+		 */
+		if (searchAll.isSelected() == true) {
+			switch (searchSwitchOR) {
+
+			// Data Validation
+			case 1:
+				if (searchText.isEmpty()) {
+					System.out.println("Enter a File Name");
+					searchFieldArea.setText("Enter a File Name");
+					break;
+				}
+
+				// Search Functionality
+			case 2:
+				if (searchAll.isSelected() == true) {
+					Scanner lineScanner = new Scanner(new File("Index.txt"));
+					int lineCount = 0;
+					while (lineScanner.hasNextLine()) {
+						String lineToRead = lineScanner.nextLine();
+						if ((lineToRead.contains(searchText))
+								&& (phrase.length() > 0)) {
+							System.out.printf("%d: %s %n", lineCount,
+									lineToRead);
+							lineCount++;
+						}
+
+					}
+
+				}
+
+			case 3:
+				/*
+				 * No File Found needs to be implimented(???)
+				 */
+			}
+
+		}
+
 	}
 
 	public static void getLines() {
 		/*
-		 * Get the total lines from the "Index.txt" file then displays it on the
-		 * "indexedFileTotal" label Not yet working fully. **See under elements
-		 * added (Line 181). Method is called in FashionablySearchIt(Line 52).
-		 * && SearchItFileIO (Line 115)
+		 * !!---DELETE IF NOT USED BEFORE FINAL TURN-IN---!! Get the total lines
+		 * from the "Index.txt" file then displays it on the "indexedFileTotal"
+		 * label Not yet working fully. **See under elements added (Line 181).
+		 * Method is called in FashionablySearchIt(Line 52). && SearchItFileIO
+		 * (Line 115)
 		 */
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(
@@ -211,13 +275,14 @@ public class SearchItFramework {
 		// Sets labels and sizes
 		titleLabel.setBounds(280, 10, 250, 50);
 		titleLabel.setFont(new Font("Serif", Font.BOLD, 30));
+		noFile.setBounds(10, 30, 250, 50);
 
 		// Set size of the text box
 		searchField.setBounds(247, 80, 250, 30);
 
 		// Set size of the text Area
 		searchFieldArea.setBounds(10, 230, 715, 250);
-		
+
 		// Buttons
 		buttonSearch.setBounds(323, 130, 100, 30);
 		buttonSearch.setMnemonic(KeyEvent.VK_S);
@@ -261,10 +326,12 @@ public class SearchItFramework {
 		frame.add(searchAll);
 		frame.add(searchExact);
 		frame.add(searchAny);
+		frame.add(noFile);
 
 		frame.setJMenuBar(menubar);
 		frame.setLayout(null);
 		frame.setVisible(true);
+		noFile.setVisible(false);
 
 		// Adding MenuBar Items
 		menubar.add(menuFile);

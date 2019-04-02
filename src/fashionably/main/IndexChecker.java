@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
  * --Future implementation: hopefully in the future the
  * method:IndexChangesCheck() can return a boolean variable if there are any
  * deleted, changed or added files and initiate an if statement to update the
- * index if returns "true"'
+ * index if returns "true"
  * 
  */
 
@@ -38,9 +38,11 @@ public class IndexChecker {
 
 		System.out.println("Before Format : " + indexedFile.lastModified());
 
-		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		SimpleDateFormat dateFormat = new SimpleDateFormat(
+				"MM/dd/yyyy HH:mm:ss");
 
-		System.out.println("After Format : " + dateFormat.format(indexedFile.lastModified()));
+		System.out.println("After Format : "
+				+ dateFormat.format(indexedFile.lastModified()));
 
 	}
 }

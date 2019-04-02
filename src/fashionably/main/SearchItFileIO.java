@@ -36,7 +36,8 @@ public class SearchItFileIO {
 
 	// Global Variables
 
-	static JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+	static JFileChooser fileChooser = new JFileChooser(FileSystemView
+			.getFileSystemView().getHomeDirectory());
 
 	// Used by getPath()
 	static String filePath;
@@ -57,12 +58,14 @@ public class SearchItFileIO {
 		fileDateLong = selectedFile.lastModified();
 
 		// The format is Month/Day/Year - Hour/Minutes/Seconds
-		SimpleDateFormat dateConverter = new SimpleDateFormat("MM/dd/yyyy - hh:mm:ss");
+		SimpleDateFormat dateConverter = new SimpleDateFormat(
+				"MM/dd/yyyy - hh:mm:ss");
 		fileDateString = dateConverter.format(new Date(fileDateLong));
 
 		// Variable sent to class:SerachItTables method:addFileListener with
 		// file information
-		String[] fileRowInfo = new String[] { fileName, filePath, fileDateString };
+		String[] fileRowInfo = new String[] { fileName, filePath,
+				fileDateString };
 
 		// Variable sent to class:SerachItTables method:addFileListener
 		SearchItTables.addFileListener(fileRowInfo);
@@ -104,7 +107,8 @@ public class SearchItFileIO {
 		fileChooser.setAcceptAllFileFilterUsed(false);
 
 		// Shows FileChooserDialog Window
-		int returnVal = fileChooser.showOpenDialog(SearchItMaintenance.subMaintenanceFrame);
+		int returnVal = fileChooser
+				.showOpenDialog(SearchItMaintenance.subMaintenanceFrame);
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
 
 			getPath();

@@ -1,5 +1,5 @@
 /*
- * Info: Current Version: 1.2.0-53
+ * Info: Current Version: 1.3.0-55
  * 
  * Created separate classes to clean up code and better organize / distribute work amongst group members.
  * Make note of the package names and imports.
@@ -31,13 +31,19 @@
 
 package fashionably.main;
 
+/*
+ * Due to potential build path changes when committing amongst group members, 
+ * intial execution of program may 'glitch'. 
+ * To fix, simply close and re-execute the program.
+ */
+
 // Importing classes from framework package
 import fashionably.framework.SearchItFramework;
 
 public class FashionablySearchIt {
 	public static void main(String args[]) {
 
-		// Handles Framework of Maintenance Page'
+		// Handles Framework of Maintenance Page
 		SearchItFramework.createSearchEngine();
 
 		// Creates Index File if not found

@@ -25,10 +25,8 @@ import java.awt.*;
 import javax.swing.*;
 
 import java.awt.event.*;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 
 import java.util.Scanner;
 
@@ -38,9 +36,7 @@ import fashionably.main.SearchItMaintenance;
 
 public class SearchItFramework {
 
-	
-	//  Global Variables'
-	 
+	// Global Variables'
 
 	// Frame
 	static final JFrame frame = new JFrame("Search Engine");
@@ -91,10 +87,10 @@ public class SearchItFramework {
 	static String exactSearch;
 
 	/*
-	 * Search Phrase Section Current Layout: searchPhrase() will search the phrase
-	 * within the searchField will be assigned to variable and set to the current
-	 * contents of the searchField. The radiobutton checkstates' will be checked to
-	 * find out which phrase is being searched
+	 * Search Phrase Section Current Layout: searchPhrase() will search the
+	 * phrase within the searchField will be assigned to variable and set to the
+	 * current contents of the searchField. The radiobutton checkstates' will be
+	 * checked to find out which phrase is being searched
 	 */
 
 	public static void searchPhrase() throws FileNotFoundException {
@@ -107,7 +103,9 @@ public class SearchItFramework {
 		File index = new File("Index.txt");
 
 		// Data Validation
-		if (searchAll.isSelected() == false && searchExact.isSelected() == false && searchAny.isSelected() == false) {
+		if (searchAll.isSelected() == false
+				&& searchExact.isSelected() == false
+				&& searchAny.isSelected() == false) {
 			System.out.println("Select a Search Phrase");
 			searchFieldArea.setText("Select a Search Phrase");
 		}
@@ -122,8 +120,8 @@ public class SearchItFramework {
 		int searchSwitchPHRASE = 1;
 
 		/*
-		 * Handles PHRASE search phrase: searchExact - Searches for an EXACT text string
-		 * from the Search.txt file
+		 * Handles PHRASE search phrase: searchExact - Searches for an EXACT
+		 * text string from the Search.txt file
 		 */
 		if (searchExact.isSelected() == true) {
 			switch (searchSwitchPHRASE) {
@@ -142,16 +140,18 @@ public class SearchItFramework {
 
 				while (lineScanner.hasNextLine()) {
 					String lineToRead = lineScanner.nextLine();
-					if ((lineToRead.equals(searchText)) && (phrase.length() > 0)) {
-						searchFieldArea.append(String.format("%s %n", lineToRead));
+					if ((lineToRead.equals(searchText))
+							&& (phrase.length() > 0)) {
+						searchFieldArea.append(String.format("%s %n",
+								lineToRead));
 					}
 				}
 			}
 		}
 
 		/*
-		 * Handles AND search phrase: searchAny - Searches through the Search.txt file
-		 * for text not entered into the text box.
+		 * Handles AND search phrase: searchAny - Searches through the
+		 * Search.txt file for text not entered into the text box.
 		 */
 		if (searchAny.isSelected() == true) {
 			switch (searchSwitchAND) {
@@ -170,16 +170,18 @@ public class SearchItFramework {
 
 				while (lineScanner.hasNextLine()) {
 					String lineToRead = lineScanner.nextLine();
-					if ((!lineToRead.contains(searchText)) && (phrase.length() > 0)) {
-						searchFieldArea.append(String.format("%s %n", lineToRead));
+					if ((!lineToRead.contains(searchText))
+							&& (phrase.length() > 0)) {
+						searchFieldArea.append(String.format("%s %n",
+								lineToRead));
 					}
 				}
 			}
 		}
 
 		/*
-		 * Handles OR search phrase: [EXPLAIN WORKFLOW FOR "OR" SEARCH] Searches through
-		 * the Search.txt file for all text entered.
+		 * Handles OR search phrase: [EXPLAIN WORKFLOW FOR "OR" SEARCH] Searches
+		 * through the Search.txt file for all text entered.
 		 */
 		if (searchAll.isSelected() == true) {
 			switch (searchSwitchOR) {
@@ -201,8 +203,10 @@ public class SearchItFramework {
 					while (lineScanner.hasNext()) {
 						String lineToRead = lineScanner.nextLine();
 
-						if ((lineToRead.contains(searchText)) && (phrase.length() > 0)) {
-							searchFieldArea.append(String.format("%s %n", lineToRead));
+						if ((lineToRead.contains(searchText))
+								&& (phrase.length() > 0)) {
+							searchFieldArea.append(String.format("%s %n",
+									lineToRead));
 						}
 
 					}

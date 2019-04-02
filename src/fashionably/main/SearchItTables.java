@@ -31,8 +31,7 @@ import javax.swing.table.TableModel;
 
 public class SearchItTables {
 
-	
-	// Table'
+	// Table
 	static JTable indexTable;
 
 	public static String[][] fileInfo = {};
@@ -51,7 +50,8 @@ public class SearchItTables {
 	 * Checks row in table to specify deletion of file
 	 */
 
-	public static void removeFileIndex(int fileToAddInfoTable) throws FileNotFoundException {
+	public static void removeFileIndex(int fileToAddInfoTable)
+			throws FileNotFoundException {
 
 		TableModel tableModelDetach = indexTable.getModel();
 		DefaultTableModel removeRowObject = (DefaultTableModel) tableModelDetach;
@@ -72,7 +72,8 @@ public class SearchItTables {
 
 					for (int gc = 0; gc < indexTable.getColumnCount(); gc++) {
 
-						buffWrite.write(indexTable.getModel().getValueAt(gr, gc) + ",");
+						buffWrite.write(indexTable.getModel()
+								.getValueAt(gr, gc) + ",");
 					}
 
 					buffWrite.write("\n");
@@ -92,7 +93,9 @@ public class SearchItTables {
 
 					for (int gc = 0; gc < indexTable.getColumnCount(); gc++) {
 						if (gc == 0) {
-							buffWrite.write(indexTable.getModel().getValueAt(gr, gc) + "");
+							buffWrite.write(indexTable.getModel().getValueAt(
+									gr, gc)
+									+ "");
 						} else {
 
 						}
@@ -123,12 +126,12 @@ public class SearchItTables {
 		return rowInfo;
 	}
 
-
 	// Create Table
 	public static Component createTable() {
 
 		// Column Names
-		String[] columns = new String[] { "File Name", "File Path", "Date Modified" };
+		String[] columns = new String[] { "File Name", "File Path",
+				"Date Modified" };
 
 		// Change column String to Object to comply with DefaultTableModel
 		// parameters
@@ -166,7 +169,8 @@ public class SearchItTables {
 		}
 
 		// Table Sizing and table variable return to SearchItMaintenance Class
-		indexTable.setPreferredScrollableViewportSize(indexTable.getPreferredSize());
+		indexTable.setPreferredScrollableViewportSize(indexTable
+				.getPreferredSize());
 
 		return indexTable;
 

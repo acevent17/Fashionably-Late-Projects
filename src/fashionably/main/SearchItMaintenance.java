@@ -39,14 +39,10 @@ import fashionably.main.SearchItTables;
 
 public class SearchItMaintenance {
 
-	// Global Variables'
+	// Global Variables
 
 	// Frame
 	static final JFrame subMaintenanceFrame = new JFrame();
-	static final JMenuItem subAddFile = new JMenuItem("Add File");
-
-	// Panel
-	static JPanel maintenancePanel = new JPanel();
 
 	// Menu Bar
 	static JMenuBar menubar = new JMenuBar();
@@ -61,10 +57,10 @@ public class SearchItMaintenance {
 	static JMenuItem subResetWindow = new JMenuItem("Reset Window");
 	static JMenuItem subAboutPage = new JMenuItem("About");
 
-	// Label
-	
+	// Sub Maintenance Frame
 	public static void createSubMaintenance() {
-
+		JPanel maintenancePanel = new JPanel();
+		final JMenuItem subAddFile = new JMenuItem("Add File");
 		// Frame Positioning
 		subMaintenanceFrame.setVisible(true);
 		subMaintenanceFrame.setSize(700, 500);
@@ -76,7 +72,7 @@ public class SearchItMaintenance {
 		// Header and other labels
 		maintenancePanel.add(new JLabel("Search Engine - Index Maintenance"));
 		subMaintenanceFrame.add(maintenancePanel, BorderLayout.NORTH);
-		
+
 		JLabel labelFileNumber = new JLabel();
 		JLabel labelVersion = new JLabel("Search Engine Version 1.2");
 

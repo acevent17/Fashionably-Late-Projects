@@ -134,7 +134,6 @@ public class SearchItFramework {
 			searchFieldArea.setText("Select a Search Phrase");
 		}
 
-
 		// Creates scanner to read from file and textbox string
 		Scanner indexScanner = new Scanner(index);
 		String phrase = indexScanner.findInLine("[A-Za-z].*[A-Za-z]");
@@ -158,9 +157,18 @@ public class SearchItFramework {
 				}
 				// Search Functionality
 			case 2:
-				/*
-				 * scanner goes here
-				 */
+				Scanner lineScanner = new Scanner(new File("Search.txt"));
+				int lineCount = 0;
+
+				while (lineScanner.hasNextLine()) {
+					String lineToRead = lineScanner.nextLine();
+					if ((lineToRead.equals(searchText))
+							&& (phrase.length() > 0)) {
+						searchFieldArea.append(String.format("%s %n",
+								lineToRead));
+						lineCount++;
+					}
+				}
 
 				// File Validation
 			case 3:
@@ -185,19 +193,19 @@ public class SearchItFramework {
 				// Search Functionality
 			case 2:
 				searchFieldArea.setText("");
-				
-                Scanner lineScanner = new Scanner(new File("Search.txt"));
-                int lineCount = 0;
-                
-                while (lineScanner.hasNextLine()) {
-                    String lineToRead = lineScanner.nextLine();
-                    if ((!lineToRead.contains(searchText))
-                            && (phrase.length() > 0)) {
-						searchFieldArea.append(String.format( "%s %n",
+
+				Scanner lineScanner = new Scanner(new File("Search.txt"));
+				int lineCount = 0;
+
+				while (lineScanner.hasNextLine()) {
+					String lineToRead = lineScanner.nextLine();
+					if ((!lineToRead.contains(searchText))
+							&& (phrase.length() > 0)) {
+						searchFieldArea.append(String.format("%s %n",
 								lineToRead));
-                        lineCount++;
-                    }
-                }
+						lineCount++;
+					}
+				}
 
 				// File Validation
 			case 3:
@@ -224,16 +232,16 @@ public class SearchItFramework {
 			case 2:
 				if (searchAll.isSelected() == true) {
 					searchFieldArea.setText("");
-					
+
 					Scanner lineScanner = new Scanner(new File("Search.txt"));
 					int lineCount = 0;
-					
+
 					while (lineScanner.hasNext()) {
 						String lineToRead = lineScanner.nextLine();
-						
+
 						if ((lineToRead.contains(searchText))
 								&& (phrase.length() > 0)) {
-							searchFieldArea.append(String.format( "%s %n",
+							searchFieldArea.append(String.format("%s %n",
 									lineToRead));
 							lineCount++;
 						}
@@ -301,7 +309,7 @@ public class SearchItFramework {
 		searchFieldArea.setLineWrap(true);
 		// breaks lines
 		searchFieldArea.setWrapStyleWord(true);
-		
+
 		// Buttons
 		buttonSearch.setBounds(323, 130, 100, 30);
 		buttonSearch.setMnemonic(KeyEvent.VK_S);

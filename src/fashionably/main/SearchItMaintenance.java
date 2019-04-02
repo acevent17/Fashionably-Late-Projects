@@ -39,10 +39,10 @@ import fashionably.main.SearchItTables;
 
 public class SearchItMaintenance {
 
-	// Global Variables
+	// Global Variables'
 
 	// Frame
-	
+	static final JFrame subMaintenanceFrame = new JFrame();
 	static final JMenuItem subAddFile = new JMenuItem("Add File");
 
 	// Panel
@@ -65,8 +65,6 @@ public class SearchItMaintenance {
 	
 	public static void createSubMaintenance() {
 
-		final JFrame subMaintenanceFrame = new JFrame();
-		
 		// Frame Positioning
 		subMaintenanceFrame.setVisible(true);
 		subMaintenanceFrame.setSize(700, 500);

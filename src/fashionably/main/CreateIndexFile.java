@@ -8,7 +8,7 @@ public class CreateIndexFile {
 
 	private Formatter createFile;
 
-	// Creates file if doesn't exist
+	// Creates file if doesn't exist'
 	public void openIndexFile() {
 		try {
 

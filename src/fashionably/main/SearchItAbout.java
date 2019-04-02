@@ -26,7 +26,7 @@ import javax.swing.JLabel;
 
 public class SearchItAbout {
 
-	// Global Variables
+	// Global Variables'
 
 	// Frame
 	static JFrame aboutSubFrame = new JFrame();

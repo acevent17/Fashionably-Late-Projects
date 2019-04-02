@@ -37,7 +37,7 @@ import fashionably.framework.SearchItFramework;
 public class FashionablySearchIt {
 	public static void main(String args[]) {
 
-		// Handles Framework of Maintenance Page
+		// Handles Framework of Maintenance Page'
 		SearchItFramework.createSearchEngine();
 
 		// Creates Index File if not found

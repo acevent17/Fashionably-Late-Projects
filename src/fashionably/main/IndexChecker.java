@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
  * --Future implementation: hopefully in the future the
  * method:IndexChangesCheck() can return a boolean variable if there are any
  * deleted, changed or added files and initiate an if statement to update the
- * index if returns "true"
+ * index if returns "true"'
  * 
  */
 

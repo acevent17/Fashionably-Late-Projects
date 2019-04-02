@@ -32,7 +32,7 @@ import javax.swing.table.TableModel;
 public class SearchItTables {
 
 	
-	// Table
+	// Table'
 	static JTable indexTable;
 
 	public static String[][] fileInfo = {};

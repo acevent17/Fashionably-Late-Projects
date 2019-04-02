@@ -38,9 +38,9 @@ import fashionably.main.SearchItMaintenance;
 
 public class SearchItFramework {
 
-	/*
-	 * Global Variables
-	 */
+	
+	//  Global Variables'
+	 
 
 	// Frame
 	static final JFrame frame = new JFrame("Search Engine");

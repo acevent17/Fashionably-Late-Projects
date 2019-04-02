@@ -134,6 +134,7 @@ public class SearchItFramework {
 			searchFieldArea.setText("Select a Search Phrase");
 		}
 
+
 		// Creates scanner to read from file and textbox string
 		Scanner indexScanner = new Scanner(index);
 		String phrase = indexScanner.findInLine("[A-Za-z].*[A-Za-z]");

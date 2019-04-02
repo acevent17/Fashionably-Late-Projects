@@ -3,18 +3,14 @@
  * 
  * 
  * Changes are displayed below:
- * --Created class specifically for Maintenance functionality
- * --Changed menu item from "About Page" to "About"
- * --Added RemoveFileIndex event
- * --Removed Index counter
- * 
+ * -- N/A
  * 
  * Current Issues are displayed below:
  * --N/A
  * 
  * 
  * Resolved Issues:
- * -- About button functions properly now.
+ * --N/A
  * 
  */
 
@@ -43,12 +39,10 @@ import fashionably.main.SearchItTables;
 
 public class SearchItMaintenance {
 
-	/*
-	 * Global Variables
-	 */
+	// Global Variables
 
 	// Frame
-	static final JFrame subMaintenanceFrame = new JFrame();
+	
 	static final JMenuItem subAddFile = new JMenuItem("Add File");
 
 	// Panel
@@ -68,11 +62,11 @@ public class SearchItMaintenance {
 	static JMenuItem subAboutPage = new JMenuItem("About");
 
 	// Label
-	static JLabel labelFileNumber = new JLabel();
-	static JLabel labelVersion = new JLabel("Search Engine Version 1.2");
-
+	
 	public static void createSubMaintenance() {
 
+		final JFrame subMaintenanceFrame = new JFrame();
+		
 		// Frame Positioning
 		subMaintenanceFrame.setVisible(true);
 		subMaintenanceFrame.setSize(700, 500);
@@ -84,6 +78,9 @@ public class SearchItMaintenance {
 		// Header and other labels
 		maintenancePanel.add(new JLabel("Search Engine - Index Maintenance"));
 		subMaintenanceFrame.add(maintenancePanel, BorderLayout.NORTH);
+		
+		JLabel labelFileNumber = new JLabel();
+		JLabel labelVersion = new JLabel("Search Engine Version 1.2");
 
 		// File Number
 		labelFileNumber.setBounds(180, 395, 160, 30);
@@ -140,8 +137,6 @@ public class SearchItMaintenance {
 		// Adding Table to SubFrame
 		subMaintenanceFrame.add(new JScrollPane(SearchItTables.createTable()));
 		subMaintenanceFrame.setVisible(true);
-
-
 		subMaintenanceFrame.validate();
 
 		// Remove File Handler. See(*SearchItTables.RemoveFileIndex());)
@@ -173,9 +168,6 @@ public class SearchItMaintenance {
 		subModified.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				IndexChecker.LastModified();
-				// SearchItTables.GetData(SearchItTables.indexTable,
-				// SearchItTables.indexTable.getSelectedRow(),
-				// SearchItTables.indexTable.getSelectedColumn());
 			}
 		});
 

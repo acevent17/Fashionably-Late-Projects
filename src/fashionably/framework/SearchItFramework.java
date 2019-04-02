@@ -3,17 +3,15 @@
  * 
  * 
  * Changes are displayed below:
- * --Created class specifically for Frame functionality
- * --Changed menu item from "About Page" to "About"
- * --Created functionality for Search Button
- * --Added Search Any Phrase RadioButton
+ *  -- Search buttons all work now.
+ * 
  * 
  * Current Issues are displayed below:
- * --Created method to get total line count of Index File. Not showing count
+ * 
  * 
  * 
  * Resolved Issues:
- * --TBA
+ * --N/A
  * 
  */
 
@@ -93,31 +91,13 @@ public class SearchItFramework {
 	static String exactSearch;
 
 	/*
-	 * Search Phrase Section Current Layout: searchPhrase() will search the
-	 * phrase within the searchField will be assigned to variable and set to the
-	 * current contents of the searchField. The radiobutton checkstates' will be
-	 * checked to find out which phrase is being searched
+	 * Search Phrase Section Current Layout: searchPhrase() will search the phrase
+	 * within the searchField will be assigned to variable and set to the current
+	 * contents of the searchField. The radiobutton checkstates' will be checked to
+	 * find out which phrase is being searched
 	 */
 
 	public static void searchPhrase() throws FileNotFoundException {
-
-		/*
-		 * Current situation with read file: Workflow: Scanner reads
-		 * "Index.txt", the user entered string in the textfield, and the radio
-		 * button checkstate (Currently only working with OR). The scanner
-		 * outputs the file name (trimmed off pathname) based on if file is
-		 * within "Index.txt".
-		 * 
-		 * Latest code when ran displays every line that has an existing
-		 * character equal to the textfield entry. To Replicate: OPEN
-		 * APPLICATION -> add new file -> OPEN INDEX.TXT -> add new line under
-		 * line 1 as an integer "1" -> add new line as "apple" -> Run
-		 * application -> Select "OR" radioButton -> type a single character
-		 * that exists within the file or path (returns multiple entries of file
-		 * search + No File Found(??)) -> type "1" (No File Found, due to
-		 * parameters of search not accepting integers) -> type "apple" (No File
-		 * Found)
-		 */
 
 		// Gets text within the searchField - Can be set to console output for
 		// debugging
@@ -127,9 +107,7 @@ public class SearchItFramework {
 		File index = new File("Index.txt");
 
 		// Data Validation
-		if (searchAll.isSelected() == false
-				&& searchExact.isSelected() == false
-				&& searchAny.isSelected() == false) {
+		if (searchAll.isSelected() == false && searchExact.isSelected() == false && searchAny.isSelected() == false) {
 			System.out.println("Select a Search Phrase");
 			searchFieldArea.setText("Select a Search Phrase");
 		}
@@ -144,7 +122,8 @@ public class SearchItFramework {
 		int searchSwitchPHRASE = 1;
 
 		/*
-		 * Handles PHRASE search phrase: [EXPLAIN WORKFLOW FOR "PHRASE" SEARCH]
+		 * Handles PHRASE search phrase: searchExact - Searches for an EXACT text string
+		 * from the Search.txt file
 		 */
 		if (searchExact.isSelected() == true) {
 			switch (searchSwitchPHRASE) {
@@ -157,29 +136,22 @@ public class SearchItFramework {
 				}
 				// Search Functionality
 			case 2:
+				searchFieldArea.setText("");
+
 				Scanner lineScanner = new Scanner(new File("Search.txt"));
-				int lineCount = 0;
 
 				while (lineScanner.hasNextLine()) {
 					String lineToRead = lineScanner.nextLine();
-					if ((lineToRead.equals(searchText))
-							&& (phrase.length() > 0)) {
-						searchFieldArea.append(String.format("%s %n",
-								lineToRead));
-						lineCount++;
+					if ((lineToRead.equals(searchText)) && (phrase.length() > 0)) {
+						searchFieldArea.append(String.format("%s %n", lineToRead));
 					}
 				}
-
-				// File Validation
-			case 3:
-				/*
-				 * File not found goes here
-				 */
 			}
 		}
 
 		/*
-		 * Handles AND search phrase: [EXPLAIN WORKFLOW FOR "AND" SEARCH]
+		 * Handles AND search phrase: searchAny - Searches through the Search.txt file
+		 * for text not entered into the text box.
 		 */
 		if (searchAny.isSelected() == true) {
 			switch (searchSwitchAND) {
@@ -195,28 +167,19 @@ public class SearchItFramework {
 				searchFieldArea.setText("");
 
 				Scanner lineScanner = new Scanner(new File("Search.txt"));
-				int lineCount = 0;
 
 				while (lineScanner.hasNextLine()) {
 					String lineToRead = lineScanner.nextLine();
-					if ((!lineToRead.contains(searchText))
-							&& (phrase.length() > 0)) {
-						searchFieldArea.append(String.format("%s %n",
-								lineToRead));
-						lineCount++;
+					if ((!lineToRead.contains(searchText)) && (phrase.length() > 0)) {
+						searchFieldArea.append(String.format("%s %n", lineToRead));
 					}
 				}
-
-				// File Validation
-			case 3:
-				/*
-				 * File not found goes here
-				 */
 			}
 		}
 
 		/*
-		 * Handles OR search phrase: [EXPLAIN WORKFLOW FOR "OR" SEARCH]
+		 * Handles OR search phrase: [EXPLAIN WORKFLOW FOR "OR" SEARCH] Searches through
+		 * the Search.txt file for all text entered.
 		 */
 		if (searchAll.isSelected() == true) {
 			switch (searchSwitchOR) {
@@ -234,48 +197,20 @@ public class SearchItFramework {
 					searchFieldArea.setText("");
 
 					Scanner lineScanner = new Scanner(new File("Search.txt"));
-					int lineCount = 0;
 
 					while (lineScanner.hasNext()) {
 						String lineToRead = lineScanner.nextLine();
 
-						if ((lineToRead.contains(searchText))
-								&& (phrase.length() > 0)) {
-							searchFieldArea.append(String.format("%s %n",
-									lineToRead));
-							lineCount++;
+						if ((lineToRead.contains(searchText)) && (phrase.length() > 0)) {
+							searchFieldArea.append(String.format("%s %n", lineToRead));
 						}
 
 					}
 
 				}
 
-			case 3:
-				/*
-				 * No File Found needs to be implimented(???)
-				 */
 			}
 
-		}
-
-	}
-
-	public static void getLines() {
-		/*
-		 * !!---DELETE IF NOT USED BEFORE FINAL TURN-IN---!! Get the total lines
-		 * from the "Index.txt" file then displays it on the "indexedFileTotal"
-		 * label Not yet working fully. **See under elements added (Line 181).
-		 * Method is called in FashionablySearchIt(Line 52). && SearchItFileIO
-		 * (Line 115)
-		 */
-		try {
-			BufferedReader reader = new BufferedReader(new FileReader(
-					"Index.txt"));
-			while (reader.readLine() != null)
-				indexedFileTotal++;
-			reader.close();
-		} catch (Exception e) {
-			System.out.println("No Files Indexed");
 		}
 
 	}
@@ -387,7 +322,6 @@ public class SearchItFramework {
 				try {
 					searchPhrase();
 				} catch (FileNotFoundException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}

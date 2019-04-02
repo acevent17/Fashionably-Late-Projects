@@ -2,27 +2,16 @@
  * Class dedicated to File Handling and Choosing File functionality of the Search Engine
  * 
  * Changes are displayed below:
- * --Changed fileChooser to a Global Variable
- * --Added a get and display method for the file path
- * --Added return to the getPath method
- * --Added compatibility between getPath and SearchItTables classes.
- * --Completed the file info variable shared between method:getPath and method:addFileListener
- * --Completed formating for date
- * --Removed testing codes and comments
- * --Changed date format display error
+ * --Created File writer for Search.txt file.
  *
  * 
  * Current Issues are displayed below:
- * -- JSON needs to provide a new line to the .txt file
- * -- JSON needs to pre load the .txt file
- * -- JSON needs to read the .txt file  
+ *  --N/A
  *  
  *  
  * Resolved Issues:
- *  --Created get and display method for the file path 
- *  --All file extensions now show
- *  --TBA
- *  
+ * --N/A
+ * 
  */
 
 /*
@@ -45,12 +34,9 @@ import fashionably.main.SearchItMaintenance;
 
 public class SearchItFileIO {
 
-	/*
-	 * Global Variables
-	 */
+	// Global Variables
 
-	static JFileChooser fileChooser = new JFileChooser(FileSystemView
-			.getFileSystemView().getHomeDirectory());
+	static JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 
 	// Used by getPath()
 	static String filePath;
@@ -71,14 +57,12 @@ public class SearchItFileIO {
 		fileDateLong = selectedFile.lastModified();
 
 		// The format is Month/Day/Year - Hour/Minutes/Seconds
-		SimpleDateFormat dateConverter = new SimpleDateFormat(
-				"MM/dd/yyyy - hh:mm:ss");
+		SimpleDateFormat dateConverter = new SimpleDateFormat("MM/dd/yyyy - hh:mm:ss");
 		fileDateString = dateConverter.format(new Date(fileDateLong));
 
 		// Variable sent to class:SerachItTables method:addFileListener with
 		// file information
-		String[] fileRowInfo = new String[] { fileName, filePath,
-				fileDateString };
+		String[] fileRowInfo = new String[] { fileName, filePath, fileDateString };
 
 		// Variable sent to class:SerachItTables method:addFileListener
 		SearchItTables.addFileListener(fileRowInfo);
@@ -100,7 +84,7 @@ public class SearchItFileIO {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		try
 		// Creating a writers necessary for the "Index.txt" file
 		(FileWriter writer = new FileWriter("Search.txt", true);
@@ -120,8 +104,7 @@ public class SearchItFileIO {
 		fileChooser.setAcceptAllFileFilterUsed(false);
 
 		// Shows FileChooserDialog Window
-		int returnVal = fileChooser
-				.showOpenDialog(SearchItMaintenance.subMaintenanceFrame);
+		int returnVal = fileChooser.showOpenDialog(SearchItMaintenance.subMaintenanceFrame);
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
 
 			getPath();

@@ -30,7 +30,7 @@ public class IndexChecker {
 	/*
 	 * Global Variables
 	 */
-	
+
 	static File indexedFile = new File("Index.txt");
 
 	// Gets Last Modified Date of selected file.
@@ -38,11 +38,9 @@ public class IndexChecker {
 
 		System.out.println("Before Format : " + indexedFile.lastModified());
 
-		SimpleDateFormat dateFormat = new SimpleDateFormat(
-				"MM/dd/yyyy HH:mm:ss");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 
-		System.out.println("After Format : "
-				+ dateFormat.format(indexedFile.lastModified()));
+		System.out.println("After Format : " + dateFormat.format(indexedFile.lastModified()));
 
 	}
 }

@@ -3,8 +3,7 @@
  * 
  * 
  * Changes are displayed below:
- * --Created class specifically for About functionality
- * --Adjusted Positioning of Group Names
+ * --N/A
  * 
  * 
  * Current Issues are displayed below:
@@ -27,11 +26,8 @@ import javax.swing.JLabel;
 
 public class SearchItAbout {
 
-	/*
-	 *  Global Variables
-	 */
-	
-	
+	// Global Variables
+
 	// Frame
 	static JFrame aboutSubFrame = new JFrame();
 

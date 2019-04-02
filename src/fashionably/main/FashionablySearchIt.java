@@ -1,5 +1,5 @@
 /*
- * Info: Current Version: 1.2.0-44
+ * Info: Current Version: 1.2.0-53
  * 
  * Created separate classes to clean up code and better organize / distribute work amongst group members.
  * Make note of the package names and imports.
@@ -17,19 +17,16 @@
  * 
  * 
  * Changes are displayed below:
- * --Created class specifically for Main functionality
- * 
+ * --N/A
  * 
  * Current Issues are displayed below:
- * --ID for added file paths need to be added(Maybe??)
- * 
+ * --N/A
  * 
  * 
  * 
  * Resolved Issues:
- * --Table imports file path into data field
- * --Table saves last import path when closing
- * --Remove button works
+ * --N/A
+ * 
  */
 
 package fashionably.main;
@@ -46,11 +43,5 @@ public class FashionablySearchIt {
 		// Creates Index File if not found
 		CreateIndexFile create = new CreateIndexFile();
 		create.openIndexFile();
-		
-		
-		// Gets Line Count (Not Yet Working)
-		// Use for Search to check each line.
-		SearchItFramework.getLines();
-
 	}
 }

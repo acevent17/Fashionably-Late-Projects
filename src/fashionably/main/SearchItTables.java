@@ -3,32 +3,12 @@
  * 
  * 
  * Changes are displayed below:
- * --Created class specifically for table functionality
- * --Added compatibility between getPath and SearchItTables classes.
- * --Made the table be more dynamic
- * --Completed compatibility between "class:SearchItFileIO method:getPath" and "class:SearchItTables method:addFileListener"
- * --Remove File button is functioning, however not in the complete indended way
- * 
- * 
+ * -- Added remove function for Search.txt file.
  * 
  * 
  * Current Issues are displayed below:
- *  
- * --Currently I am using String[] and Object[], however, Mr. Pollock recommends the use of List instead,
- *    this should be changed soon. // This is probably not necessary, we can keep working on the project and see.
- * 
- * --Remove button clears the ENTIRE JSON.txt file
- * 
- * 
- * 
  * 
  * Resolved Issues:
- * --Table has an initialized Table Model* ([Default]) *(tableModel)
- * --Data of rows is now an initialized variable* ([data1, data2]) *(null)
- * --Data in rows on columns are not setting from the FileChooser* *(Class: SearchItFileIO)
- * --All the row information to work and be added to the table
- * --Removed place holders: filename, pathname, and date.
- * --Remove button is fully functioning
  * 
  */
 
@@ -51,10 +31,7 @@ import javax.swing.table.TableModel;
 
 public class SearchItTables {
 
-	/*
-	 * Global Variables
-	 */
-
+	
 	// Table
 	static JTable indexTable;
 
@@ -74,8 +51,7 @@ public class SearchItTables {
 	 * Checks row in table to specify deletion of file
 	 */
 
-	public static void removeFileIndex(int fileToAddInfoTable)
-			throws FileNotFoundException {
+	public static void removeFileIndex(int fileToAddInfoTable) throws FileNotFoundException {
 
 		TableModel tableModelDetach = indexTable.getModel();
 		DefaultTableModel removeRowObject = (DefaultTableModel) tableModelDetach;
@@ -96,8 +72,7 @@ public class SearchItTables {
 
 					for (int gc = 0; gc < indexTable.getColumnCount(); gc++) {
 
-						buffWrite.write(indexTable.getModel()
-								.getValueAt(gr, gc) + ",");
+						buffWrite.write(indexTable.getModel().getValueAt(gr, gc) + ",");
 					}
 
 					buffWrite.write("\n");
@@ -108,7 +83,7 @@ public class SearchItTables {
 				ex.printStackTrace();
 			}
 
-			//Remove for Search.txt
+			// Remove for Search.txt
 			try (FileWriter writer = new FileWriter("Search.txt", true);
 					BufferedWriter buffWrite = new BufferedWriter(writer);
 					PrintWriter write = new PrintWriter("Search.txt");) {
@@ -117,9 +92,7 @@ public class SearchItTables {
 
 					for (int gc = 0; gc < indexTable.getColumnCount(); gc++) {
 						if (gc == 0) {
-							buffWrite.write(indexTable.getModel().getValueAt(
-									gr, gc)
-									+ "");
+							buffWrite.write(indexTable.getModel().getValueAt(gr, gc) + "");
 						} else {
 
 						}
@@ -150,28 +123,12 @@ public class SearchItTables {
 		return rowInfo;
 	}
 
-	/*
-	 * 
-	 * To be used
-	 * 
-	 * public static Object GetData(JTable indexTable, int row_index, int
-	 * col_index){
-	 * 
-	 * Object obj1 = GetData(indexTable, indexTable.getSelectedRow(),
-	 * indexTable.getSelectedColumn()); Object obj2 = GetData(indexTable,
-	 * indexTable.getSelectedRow(), indexTable.getSelectedColumn());
-	 * 
-	 * if(obj1 == obj2){ System.out.println("Yeah it's here"); }else{
-	 * System.out.println("nope"); } return
-	 * indexTable.getModel().getValueAt(row_index, col_index); }
-	 */
 
 	// Create Table
 	public static Component createTable() {
 
 		// Column Names
-		String[] columns = new String[] { "File Name", "File Path",
-				"Date Modified" };
+		String[] columns = new String[] { "File Name", "File Path", "Date Modified" };
 
 		// Change column String to Object to comply with DefaultTableModel
 		// parameters
@@ -209,8 +166,7 @@ public class SearchItTables {
 		}
 
 		// Table Sizing and table variable return to SearchItMaintenance Class
-		indexTable.setPreferredScrollableViewportSize(indexTable
-				.getPreferredSize());
+		indexTable.setPreferredScrollableViewportSize(indexTable.getPreferredSize());
 
 		return indexTable;
 

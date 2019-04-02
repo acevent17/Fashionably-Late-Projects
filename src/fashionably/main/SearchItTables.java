@@ -95,6 +95,7 @@ public class SearchItTables {
 				for (int gr = 0; gr < indexTable.getRowCount(); gr++) {
 
 					for (int gc = 0; gc < indexTable.getColumnCount(); gc++) {
+						
 						buffWrite.write(indexTable.getModel()
 								.getValueAt(gr, gc) + ",");
 					}
@@ -106,6 +107,25 @@ public class SearchItTables {
 			catch (Exception ex) {
 				ex.printStackTrace();
 			}
+			
+			
+		//	try (FileWriter writer = new FileWriter("Search.txt", true);
+		//			BufferedWriter buffWrite = new BufferedWriter(writer);
+	//		PrintWriter write = new PrintWriter("Search.txt");) {
+//
+//				for (int gr = 0; gr < indexTable.getRowCount(); gr++) {
+
+					//for (int gc = 0; gc < indexTable.getColumnCount(); gc++) {
+						//buffWrite.write(indexTable.getModel().getValueAt(gr, gc) + ",");
+					//}
+
+					//buffWrite.write("\n");
+				//}
+			//}
+
+			//catch (Exception ex) {
+				//ex.printStackTrace();
+			//}
 		}
 	}
 

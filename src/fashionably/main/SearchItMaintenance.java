@@ -141,13 +141,6 @@ public class SearchItMaintenance {
 		subMaintenanceFrame.add(new JScrollPane(SearchItTables.createTable()));
 		subMaintenanceFrame.setVisible(true);
 
-		// ---(TO BE REMOVED IN NEXT UPDATE)---
-		/*
-		 * Setting a count for rows indexed //int rows =
-		 * SearchItTables.indexTable.getRowCount();
-		 * //labelFileNumber.setText("Number of files indexed: " + rows);
-		 * ItemsIndexed.setText(SearchItTables.indexTable.getRowCount());
-		 */
 
 		subMaintenanceFrame.validate();
 

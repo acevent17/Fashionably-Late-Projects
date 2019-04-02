@@ -100,6 +100,20 @@ public class SearchItFileIO {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		try
+		// Creating a writers necessary for the "Index.txt" file
+		(FileWriter writer = new FileWriter("Search.txt", true);
+				BufferedWriter buffWrite = new BufferedWriter(writer);
+				PrintWriter write = new PrintWriter(buffWrite);) {
+
+			// Writes the name, path, and date to the text file.
+			// Saves to the text file, but will overwrite.
+			write.println(fileName);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static void fileHandler() {

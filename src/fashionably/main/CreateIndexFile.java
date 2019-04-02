@@ -14,6 +14,8 @@ public class CreateIndexFile {
 
 			File createFile = new File("Index.txt");
 			createFile.createNewFile();
+			File createFile2 = new File("Search.txt");
+			createFile2.createNewFile();
 
 		} catch (Exception e) {
 			System.out.println("Error Creating Index File");

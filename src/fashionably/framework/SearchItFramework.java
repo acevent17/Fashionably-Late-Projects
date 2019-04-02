@@ -153,7 +153,6 @@ public class SearchItFramework {
 			// Data Validation
 			case 1:
 				if (searchText.isEmpty()) {
-					System.out.println("Enter a File Name");
 					searchFieldArea.setText("Enter a File Name");
 					break;
 				}
@@ -180,15 +179,25 @@ public class SearchItFramework {
 			// Data Validation
 			case 1:
 				if (searchText.isEmpty()) {
-					System.out.println("Enter a File Name");
 					searchFieldArea.setText("Enter a File Name");
 					break;
 				}
 				// Search Functionality
 			case 2:
-				/*
-				 * Scanner goes here
-				 */
+				searchFieldArea.setText("");
+				
+                Scanner lineScanner = new Scanner(new File("Search.txt"));
+                int lineCount = 0;
+                
+                while (lineScanner.hasNextLine()) {
+                    String lineToRead = lineScanner.nextLine();
+                    if ((!lineToRead.contains(searchText))
+                            && (phrase.length() > 0)) {
+						searchFieldArea.append(String.format( "%s %n",
+								lineToRead));
+                        lineCount++;
+                    }
+                }
 
 				// File Validation
 			case 3:
@@ -207,7 +216,6 @@ public class SearchItFramework {
 			// Data Validation
 			case 1:
 				if (searchText.isEmpty()) {
-					System.out.println("Enter a File Name");
 					searchFieldArea.setText("Enter a File Name");
 					break;
 				}
@@ -215,14 +223,18 @@ public class SearchItFramework {
 				// Search Functionality
 			case 2:
 				if (searchAll.isSelected() == true) {
-					Scanner lineScanner = new Scanner(new File("Index.txt"));
+					searchFieldArea.setText("");
+					
+					Scanner lineScanner = new Scanner(new File("Search.txt"));
 					int lineCount = 0;
-					while (lineScanner.hasNextLine()) {
+					
+					while (lineScanner.hasNext()) {
 						String lineToRead = lineScanner.nextLine();
+						
 						if ((lineToRead.contains(searchText))
 								&& (phrase.length() > 0)) {
-							System.out.printf("%d: %s %n", lineCount,
-									lineToRead);
+							searchFieldArea.append(String.format( "%s %n",
+									lineToRead));
 							lineCount++;
 						}
 
@@ -283,7 +295,13 @@ public class SearchItFramework {
 
 		// Set size of the text Area
 		searchFieldArea.setBounds(10, 230, 715, 250);
-
+		// non-editable
+		searchFieldArea.setEditable(false);
+		// wraps lines automatically
+		searchFieldArea.setLineWrap(true);
+		// breaks lines
+		searchFieldArea.setWrapStyleWord(true);
+		
 		// Buttons
 		buttonSearch.setBounds(323, 130, 100, 30);
 		buttonSearch.setMnemonic(KeyEvent.VK_S);

@@ -102,7 +102,7 @@ public class SearchItMaintenance {
 		menubar.add(menuEdit);
 		menubar.add(menuHelp);
 
-		// sub Menu-bar additions
+		// Sub Menu-bar additions
 		menuFile.add(subAddFile);
 		menuEdit.add(subRebuild);
 		menuEdit.add(subRemoveFile);
@@ -110,7 +110,7 @@ public class SearchItMaintenance {
 		menuEdit.add(subResetWindow);
 		menuHelp.add(subAboutPage);
 
-		// sub Menu-bar Hot Keys
+		// Sub Menu-bar Hot Keys
 		subAddFile.setMnemonic(KeyEvent.VK_A);
 		subRebuild.setMnemonic(KeyEvent.VK_B);
 		subRemoveFile.setMnemonic(KeyEvent.VK_R);

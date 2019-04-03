@@ -28,10 +28,9 @@ import javax.swing.filechooser.FileSystemView;
 
 //Importing classes from main package 
 import fashionably.main.SearchItMaintenance;
-//Class to handle file view, file selection, file addition and file deletion. 
-//Takes no variables
-//Sends variable type String to method addFileListener in the SearchItTables class
 
+//Class for file view, file selection, file addition and file deletion. 
+//Sends variable type String to method addFileListener in the SearchItTables class
 public class SearchItFileIO {
 
 	// Global Variables

@@ -63,10 +63,11 @@ public class SearchItFramework {
 	public static void searchPhrase() throws FileNotFoundException {
 
 		// Gets text within the searchField - Can be set to console output for
-		// debugging
 		String searchText = searchField.getText();
+		
+		// debugging
 		// System.out.println(searchText);
-
+		
 		File index = new File("Index.txt");
 
 		// Data Validation

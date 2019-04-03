@@ -21,6 +21,7 @@ package fashionably.main;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -39,11 +40,13 @@ import fashionably.main.SearchItTables;
 
 public class SearchItMaintenance {
 
-	// Frame
-	static final JFrame subMaintenanceFrame = new JFrame();
+	public static final Component subMaintenanceFrame = null;
 
 	// Sub Maintenance Frame
 	public static void createSubMaintenance() {
+
+		// Frame
+		final JFrame subMaintenanceFrame = new JFrame();
 		JPanel maintenancePanel = new JPanel();
 		final JMenuItem subAddFile = new JMenuItem("Add File");
 
@@ -154,13 +157,6 @@ public class SearchItMaintenance {
 		subAddFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SearchItFileIO.fileHandler();
-			}
-		});
-
-		// Implements LastModified Method
-		subModified.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				IndexChecker.LastModified();
 			}
 		});
 

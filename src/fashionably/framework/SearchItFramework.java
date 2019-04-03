@@ -64,10 +64,10 @@ public class SearchItFramework {
 
 		// Gets text within the searchField - Can be set to console output for
 		String searchText = searchField.getText();
-		
-		// debugging
+
+		// Debugging
 		// System.out.println(searchText);
-		
+
 		File index = new File("Index.txt");
 
 		// Data Validation

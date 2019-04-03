@@ -34,7 +34,6 @@ public class SearchItTables {
 
 	// Table
 	static JTable indexTable;
-
 	public static String[][] fileInfo = {};
 
 	// Adds row to table

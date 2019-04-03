@@ -89,7 +89,7 @@ public class SearchItFileIO {
 		}
 
 		try
-		// Creating a writers necessary for the "Index.txt" file
+		// Creating a writers necessary for the "Search.txt" file
 		(FileWriter writer = new FileWriter("Search.txt", true);
 				BufferedWriter buffWrite = new BufferedWriter(writer);
 				PrintWriter write = new PrintWriter(buffWrite);) {

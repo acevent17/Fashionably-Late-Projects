@@ -3,7 +3,7 @@
  * 
  * 
  * Changes are displayed below:
- * -- N/A
+ * --N/A
  * 
  * Current Issues are displayed below:
  * --N/A
@@ -39,28 +39,27 @@ import fashionably.main.SearchItTables;
 
 public class SearchItMaintenance {
 
-	// Global Variables
-
 	// Frame
 	static final JFrame subMaintenanceFrame = new JFrame();
-
-	// Menu Bar
-	static JMenuBar menubar = new JMenuBar();
-	static JMenu menuFile = new JMenu("File");
-	static JMenu menuEdit = new JMenu("Edit");
-	static JMenu menuHelp = new JMenu("Help");
-
-	// Menu Item
-	static JMenuItem subRebuild = new JMenuItem("Rebuild");
-	static JMenuItem subRemoveFile = new JMenuItem("Remove File");
-	static JMenuItem subModified = new JMenuItem("Check if Modifed");
-	static JMenuItem subResetWindow = new JMenuItem("Reset Window");
-	static JMenuItem subAboutPage = new JMenuItem("About");
 
 	// Sub Maintenance Frame
 	public static void createSubMaintenance() {
 		JPanel maintenancePanel = new JPanel();
 		final JMenuItem subAddFile = new JMenuItem("Add File");
+
+		// Menu Bar
+		JMenuBar menubar = new JMenuBar();
+		JMenu menuFile = new JMenu("File");
+		JMenu menuEdit = new JMenu("Edit");
+		JMenu menuHelp = new JMenu("Help");
+
+		// Menu Item
+		JMenuItem subRebuild = new JMenuItem("Rebuild");
+		JMenuItem subRemoveFile = new JMenuItem("Remove File");
+		JMenuItem subModified = new JMenuItem("Check if Modifed");
+		JMenuItem subResetWindow = new JMenuItem("Reset Window");
+		JMenuItem subAboutPage = new JMenuItem("About");
+
 		// Frame Positioning
 		subMaintenanceFrame.setVisible(true);
 		subMaintenanceFrame.setSize(700, 500);

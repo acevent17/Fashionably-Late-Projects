@@ -3,7 +3,7 @@
  * 
  * 
  * Changes are displayed below:
- *  -- Search buttons all work now.
+ *  --Search buttons all work now
  * 
  * 
  * Current Issues are displayed below:
@@ -36,10 +36,14 @@ import fashionably.main.SearchItMaintenance;
 
 public class SearchItFramework {
 
-	// Global Variables'
+	// Global Variables
 
-	// Frame
-	static final JFrame frame = new JFrame("Search Engine");
+	// All(OR)
+	static JRadioButton searchAll = new JRadioButton("Search OR Phrases");
+	// Exact(PHRASE)
+	static JRadioButton searchExact = new JRadioButton("Search Exact Phrases");
+	// Any(AND)
+	static JRadioButton searchAny = new JRadioButton("Search AND Phrase");
 
 	// Integer
 	static int indexedFileTotal;
@@ -50,49 +54,12 @@ public class SearchItFramework {
 	// Text Area
 	static JTextArea searchFieldArea = new JTextArea();
 
-	// Label
-	static JLabel titleLabel = new JLabel("Search Engine");
-	static JLabel noFile = new JLabel("No File Found");
-
-	// Button Group
-	static ButtonGroup radioButtons = new ButtonGroup();
-
-	// Button
-	static JButton buttonSearch = new JButton("Search");
-
-	// Radio Button
-	// All(OR)
-	static JRadioButton searchAll = new JRadioButton("Search OR Phrases");
-	// Exact(PHRASE)
-	static JRadioButton searchExact = new JRadioButton("Search Exact Phrases");
-	// Any(AND)
-	static JRadioButton searchAny = new JRadioButton("Search AND Phrase");
-
-	// Menu Bar
-	static JMenuBar menubar = new JMenuBar();
-
-	// Menu Additions
-	static JMenu menuFile = new JMenu("File");
-	static JMenu menuEdit = new JMenu("Edit");
-	static JMenu menuMaintenance = new JMenu("Maintenance");
-	static JMenu menuHelp = new JMenu("Help");
-
-	// Menu Items
-	static JMenuItem subMaintenanceMenu = new JMenuItem("Maintenance Panel");
-	static JMenuItem subAboutPage = new JMenuItem("About");
-
-	// String Search Functionality
-	static String anySearch;
-	static String allSearch;
-	static String exactSearch;
-
 	/*
 	 * Search Phrase Section Current Layout: searchPhrase() will search the
 	 * phrase within the searchField will be assigned to variable and set to the
 	 * current contents of the searchField. The radiobutton checkstates' will be
 	 * checked to find out which phrase is being searched
 	 */
-
 	public static void searchPhrase() throws FileNotFoundException {
 
 		// Gets text within the searchField - Can be set to console output for
@@ -112,6 +79,7 @@ public class SearchItFramework {
 
 		// Creates scanner to read from file and textbox string
 		Scanner indexScanner = new Scanner(index);
+
 		String phrase = indexScanner.findInLine("[A-Za-z].*[A-Za-z]");
 
 		// Creates Switches to handle search phrases
@@ -220,6 +188,30 @@ public class SearchItFramework {
 	}
 
 	public static void createSearchEngine() {
+		// Frame
+		final JFrame frame = new JFrame("Search Engine");
+
+		// Label
+		JLabel titleLabel = new JLabel("Search Engine");
+
+		// Button Group
+		ButtonGroup radioButtons = new ButtonGroup();
+
+		// Button
+		JButton buttonSearch = new JButton("Search");
+
+		// Menu Bar
+		JMenuBar menubar = new JMenuBar();
+
+		// Menu Additions
+		JMenu menuFile = new JMenu("File");
+		JMenu menuEdit = new JMenu("Edit");
+		JMenu menuMaintenance = new JMenu("Maintenance");
+		JMenu menuHelp = new JMenu("Help");
+
+		// Menu Items
+		JMenuItem subMaintenanceMenu = new JMenuItem("Maintenance Panel");
+		JMenuItem subAboutPage = new JMenuItem("About");
 
 		// Set size and location of frame
 		frame.setSize(750, 550);
@@ -235,7 +227,6 @@ public class SearchItFramework {
 		// Sets labels and sizes
 		titleLabel.setBounds(280, 10, 250, 50);
 		titleLabel.setFont(new Font("Serif", Font.BOLD, 30));
-		noFile.setBounds(10, 30, 250, 50);
 
 		// Set size of the text box
 		searchField.setBounds(247, 80, 250, 30);
@@ -292,12 +283,10 @@ public class SearchItFramework {
 		frame.add(searchAll);
 		frame.add(searchExact);
 		frame.add(searchAny);
-		frame.add(noFile);
 
 		frame.setJMenuBar(menubar);
 		frame.setLayout(null);
 		frame.setVisible(true);
-		noFile.setVisible(false);
 
 		// Adding MenuBar Items
 		menubar.add(menuFile);

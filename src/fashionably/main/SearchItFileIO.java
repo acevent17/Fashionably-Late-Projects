@@ -6,7 +6,7 @@
  *
  * 
  * Current Issues are displayed below:
- *  --N/A
+ * --N/A
  *  
  *  
  * Resolved Issues:
@@ -39,14 +39,14 @@ public class SearchItFileIO {
 	static JFileChooser fileChooser = new JFileChooser(FileSystemView
 			.getFileSystemView().getHomeDirectory());
 
-	// Used by getPath()
-	static String filePath;
-	static String fileName;
-	static long fileDateLong;
-	static String fileDateString;
-
 	// Gets path of file
 	public static void getPath() {
+
+		// Used by getPath()
+		String filePath;
+		String fileName;
+		long fileDateLong;
+		String fileDateString;
 
 		// Selects file
 		fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);

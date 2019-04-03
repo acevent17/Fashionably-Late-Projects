@@ -3,7 +3,7 @@
  * 
  * 
  * Changes are displayed below:
- * -- Added remove function for Search.txt file.
+ * --Added remove function for Search.txt file
  * 
  * 
  * Current Issues are displayed below:

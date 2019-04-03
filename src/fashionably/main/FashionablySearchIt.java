@@ -33,7 +33,7 @@ package fashionably.main;
 
 /*
  * Due to potential build path changes when committing amongst group members, 
- * intial execution of program may 'glitch'. 
+ * initial execution of program may 'glitch'. 
  * To fix, simply close and re-execute the program.
  */
 

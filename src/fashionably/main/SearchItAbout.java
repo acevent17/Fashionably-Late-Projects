@@ -26,22 +26,20 @@ import javax.swing.JLabel;
 
 public class SearchItAbout {
 
-	// Global Variables
-
-	// Frame
-	static JFrame aboutSubFrame = new JFrame();
-
-	// Label
-	static JLabel headerLabel = new JLabel("Fashionably Late");
-	static JLabel versionLabel = new JLabel("Version 1.2.0");
-	static JLabel byLabel = new JLabel("By:");
-	static JLabel pqLabel = new JLabel("Peter Quach");
-	static JLabel mtLabel = new JLabel("Michael Tarallo");
-	static JLabel jvLabel = new JLabel("Joshua Ventura");
-	static JLabel acLabel = new JLabel("Andres Cardenas");
-	static JLabel classLabel = new JLabel("Mr. Pollock Java II COP-2805C");
-
 	public static void createSubAbout() {
+		// Frame
+		JFrame aboutSubFrame = new JFrame();
+
+		// Label
+		JLabel headerLabel = new JLabel("Fashionably Late");
+		JLabel versionLabel = new JLabel("Version 1.2.0");
+		JLabel byLabel = new JLabel("By:");
+		JLabel pqLabel = new JLabel("Peter Quach");
+		JLabel mtLabel = new JLabel("Michael Tarallo");
+		JLabel jvLabel = new JLabel("Joshua Ventura");
+		JLabel acLabel = new JLabel("Andres Cardenas");
+		JLabel classLabel = new JLabel("Mr. Pollock Java II COP-2805C");
+
 		// Sub About Frame
 		aboutSubFrame.setVisible(true);
 		aboutSubFrame.setSize(400, 250);

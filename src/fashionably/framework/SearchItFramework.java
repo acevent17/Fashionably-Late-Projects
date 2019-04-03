@@ -79,7 +79,6 @@ public class SearchItFramework {
 
 		// Creates scanner to read from file and textbox string
 		Scanner indexScanner = new Scanner(index);
-
 		String phrase = indexScanner.findInLine("[A-Za-z].*[A-Za-z]");
 
 		// Creates Switches to handle search phrases
@@ -233,11 +232,11 @@ public class SearchItFramework {
 
 		// Set size of the text Area
 		searchFieldArea.setBounds(10, 230, 715, 250);
-		// non-editable
+		// Non-editable
 		searchFieldArea.setEditable(false);
-		// wraps lines automatically
+		// Wraps lines automatically
 		searchFieldArea.setLineWrap(true);
-		// breaks lines
+		// Breaks lines
 		searchFieldArea.setWrapStyleWord(true);
 
 		// Buttons
